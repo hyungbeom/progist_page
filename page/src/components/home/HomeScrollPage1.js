@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCard from "../temp/InfoCard";
-import companyImg from '../../resource/img/company.png';
+import companyImg from '../../resource/img/company1.png';
 import '../../resource/css/HeaderCSS.css';
 
 const HomeScrollPage1 = () => {

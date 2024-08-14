@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoCard from "../temp/InfoCard";
-import companyImg2 from "../../resource/img/company2.png";
+import companyImg2 from "../../resource/img/company3.png";
 
 const HomeScrollPage2 = () => {
     return (
@@ -35,7 +35,7 @@ const HomeScrollPage2 = () => {
                 }}>
                     <img src="././img/company1.png" alt="CI" style={{width: "auto", position: 'absolute', bottom:0}}/>
                 </div>
-                <span>Tailoerd Solution,</span><br/>
+                <span>Tailored Solution,</span><br/>
                 <span>Continuous Care,</span><br/>
                 <span>And Empowering</span><br/>
                 <span>Your Business</span>
