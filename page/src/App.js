@@ -12,8 +12,8 @@ function App() {
         <div>
 
             <Header/>
-            {/*<HomeScrollPage1/>*/}
-            {/*<HomeScrollPage2/>*/}
+            <HomeScrollPage1/>
+            <HomeScrollPage2/>
             <AboutUs/>
             <AboutUsScrollPage/>
 

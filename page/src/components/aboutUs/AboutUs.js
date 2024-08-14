@@ -23,7 +23,12 @@ const AboutUs = () => {
                 <span style={{fontSize: '30px', opacity:"60%", marginTop:'300px', paddingLeft:'10px'}}>We provide customized solutions optimized for the unique needs and business goals of our clients.
                     <br/>We offer flexible and scalable system integration services across various industries, contributing to the growth of our clients businesses.</span>
             </div>
-            <div style={{width:'668px', height:'103px', overflow:'hidden', position:'relative', bottom:0}}>
+            <div style={{
+                width:'668px',
+                height:'103px',
+                overflow:'hidden',
+                position:'relative',
+                bottom:0}}>
                 <img src='././img/aboutUs.png' alt='About Us' style={{position:"absolute", width:'auto', top:0}}/>
             </div>
         </div>

@@ -33,7 +33,7 @@ const HomeScrollPage2 = () => {
                     overflow: 'hidden',
                     marginBottom: '164px',
                 }}>
-                    <img src="././img/company1.png" alt="CI" style={{width: "auto", position: 'absolute', bottom:0}}/>
+                    <img src="././img/company2.png" alt="company" style={{width: "auto", position: 'absolute', bottom:0}}/>
                 </div>
                 <span>Tailored Solution,</span><br/>
                 <span>Continuous Care,</span><br/>

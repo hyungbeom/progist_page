@@ -33,7 +33,7 @@ const HomeScrollPage1 = () => {
                 <span>excellence meets</span><br/>
                 <span>innovation</span>
                 <div style={{marginTop: "419px", height:'116px', width:'320px', position:'relative', overflow:'hidden'}}>
-                    <img src="././img/company1.png" alt="CI" style={{width: "auto", position: 'absolute', top:0}}/>
+                    <img src="././img/company2.png" alt="company" style={{width: "auto", position: 'absolute', top:0}}/>
                 </div>
 
             </div>
