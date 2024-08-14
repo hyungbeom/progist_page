@@ -1,9 +1,11 @@
 import IntroPage from "./components/home/IntroPage";
 import './resource/css/body.css';
+import LandingPage from "./components/home/LandingPage";
 function App() {
     return (
         <div>
-            <IntroPage/>
+            {/*<IntroPage/>*/}
+            <LandingPage/>
         </div>
     );
 }
