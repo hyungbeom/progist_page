@@ -17,7 +17,7 @@ const HomeScrollPage1 = () => {
         }}>
             <div style={{paddingLeft: '209px', float: "left", width: "200px", height: "100vh", fontSize: "20px"}}>
                 <span style={{opacity: "60%"}}>
-                    company</span>
+                    Company</span>
             </div>
             <div style={{
                 float: "left",

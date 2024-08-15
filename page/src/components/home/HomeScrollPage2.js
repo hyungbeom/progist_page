@@ -5,7 +5,7 @@ import companyImg2 from "../../resource/img/company3.png";
 const HomeScrollPage2 = () => {
     return (
         <div style={{
-            // backgroundColor: "gray",
+            backgroundColor: "#EAEEF0",
             height: "1080px",
             justifyContent: "flex-start",
             paddingTop: "478px",
@@ -17,7 +17,7 @@ const HomeScrollPage2 = () => {
             <div style={{paddingLeft: '209px', width: "200px", height: "100vh", fontSize: "20px",
             position:'relative'}}>
                 <span style={{opacity: "60%"}}>
-                    company</span>
+                    Company</span>
             </div>
             <div style={{
                 height: "100vh",

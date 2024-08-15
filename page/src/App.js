@@ -6,6 +6,7 @@ import HomeScrollPage1 from "./components/home/HomeScrollPage1";
 import HomeScrollPage2 from "./components/home/HomeScrollPage2";
 import './resource/css/body.css';
 import AboutUsScrollPage from "./components/aboutUs/AboutUsScrollPage";
+import Footer from "./components/temp/Footer";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <HomeScrollPage2/>
             <AboutUs/>
             <AboutUsScrollPage/>
+            <Footer/>
 
         </div>
     );
