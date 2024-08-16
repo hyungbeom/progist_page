@@ -2,7 +2,7 @@ import React from 'react';
 import InfoCard from "../temp/InfoCard";
 import companyImg2 from "../../resource/img/company3.png";
 
-const HomeScrollPage2 = () => {
+const HomeContent2 = () => {
     return (
         <div style={{
             backgroundColor: "#EAEEF0",
@@ -56,4 +56,4 @@ const HomeScrollPage2 = () => {
     );
 };
 
-export default HomeScrollPage2;
+export default HomeContent2;
