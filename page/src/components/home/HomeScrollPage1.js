@@ -4,6 +4,7 @@ import companyImg from '../../resource/img/company1.png';
 import '../../resource/css/HeaderCSS.css';
 
 const HomeScrollPage1 = () => {
+
     return (
         <div style={{
             width : 'calc(100vw - 150px)',
@@ -13,10 +14,12 @@ const HomeScrollPage1 = () => {
             flexDirection: "row",
             gap: '30px'
         }}>
+
             <div style={{paddingLeft: '209px', float: "left", width: "200px", height: "100vh", fontSize: "20px"}}>
                 <span style={{opacity: "60%"}}>
                     Company</span>
             </div>
+
             <div style={{
                 float: "left",
                 height: "100vh",

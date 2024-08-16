@@ -11,7 +11,8 @@ function App() {
             {/*<HomeScrollPage1/>*/}
             {/*<HomeScrollPage2/>*/}
 
-            {/*<IntroPage/>*/}
+            <IntroPage/>
+
 
         </>
     );

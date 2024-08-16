@@ -2,12 +2,11 @@ import '../../resource/css/HeaderCSS.css';
 
 function Header() {
 
-
     return (
 
-        <div style={{ height : 100, color: 'white', position : 'fixed', top : 0}}>
+        <div style={{width : '100%',  height : 100, color: 'white', position : 'fixed', top : 0}}>
 
-            <div style={{float: 'left'}}>
+            <div style={{float: 'left', padding : '30px 30px'}}>
                 <img src="././img/CI.png" alt="CI" style={{float: 'left'}}/>
                 <div style={{float: 'left', paddingTop: 10}}>
                     <span style={{fontSize: 40, paddingLeft: 21}}>Pro</span>
@@ -16,7 +15,7 @@ function Header() {
             </div>
 
 
-            <div style={{float: 'right', paddingTop: 29}}>
+            <div style={{float: 'right', padding : '50px 30px 0px 0px'}}>
                 <span style={{paddingLeft: 75}}>Home.</span>
                 <span style={{paddingLeft: 75}}>About Us.</span>
                 <span style={{paddingLeft: 75}}>Progress.</span>
@@ -29,7 +28,6 @@ function Header() {
                     color: 'white'
                 }}>Get in touch</span>
             </div>
-
         </div>
         // <div className="header-container" style={{display: 'flex', justifyContent: 'space-between', alignItems:'center',
         //     width:"95%", paddingTop: 14, paddingBottom:14, paddingRight:35, paddingLeft:35, backgroundColor:"grey"}}>
