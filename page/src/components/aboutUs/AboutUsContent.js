@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutUsScrollPage = () => {
+const AboutUsContent = () => {
     return (
         <div style={{
             // backgroundColor: 'gray',
@@ -90,4 +90,4 @@ const AboutUsScrollPage = () => {
     );
 };
 
-export default AboutUsScrollPage;
+export default AboutUsContent;

@@ -1,17 +1,20 @@
 import './resource/css/body.css';
 import IntroPage from "./components/home/IntroPage";
 import Header from "./components/temp/Header";
-import HomeScrollPage1 from "./components/home/HomeScrollPage1";
-import HomeScrollPage2 from "./components/home/HomeScrollPage2";
+import HomeContent1 from "./components/home/HomeContent1";
+import HomeContent2 from "./components/home/HomeContent2";
+import ContentLayout from "./components/temp/ContentLayout";
 
 function App() {
     return (<>
             <Header/>
+            {/*<IntroPage/>*/}
 
-            {/*<HomeScrollPage1/>*/}
-            {/*<HomeScrollPage2/>*/}
+                <HomeContent1/>
 
-            <IntroPage/>
+
+            {/*<HomeContent2/>*/}
+
 
 
         </>
