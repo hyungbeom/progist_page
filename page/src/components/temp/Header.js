@@ -1,11 +1,11 @@
-import '../../resource/css/HeaderCSS.css';
+// import '../../resource/css/HeaderCSS.css';
 
 function Header() {
 
 
     return (
 
-        <div style={{ height : 100, color: 'white', position : 'fixed', top : 0}}>
+        <div style={{width : '100%', height : 100, color: 'white', position : 'fixed', top : 10, left : 0}}>
 
             <div style={{float: 'left'}}>
                 <img src="././img/CI.png" alt="CI" style={{float: 'left'}}/>
