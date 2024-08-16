@@ -34,8 +34,9 @@ export default function IntroPage() {
     }
 
 
-    return <div style={{height: 'calc(100vh - 150px)'}}>
+    return <div style={{height: 'calc(100vh - 150px)', padding : 30}}>
         <Gradient/>
+
 
         <div style={{
             display: 'grid',
