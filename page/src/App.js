@@ -4,6 +4,7 @@ import Header from "./components/temp/Header";
 import HomeContent1 from "./components/home/HomeContent1";
 import HomeContent2 from "./components/home/HomeContent2";
 import ContentLayout from "./components/temp/ContentLayout";
+import Footer from "./components/temp/Footer";
 
 function App() {
     return (<>
@@ -15,6 +16,7 @@ function App() {
 
             {/*<HomeContent2/>*/}
 
+            <Footer/>
 
 
         </>
