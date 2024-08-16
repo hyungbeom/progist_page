@@ -2,7 +2,6 @@ function InfoCard({img='', title ='', subTitle ='', width='600px'}){
 
 
 
-    console.log(img,'info:')
 
     return (
         <div style={{width: width, alignItems: "flex-start",  display: "flex",
