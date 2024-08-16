@@ -33,6 +33,7 @@ const Footer = () => {
                 {/*메뉴*/}
                 <div style={{
                     fontSize:'20px',
+                    fontWeight:'600',
                     width:'70%',
                     alignItems: 'center', justifyContent: 'flex-end', display: "flex", flexDirection: "row",
                     gap: '10%', whiteSpace: 'nowrap', marginTop:'60px', marginRight:'80px'
@@ -54,11 +55,102 @@ const Footer = () => {
 
                 </div>
                 {/*연락처*/}
-                <div>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column'
 
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}>
+                        <span style={{
+                            fontSize: '22px',
+                            fontWeight: 'bold'
+                        }}>
+                            address
+                        </span>
+                        <span style={{
+                            fontSize: '20px',
+                        }}>
+                            서울특별시 강남구 논현로133길 12
+                        </span>
+                    </div>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}>
+                        <span style={{
+                            fontSize: '22px',
+                            fontWeight: 'bold'
+                        }}>
+                            E-mail
+                        </span>
+                        <span style={{
+                            fontSize: '20px',
+                        }}>
+                            progist@progist.co.kr
+                        </span>
+                    </div>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}>
+                        <span style={{
+                            fontSize: '22px',
+                            fontWeight: 'bold'
+                        }}>
+                            Phone
+                        </span>
+                        <span style={{
+                            fontSize: '20px',
+                        }}>
+                            +82 010-1234-5678
+                        </span>
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
-                <div>
 
+                <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    marginBottom: '100px',
+                    alignItems: 'flex-start',
+                    width: '58%'
+                }}>
+                    <div style={{
+                        position: "relative",
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        fontSize: '20px',
+                    }}>
+                        <span>
+                        @2024, Progist. All Right Reserved.
+                        </span>
+                        <div style={{
+                            position:'absolute',
+                            width: '500px',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'flex-end',
+                            right:0,
+                            marginRight:'55px',
+                            gap: '7%'
+                        }}>
+                            <div>
+                                Ligal notice
+                            </div>
+                            <div>
+                                Privacy policy
+                            </div>
+                            <div>
+                                Linkedin
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/*하단 텍스트 플로우*/}
@@ -72,7 +164,7 @@ const Footer = () => {
                 <div style={{
                     display: 'flex',
                     whiteSpace: 'nowrap',
-                    color: "white", fontSize: '150px', margin: '25px',
+                    color: "white", fontSize: '150px', margin: '22px',
                     justifyContent: 'center', opacity: '40%',
 
                 }}>
@@ -82,7 +174,7 @@ const Footer = () => {
                     }}>Are you interested in? Let's discuss today!
                     </span>
                     <span style={{
-                        animation: 'marquee 15s linear infinite',
+                        animation: 'marquee 5s linear infinite',
                         // paddingRight: '10%',
                         // animationDelay: '6s'
                     }}
@@ -101,10 +193,10 @@ const Footer = () => {
             {/*구독창*/}
             <div style={{
                 width: '550px',
-                height: '650px',
+                height: '660px',
                 position: 'absolute',
                 backgroundColor: 'black',
-                top: '40px',
+                top: '70px',
                 left: '150px'
             }}>
             <div>
