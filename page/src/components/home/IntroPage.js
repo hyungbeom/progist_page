@@ -42,13 +42,14 @@ export default function IntroPage() {
             display: 'grid',
             color: 'white',
             gridTemplateColumns: '1fr 1fr 280px',
-            gridTemplateRows: '0.5fr 2fr 120px',
+            gridTemplateRows: '1fr 2fr 120px',
             height: '100%'
         }}>
+
             <div></div>
             <div></div>
             <div></div>
-            <div style={{fontSize: 90, color: 'white', paddingTop: 50}}>
+            <div style={{fontSize: 90, color: 'white', paddingTop: 180}}>
                 <div>Turning your</div>
                 <div>vision</div>
                 <div>Into <span style={{color: '#C17F00'}}>Reality</span></div>
