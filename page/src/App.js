@@ -6,14 +6,8 @@ function App() {
     return (<>
             <Header/>
             <IntroPage/>
-
-
-
         </>
     );
 }
 
 export default App;
-
-
-
