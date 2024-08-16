@@ -5,7 +5,7 @@ function Header() {
 
     return (
 
-        <div style={{height : 100, color: 'white'}}>
+        <div style={{ height : 100, color: 'white', position : 'fixed', top : 0}}>
 
             <div style={{float: 'left'}}>
                 <img src="././img/CI.png" alt="CI" style={{float: 'left'}}/>

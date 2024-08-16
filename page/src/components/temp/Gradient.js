@@ -86,7 +86,6 @@ export const Gradient = () => {
     };
 
 
-
     return (
         <canvas
             ref={canvasRef}

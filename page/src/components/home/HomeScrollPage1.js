@@ -6,11 +6,9 @@ import '../../resource/css/HeaderCSS.css';
 const HomeScrollPage1 = () => {
     return (
         <div style={{
-            // backgroundColor: "gray",
+            width : 'calc(100vw - 150px)',
             height: "1080px",
             justifyContent: "flex-start",
-            paddingTop: "145px",
-            paddingRight: "100px",
             display: "flex",
             flexDirection: "row",
             gap: '30px'
