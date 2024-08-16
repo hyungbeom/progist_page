@@ -5,9 +5,9 @@ function Header() {
 
     return (
 
-        <div style={{height : 100}}>
+        <div style={{height : 100, color: 'white'}}>
 
-            <div style={{float: 'left', color: 'white'}}>
+            <div style={{float: 'left'}}>
                 <img src="././img/CI.png" alt="CI" style={{float: 'left'}}/>
                 <div style={{float: 'left', paddingTop: 10}}>
                     <span style={{fontSize: 40, paddingLeft: 21}}>Pro</span>
