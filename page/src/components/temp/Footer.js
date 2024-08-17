@@ -1,208 +1,121 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 
 const Footer = () => {
 
-    return (
-        <div style={{
-            // backgroundColor:'gray',
-            height:'1080px',
-            width: '100%',
-            display:"flex",
-            flexDirection:'column',
-            position:'relative',
-            flexWrap: 'nowrap',
-        }}>
-            <div style={{
-                width: '100%',
-                height:'200px',
-                backgroundColor:'white',
-                // backgroundColor:'green',
-            }}>
 
-            </div>
-            <div style={{
-                width: '100%',
-                height: '780px',
-                backgroundColor: 'gray',
-                position:'relative',
-                display:'flex',
-                flexDirection:'column',
-                justifyContent:'flex-start',
-                alignItems:'flex-end',
-            }}>
-                {/*메뉴*/}
-                <div style={{
-                    fontSize:'20px',
-                    fontWeight:'600',
-                    width:'70%',
-                    alignItems: 'center', justifyContent: 'flex-end', display: "flex", flexDirection: "row",
-                    gap: '10%', whiteSpace: 'nowrap', marginTop:'60px', marginRight:'80px'
-                }}>
-                    <span style={{color:'orange'}}>Home.</span>
-                    <span>About Us.</span>
-                    <span>Progress.</span>
-                    <span>Recruit.</span>
-                    <span>Get in touch</span>
+    const menuList = [{title: 'Home.', link: '.'}, {title: 'About.', link: '.'}, {
+        title: 'Progress.',
+        link: '.'
+    }, {title: 'Recruit.', link: '.'}, {title: 'Marketing', link: '.'}]
+
+
+    const [email, setEmail] = useState('')
+
+    function clickSubscribe() {
+
+    }
+
+    function writeEmail(e) {
+        setEmail(e.target.value)
+    }
+
+
+    function SubscribeCard() {
+
+        return (
+            <div style={{height: 550, width: 370, backgroundColor: '#212121', padding: '35px 60px 0px 60px'}}>
+                <img src="/img/mail_icon.png" alt=""/>
+
+                <div style={{color: 'white', fontSize: 50, paddingTop: 50, lineHeight: 0.95}}>
+                    <div>Subscribe to</div>
+                    <div>Newsletters</div>
                 </div>
-                <div style={{
-                    width:'55%',
-                    height:'1px',
-                    backgroundColor:'black',
-                    opacity:'60%',
-                    marginTop:'60px',
-                    marginRight:'55px'
-                }}>
 
-                </div>
-                {/*연락처*/}
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column'
 
-                }}>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}>
-                        <span style={{
-                            fontSize: '22px',
-                            fontWeight: 'bold'
-                        }}>
-                            address
-                        </span>
-                        <span style={{
-                            fontSize: '20px',
-                        }}>
-                            서울특별시 강남구 논현로133길 12
-                        </span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}>
-                        <span style={{
-                            fontSize: '22px',
-                            fontWeight: 'bold'
-                        }}>
-                            E-mail
-                        </span>
-                        <span style={{
-                            fontSize: '20px',
-                        }}>
-                            progist@progist.co.kr
-                        </span>
-                    </div>
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}>
-                        <span style={{
-                            fontSize: '22px',
-                            fontWeight: 'bold'
-                        }}>
-                            Phone
-                        </span>
-                        <span style={{
-                            fontSize: '20px',
-                        }}>
-                            +82 010-1234-5678
-                        </span>
+                <div style={{color: '#909090', padding: '20px 0px'}}>
+                    <div>
+                        Want to stay up to date?
                     </div>
                     <div>
-
+                        Sign up for CargoKite's biannual update.
                     </div>
                 </div>
 
-                <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    marginBottom: '100px',
-                    alignItems: 'flex-start',
-                    width: '58%'
-                }}>
-                    <div style={{
-                        position: "relative",
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        fontSize: '20px',
-                    }}>
-                        <span>
-                        @2024, Progist. All Right Reserved.
-                        </span>
-                        <div style={{
-                            position:'absolute',
-                            width: '500px',
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'flex-end',
-                            right:0,
-                            marginRight:'55px',
-                            gap: '7%'
-                        }}>
-                            <div>
-                                Ligal notice
-                            </div>
-                            <div>
-                                Privacy policy
-                            </div>
-                            <div>
-                                Linkedin
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/*하단 텍스트 플로우*/}
-            <div style={{
-                width: '100%',
-                height: '300px',
-                backgroundColor: 'black',
-                overflow: 'hidden',
-                position: 'relative',
-            }}>
-                <div style={{
-                    display: 'flex',
-                    whiteSpace: 'nowrap',
-                    color: "white", fontSize: '150px', margin: '22px',
-                    justifyContent: 'center', opacity: '40%',
 
-                }}>
-                    <span style={{
-                        animation: 'marquee 15s linear infinite',
-                        paddingRight: '10%',
-                    }}>Are you interested in? Let's discuss today!
-                    </span>
-                    <span style={{
-                        animation: 'marquee 5s linear infinite',
-                        // paddingRight: '10%',
-                        // animationDelay: '6s'
-                    }}
-                    > Are you interested in? Let's discuss today!
-                    </span>
+                <div style={{border: '1px solid lightGray'}}>
+                    <input type="text"
+                           value={email}
+                           onChange={writeEmail}
+                           style={{
+                               background: 'none',
+                               border: 'none',
+                               width: '100%',
+                               height: 55,
+                               paddingLeft: 10,
+                               color: "white"
+                           }}
+                           placeholder={'Enter your email'}/>
                 </div>
-                <style>
-                    {`
-                    @keyframes marquee {
-                    from {transform: translateX(100%);}
-                    to {transform: translateX(-100%);}
-                    }
-                    `}
-                </style>
+                <div style={{
+                    backgroundColor: '#ff461e',
+                    height: 18,
+                    marginTop: 20,
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    color: 'white',
+                    padding: 22
+                }}
+                     onClick={clickSubscribe}>
+                    Subscribe
+                </div>
+                <div style={{color: 'white', fontSize: 11, padding: 10}}>Don't worry about spam. We hate it too</div>
             </div>
-            {/*구독창*/}
-            <div style={{
-                width: '550px',
-                height: '660px',
-                position: 'absolute',
-                backgroundColor: 'black',
-                top: '70px',
-                left: '150px'
-            }}>
+        )
+    }
+
+    function FooterCompanyInfo(){
+        return (
             <div>
+                <div>
+                    {menuList.map((v) => {
+                        return <span style={{paddingLeft: 25, cursor: 'pointer'}}>{v.title}</span>
+                    })}
+                </div>
+                <div style={{border: '1px solid lightGray', margin: '30px 0px 80px 0px'}}/>
+
+                <div style={{display: 'grid', gridTemplateColumns: '1fr 1.5fr 3fr'}}>
+                    <div>
+                        <div>Head office</div>
+                        <div>1</div>
+                    </div>
+                    <div>
+                        <div>Postal & Visitor address</div>
+                        <div>1</div>
+                    </div>
+                    <div>3</div>
+
+
+                    <div style={{gridColumn: '1/3'}}>
+                        2023 Progist All Rights Reserved.
+                    </div>
+                    <div>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
                 </div>
 
             </div>
+        )
+    }
+
+    return (
+        <div style={{height: 500, backgroundColor: '#eaeef0'}}>
+
+            <SubscribeCard/>
+
+            <FooterCompanyInfo/>
         </div>
     );
 };

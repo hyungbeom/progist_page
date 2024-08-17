@@ -2,11 +2,19 @@ import '../../resource/css/HeaderCSS.css';
 
 function Header() {
 
+    const menuList = [
+        {title: 'Home.', link: '/'},
+        {title: 'About Us.', link: '/'},
+        {title: 'Progress.', link: '/'},
+        {title: 'Recruit.', link: '/'},
+        {title: 'Contact.', link: '/'}
+    ]
+
+
     return (
+        <div style={{width: '100%', height: 100, color: 'white', position: 'fixed', top: 0}}>
 
-        <div style={{width : '100%',  height : 100, color: 'white', position : 'fixed', top : 0}}>
-
-            <div style={{float: 'left', padding : '30px 30px'}}>
+            <div style={{float: 'left', padding: '30px 30px'}}>
                 <img src="././img/CI.png" alt="CI" style={{float: 'left'}}/>
                 <div style={{float: 'left', paddingTop: 10}}>
                     <span style={{fontSize: 40, paddingLeft: 21}}>Pro</span>
@@ -15,12 +23,12 @@ function Header() {
             </div>
 
 
-            <div style={{float: 'right', padding : '50px 30px 0px 0px'}}>
-                <span style={{paddingLeft: 75}}>Home.</span>
-                <span style={{paddingLeft: 75}}>About Us.</span>
-                <span style={{paddingLeft: 75}}>Progress.</span>
-                <span style={{paddingLeft: 75}}>Recruit.</span>
-                <span style={{paddingLeft: 75}}>Contact.</span>
+            <div style={{float: 'right', padding: '50px 30px 0px 0px'}}>
+
+                {menuList.map((v)=>{
+                    return <span style={{paddingLeft: 75}}>{v.title}</span>
+                })}
+
                 <span style={{
                     marginLeft: 85,
                     backgroundColor: '#C17F00',
