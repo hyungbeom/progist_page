@@ -11,9 +11,6 @@ function App() {
             {/*<IntroPage/>*/}
             {/*<HomeContent1/>*/}
             {/*<HomeContent2/>*/}
-            <HomeContentPage6/>
-
-
             {/*<Footer/>*/}
         </>
     );

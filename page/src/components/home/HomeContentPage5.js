@@ -17,6 +17,7 @@ const HomeContentPage5 = () => {
             div1='1' div2='6' div3='12' span1='5' span2='6' span3='5'
             style={{
                 // backgroundColor: 'gray',
+                paddingBottom:'15%'
             }}
             first={
                     <div style={{
