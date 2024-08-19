@@ -1,18 +1,24 @@
 import './resource/css/body.css';
-import Header from "./components/temp/Header";
+import {Route, Routes} from "react-router-dom";
+
 import Home from "./page/Home";
-import HomeContentPage6 from "./components/home/HomeContentPage6";
+import AboutUs from "./page/AboutUs";
+import Progress from "./page/Progress";
+import Recruit from "./page/Recruit";
+import Contact from "./page/Contact";
 
 function App() {
-    return (<>
-            <Header/>
+    return (
 
-            <Home/>
-            {/*<IntroPage/>*/}
-            {/*<HomeContent1/>*/}
-            {/*<HomeContent2/>*/}
-            {/*<Footer/>*/}
-        </>
+        <Routes>
+            <Route path='/' element={<Home />}/>
+            {/*<Route index element={<Home />}/>*/}
+            <Route path='/aboutus' element={<AboutUs/>}/>
+            <Route path='/progress' element={<Progress/>}/>
+            <Route path='/recruit' element={<Recruit/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+        </Routes>
+
     );
 }
 

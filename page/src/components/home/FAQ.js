@@ -53,14 +53,12 @@ const FAQ = () => {
                     height: '100%',
                     // gap: '5%',
                 }}>
-                    {content.faq? (<div className='FAQ'>{content.faq[0]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[1]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[2]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[3]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[4]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[5]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[6]}</div>):null}
-                    {content.faq? (<div className='FAQ'>{content.faq[7]}</div>):null}
+                    {content.faq &&
+                        content.faq.map((item, index)=>{
+                            return (
+                                <div key={index} className='FAQ'>{item}</div>
+                            )
+                        })}
                 </div>
             }
         />

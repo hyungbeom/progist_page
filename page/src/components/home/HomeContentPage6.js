@@ -19,16 +19,16 @@ const HomeContentPage6 = () => {
             <div style={{
                 width:'100%',
                 aspectRatio: '1 / 1',
-                backgroundColor:'#111112',
+                backgroundColor:'#1d1d1e',
                 position:'relative',
                 ...style,
             }}>
                 <img src={img} alt='icon' style={{
-                    width:'20%',
+                    width:'18%',
                     aspectRatio: '1 / 1',
                     position:'absolute',
-                    top:'5%',
-                    right:'5%'
+                    top:'10%',
+                    right:'10%'
                 }}/>
                 <div style={{
                     fontSize:'1.4vw',

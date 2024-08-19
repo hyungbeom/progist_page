@@ -1,13 +1,7 @@
+import {Link} from "react-router-dom";
+import {menuList} from "../../resource/contents/MenuList";
+
 function Header() {
-
-    const menuList = [
-        {title: 'Home.', link: '/'},
-        {title: 'About Us.', link: '/'},
-        {title: 'Progress.', link: '/'},
-        {title: 'Recruit.', link: '/'},
-        {title: 'Contact.', link: '/'}
-    ]
-
 
     return (
         <div style={{
@@ -41,14 +35,28 @@ function Header() {
                     fontSize: '0.9vw'
                 }}>
                     {menuList.map((v) => {
-                        return <span style={{paddingLeft: '5vw'}}>{v.title}</span>
+                        return(
+                            <Link to={v.link}
+                            style={{
+                                textDecoration: 'none',
+                                cursor:'pointer',
+                                color:'inherit', // 링크 연결 후에도 color를 유지함
+                            }}>
+                            <span
+                            key={v.title}
+                            style={{paddingLeft: '5vw'}}
+                            >
+                            {v.title}
+                            </span>
+                            </Link>)
                     })}
 
                     <span style={{
                         marginLeft: '5vw',
                         backgroundColor: '#C17F00',
                         padding: 14,
-                        color: 'white'
+                        color: 'white',
+                        cursor:'pointer',
                     }}>Get in touch</span>
                 </div>
             </div>
