@@ -16,7 +16,7 @@ function Header() {
             width: '94%',
             height: 'auto',
             color: 'white',
-            position: 'fixed', top: 0}}>
+            position: 'fixed', top: 0, zIndex : 20}}>
             <div style={{
                 display: 'flex',
                 flexDirection: 'row',
