@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import HomeContentsLayout from "../layouts/HomeContentsLayout";
 import {getHomeContents} from "../../resource/contents/HomeContents";
 import InfoCard from "../temp/InfoCard";
+import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 
 const HomeContentsPage2 = () => {
 
@@ -13,8 +13,9 @@ const HomeContentsPage2 = () => {
     },[])
 
     return (
-        <div>
-            <HomeContentsLayout
+
+            <Div3ContentsLayout
+                div1='1' div2='4' div3='11' span1='3' span2='7' span3='6'
                 style={{
                     paddingTop:'18vw',
                     paddingBottom:'67vw'
@@ -55,7 +56,7 @@ const HomeContentsPage2 = () => {
                     <div style={{
                         position:'relative',
                     }}>
-                        <div style={{
+                        <div className='title' style={{
                             fontSize: '4vw',
                             fontWeight: '500',
                         }}>
@@ -69,7 +70,7 @@ const HomeContentsPage2 = () => {
                                     width='52%'
                                     style={{
                                         position:'absolute',
-                                        top: '140%',
+                                        top: '170%',
                                     }}
                                 />
                             ) :null}
@@ -81,7 +82,7 @@ const HomeContentsPage2 = () => {
                                     width='72%'
                                     style={{
                                         position:'absolute',
-                                        top: '450%',
+                                        top: '600%',
                                         right:'0',
                                     }}
                                 />
@@ -122,7 +123,7 @@ const HomeContentsPage2 = () => {
                     </div>
                 }
             />
-        </div>
+
     );
 };
 

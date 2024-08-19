@@ -7,8 +7,9 @@ function InfoCard({img='', title ='', subtitle ='', link='',
             whiteSpace: 'pre-line',
              gap:"1vw", width:width, ...style}}>
 
-            <img src={img} alt={title} style={{width:imgWidth}} />
+            {img!=='' &&(<img src={img} alt={title} style={{width:imgWidth}} />)}
             {/* 이미지 사이즈에 전체 사이즈를 맞춤*/}
+
             <div style={{
                 fontSize: '1.5vw',
             }}>{title}</div>

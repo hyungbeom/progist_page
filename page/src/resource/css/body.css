@@ -16,7 +16,7 @@ body{
 .title{
     font-size: 4vw;
     font-weight: 500;
-    line-height: 0.9vh;
+    line-height: 0.9;
 }
 
 .highlight{
@@ -29,6 +29,12 @@ body{
     opacity: 50%;
 }
 
+.FAQ{
+    font-size: 1.2vw;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    /*border-bottom: 1px solid gray;*/
+}
 
 .marquee {
     white-space: nowrap;

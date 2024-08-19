@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomeContentsLayout = ({first, second, third, style}) => {
+const Div3ContentsLayout = ({div1, span1, div2, span2, div3, span3, first, second, third, style}) => {
     return (
         <div style={{
             // backgroundColor: 'gray',
@@ -15,19 +15,19 @@ const HomeContentsLayout = ({first, second, third, style}) => {
             ...style
         }}>
             <div style={{
-                gridColumn:'1 / span 3',  // 시작열 / span 차지하는 열 개수
+                gridColumn:`${div1} / span ${span1}`,  // 시작열 / span 차지하는 열 개수
             }}>
                 {first}
 
             </div>
             <div style={{
-                gridColumn:'4 / span 7',
+                gridColumn:`${div2} / span ${span2}`,
             }}>
                 {second}
 
             </div>
             <div style={{
-                gridColumn:'11 / span 6',
+                gridColumn:`${div3} / span ${span3}`,
             }}>
                 {third}
 
@@ -37,4 +37,4 @@ const HomeContentsLayout = ({first, second, third, style}) => {
     );
 };
 
-export default HomeContentsLayout;
+export default Div3ContentsLayout;
