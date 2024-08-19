@@ -4,18 +4,19 @@ import HomeContentPage3 from "../components/home/HomeContentPage3";
 import HomesContentPage4 from "../components/home/HomesContentPage4";
 import HomeContentPage5 from "../components/home/HomeContentPage5";
 import FAQ from "../components/home/FAQ";
+import HomeContentPage6 from "../components/home/HomeContentPage6";
 
 export default function Home () {
 
 
     return (
         <>
-
             <HomeContentsPage1/>
             <HomeContentsPage2/>
             <HomeContentPage3/>
             <HomesContentPage4/>
             <HomeContentPage5/>
+            <HomeContentPage6/>
             <FAQ/>
         </>
     )

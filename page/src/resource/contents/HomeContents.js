@@ -75,7 +75,33 @@ export const getHomeContents = () => {
         subtitle:'Ultra-Large Vessels with more than 15.000 containers are very cost - efficient, but only 5% of ports have sufficient infrastructure for such vessels. On every other route, small, less cost efficient ships are in use, leading up to twice as high transport costs.',
     }
 
+    // page6
+
+    const homeTitle4='Our new ship class\n' + 'is the cheapest\n' + 'way to fully\n' + 'decarbonize\n' + 'commercial freight\n' + 'shipping'
+
+    const squareCardContents1= {
+        img:'././img/home_square_icon_coins.png',
+        text:'Autonomous operation'
+        }
+    const squareCardContents2= {
+        img:'././img/home_square_icon_coins.png',
+        text:'Up to 70%\n' + 'lower operating cost',
+        }
+    const squareCardContents3= {
+        img:'././img/home_square_icon_coins.png',
+            text:'No fueling or charging infrastructure needed',
+        }
+    const squareCardContents4= {
+        img:'././img/home_square_icon_coins.png',
+            text:'Autonomous operation',
+        }
+    const squareCardContents5= {
+        img:'././img/home_square_icon_coins.png',
+        text:'16 containers\n' + 'capacity',
+    }
+
     // FAQ
+
     const faq=[
         'Do you build the entire ship in-house?',
         'What if there is no wind?',
@@ -87,13 +113,20 @@ export const getHomeContents = () => {
         'I\'m a shipping company. Why would I replace my existing vessels with CargoKite vessels?',
     ]
 
+
     return {
         homeTitle1,
         homeTitle2,
         homeTitle3,
         homeTitle3_1,
+        homeTitle4,
         homeSubTitle,
         faq,
+        squareCardContents1,
+        squareCardContents2,
+        squareCardContents3,
+        squareCardContents4,
+        squareCardContents5,
         infoCardContents1,
         infoCardContents1_1,
         infoCardContents2,

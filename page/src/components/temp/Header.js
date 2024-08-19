@@ -11,7 +11,7 @@ function Header() {
 
     return (
         <div style={{
-            backgroundColor:'gray',
+            // backgroundColor:'gray',
             padding: '1.5% 3% 1.5% 3%',
             width: '94%',
             height: 'auto',
@@ -30,8 +30,8 @@ function Header() {
                 }}>
                     <img src="././img/CI.png" alt="CI" style={{float: 'left', width: '3.5vw'}}/>
                     <div style={{float: 'left'}}>
-                        <span style={{fontSize: '2vw', marginLeft: '15%'}}>Pro</span>
-                        <span style={{fontSize: '2vw', fontWeight: "bold"}}>Gist</span>
+                        <span style={{fontSize: '2vw', fontWeight: 400, marginLeft: '15%'}}>Pro</span>
+                        <span style={{fontSize: '2vw', fontWeight: 600}}>Gist</span>
                     </div>
                 </div>
                 <div style={{

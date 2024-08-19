@@ -10,7 +10,7 @@
 body{
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    margin : 0px;
+    margin : 0;
 }
 
 .title{
@@ -24,7 +24,7 @@ body{
 }
 
 .head{
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     font-weight: 500;
     opacity: 50%;
 }
