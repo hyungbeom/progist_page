@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import InfoCard from "../temp/InfoCard";
-import companyImg from '../../resource/img/company1.png';
-import '../../resource/css/HeaderCSS.css';
 import ContentLayout from "../temp/ContentLayout";
 import {contentList} from "../../temp/contentList";
 
@@ -55,10 +53,10 @@ const HomeContent1 = () => {
 
                 </div>
                 <div style={{float: 'right', display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-                    <InfoCard
-                        img={companyImg} title={contents.title}
-                        subTitle={contents.subTitle}/>
-                    {contents.etc}
+                    {/*<InfoCard*/}
+                    {/*    fonts={} title={contents.title}*/}
+                    {/*    subTitle={contents.subTitle}/>*/}
+                    {/*{contents.etc}*/}
                 </div>
             </div>
 

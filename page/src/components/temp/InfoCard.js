@@ -1,14 +1,27 @@
-function InfoCard({img='', title ='', subTitle ='', width='600px'}){
-
-
+function InfoCard({img='', title ='', subtitle ='', link='',
+                      width='auto', imgWidth='100%', style}){
 
 
     return (
-        <div style={{width: width, alignItems: "flex-start",  display: "flex",
-            flexDirection: "column", gap:"33px"}}>
-            <div> <img src={img} alt={title} style={{ width: '100%' }} /></div>
-            <div style={{fontSize: '31px'}}>{title}</div>
-            <div style={{fontSize: '20px'}}>{subTitle}</div>
+        <div style={{alignItems: "flex-start",  display: "flex", flexDirection: "column",
+            whiteSpace: 'pre-line',
+             gap:"1vw", width:width, ...style}}>
+
+            <img src={img} alt={title} style={{width:imgWidth}} />
+            {/* 이미지 사이즈에 전체 사이즈를 맞춤*/}
+            <div style={{
+                fontSize: '1.5vw',
+            }}>{title}</div>
+            <div style={{
+                fontSize: '1vw',
+                lineHeight: '1.5',
+            }}>{subtitle}</div>
+            <div style={{
+                fontSize: '1vw',
+                color:'#ff471d'
+            }}>{link}</div>
+
+
         </div>
     )
 
