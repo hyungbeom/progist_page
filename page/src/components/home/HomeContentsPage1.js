@@ -14,8 +14,7 @@ const HomeContentsPage1 = () => {
 
     return (
 
-            <Div3ContentsLayout
-                div1='1' div2='4' div3='11' span1='3' span2='7' span3='6'
+            <Div3ContentsLayout div1='1' div2='4' div3='11' span1='3' span2='7' span3='6'
 
                 first={
                     <div style={{

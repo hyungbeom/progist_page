@@ -12,8 +12,8 @@ import FAQ from "./components/home/FAQ";
 
 function App() {
     return (<>
-            {/*<Header/>*/}
-            {/*<IntroPage/>*/}
+            <Header/>
+            <IntroPage/>
             {/*<HomeContent1/>*/}
             {/*<HomeContent2/>*/}
 
