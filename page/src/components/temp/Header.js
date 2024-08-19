@@ -1,4 +1,4 @@
-import '../../resource/css/HeaderCSS.css';
+
 
 function Header() {
 
@@ -41,7 +41,7 @@ function Header() {
         //     width:"95%", paddingTop: 14, paddingBottom:14, paddingRight:35, paddingLeft:35, backgroundColor:"grey"}}>
         //     <div className="CI" style={{display: 'flex', justifyContent: 'flex-start', alignItems:'center'}}>
         //         <div style={{marginRight:10}}>
-        //             <img src="././img/CI.png" alt="CI" />
+        //             <fonts src="././fonts/CI.png" alt="CI" />
         //         </div>
         //         <div style={{fontSize:'50px', marginBottom:"7px"}}>Pro</div>
         //         <div style={{fontSize:'50px', marginBottom:"7px", fontWeight:"bold"}}>Gist</div>

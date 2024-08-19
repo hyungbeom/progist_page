@@ -1,6 +1,5 @@
 import React from 'react';
 import InfoCard from "../temp/InfoCard";
-import companyImg2 from "../../resource/img/company3.png";
 
 const HomeContent2 = () => {
     return (
@@ -42,11 +41,11 @@ const HomeContent2 = () => {
 
             </div>
             <div style={{transform:'translate(110px)', display: "flex", flexDirection: "column", alignItems: "flex-start"}}>
-                <InfoCard
-                    img={companyImg2} title={'We are a tech startup from Munich\n' +
-                    'reinventing how goods are transported'}
-                    subTitle={'Since our inception in 2020, we have been dedicated to pioneering groundbreaking technology solutions for the future of transport and logistics.'}
-                />
+                {/*<InfoCard*/}
+                {/*    fonts={companyImg2} title={'We are a tech startup from Munich\n' +*/}
+                {/*    'reinventing how goods are transported'}*/}
+                {/*    subTitle={'Since our inception in 2020, we have been dedicated to pioneering groundbreaking technology solutions for the future of transport and logistics.'}*/}
+                {/*/>*/}
                 <span style={{color: "#D75A00", textDecoration: "underline", fontSize: "20px", marginTop: "20px"}}>
                 More Progress
                 </span>

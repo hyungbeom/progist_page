@@ -1,12 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
-body{
-    font-family: 'Inter', sans-serif;
-    margin : 0px;
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
 }
 
 
+body{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin : 0px;
+}
 
+.title{
+    font-size: 4vw;
+    font-weight: 500;
+    line-height: 0.9vh;
+}
+
+.highlight{
+    color:#ff471d;
+}
+
+.head{
+    font-size: 1.2vw;
+    font-weight: 500;
+    opacity: 50%;
+}
 
 
 .marquee {
