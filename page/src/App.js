@@ -12,7 +12,7 @@ import FAQ from "./components/home/FAQ";
 
 function App() {
     return (<>
-            {/*<Header/>*/}
+            <Header/>
             {/*<IntroPage/>*/}
             {/*<HomeContent1/>*/}
             {/*<HomeContent2/>*/}
