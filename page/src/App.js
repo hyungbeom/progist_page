@@ -6,11 +6,11 @@ import HomeContent1 from "./components/home/HomeContent1";
 
 function App() {
     return (<>
-            {/*<Header/>*/}
-            {/*<IntroPage/>*/}
+            <Header/>
+            <IntroPage/>
             {/*<Footer/>*/}
 
-            <HomeContent1/>
+            {/*<HomeContent1/>*/}
         </>
     );
 }

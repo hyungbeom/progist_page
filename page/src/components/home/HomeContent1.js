@@ -13,7 +13,6 @@ const HomeContent1 = () => {
     }, [])
     return (
         <ContentLayout>
-
             <div style={{
                 backgroundColor: "gray",
                 justifyContent: "flex-start",
