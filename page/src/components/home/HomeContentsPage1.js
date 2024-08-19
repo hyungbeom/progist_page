@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import HomeContentsLayout from "../layouts/HomeContentsLayout";
 import {getHomeContents} from "../../resource/contents/HomeContents";
 import InfoCard from "../temp/InfoCard";
+import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 
 const HomeContentsPage1 = () => {
 
@@ -13,8 +13,10 @@ const HomeContentsPage1 = () => {
     },[])
 
     return (
-        <div>
-            <HomeContentsLayout
+
+            <Div3ContentsLayout
+                div1='1' div2='4' div3='11' span1='3' span2='7' span3='6'
+
                 first={
                     <div style={{
                         marginTop: '1vw',
@@ -69,7 +71,7 @@ const HomeContentsPage1 = () => {
                 </div>}
             />
 
-        </div>
+
     );
 };
 
