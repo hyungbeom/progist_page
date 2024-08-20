@@ -3,7 +3,7 @@ import React from 'react';
 const Div3ContentsLayout = ({div1, span1, div2, span2, div3, span3, first, second, third, style}) => {
     return (
         <div style={{
-            // backgroundColor: 'gray',
+            backgroundColor: 'white',
             display: 'grid',
             gridTemplateColumns: 'repeat(16,1fr)',
             gap: '1%',

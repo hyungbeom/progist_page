@@ -32,7 +32,7 @@ function Header() {
                     display: 'flex',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    fontSize: '0.9vw'
+                    fontSize: '0.9vw',
                 }}>
                     {menuList.map((v) => {
                         return(
@@ -53,10 +53,13 @@ function Header() {
 
                     <span style={{
                         marginLeft: '5vw',
+                        width:'5.4vw',
                         backgroundColor: '#C17F00',
-                        padding: 14,
+                        padding: '1.8%',
                         color: 'white',
                         cursor:'pointer',
+                        whiteSpace: 'nowrap',
+                        textAlign:'center'
                     }}>Get in touch</span>
                 </div>
             </div>

@@ -73,19 +73,21 @@ const HomeContentPage6 = () => {
                             fontWeight: 500,
                             position: 'absolute',
                             bottom: '0',
-                            margin: '10%',
+                            margin: '8%',
                             color: 'white',
                             top: '5%'
                         }}>
                             progress
                         </div>
                         <div style={{
+                            width: '100%',
+                            height:'100%',
                             fontSize: '3.5vw',
                             fontWeight: 500,
-                            lineHeight:0.95,
+                            lineHeight: 0.98,
                             position: 'absolute',
                             bottom: '0',
-                            margin: '10%',
+                            margin: '8%',
                             color: 'white',
                             top: '17%'
                         }}>

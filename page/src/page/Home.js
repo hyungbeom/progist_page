@@ -9,11 +9,13 @@ import HomeContentPage6 from "../components/home/HomeContentPage6";
 import FAQ from "../components/home/FAQ";
 import Header from "../components/temp/Header";
 import Footer from "../components/temp/Footer";
+import LandingPage from "../components/home/LandingPage";
 
 const Home = () => {
     return (
         <>
             <Header/>
+            {/*<LandingPage/>*/}
             <HomeContentsPage1/>
             <HomeContentsPage2/>
             <HomeContentPage3/>
