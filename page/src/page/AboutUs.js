@@ -12,14 +12,12 @@ import Members from "../components/aboutUs/Members";
 const AboutUs = () => {
     return (
         <>
-            <Header/>
             <AboutUs1/>
             <AboutUs2/>
             <AboutUs3/>
             <AboutUs4/>
             <AboutUs5/>
             <Members/>
-            <Footer/>
         </>
     );
 };

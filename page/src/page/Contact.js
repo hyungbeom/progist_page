@@ -6,9 +6,7 @@ import Footer from "../components/temp/Footer";
 const Contact = () => {
     return (
         <>
-            <Header/>
             Contact
-            <Footer/>
         </>
     );
 };

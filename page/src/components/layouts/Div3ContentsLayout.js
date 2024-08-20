@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Div3ContentsLayout = ({div1, span1, div2, span2, div3, span3, first, second, third, style}) => {
+const Div3ContentsLayout = ({div1, span1, div2, span2, div3, span3, first, second, third, style, children}) => {
     return (
         <div style={{
             backgroundColor: 'white',
@@ -32,7 +32,7 @@ const Div3ContentsLayout = ({div1, span1, div2, span2, div3, span3, first, secon
                 {third}
 
             </div>
-
+            {children}
         </div>
     );
 };

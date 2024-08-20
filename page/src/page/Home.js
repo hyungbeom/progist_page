@@ -14,7 +14,6 @@ import LandingPage from "../components/home/LandingPage";
 const Home = () => {
     return (
         <>
-            <Header/>
             {/*<LandingPage/>*/}
             <Home1/>
             <Home2/>
@@ -23,7 +22,7 @@ const Home = () => {
             <Home5/>
             <Home6/>
             <FAQ/>
-            <Footer/>
+
         </>
     );
 };

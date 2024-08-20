@@ -6,9 +6,8 @@ import Footer from "../components/temp/Footer";
 const Recruit = () => {
     return (
         <>
-            <Header/>
             Recruit
-            <Footer/>
+
         </>
     );
 };
