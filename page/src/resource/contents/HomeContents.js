@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export const getHomeContents = () => {
 
     // page1
@@ -8,7 +10,11 @@ export const getHomeContents = () => {
         img:'././img/homeImg1.png',
         title: 'We are a tech startup from Munich\n' + 'reinventing how goods are transported\n' + 'across the ocean',
         subtitle: 'Since our inception in 2020, we have been dedicated to pioneering groundbreaking technology solutions for the future of transport and logistics. Spun out of the Technical University of Munich as one of the world-leading institutions for robotics and automation, our team combines German engineering tradition with the fast development cycles of a startup',
-        link: <div>More about Us</div>
+        link: <Link to='/aboutus'
+        style={{
+            color:'inherit',
+            textDecoration:'none',
+        }}>More about Us</Link>
     }
     const infoCardContents1_1 = {
         img:'././img/homeImg1_1.png'

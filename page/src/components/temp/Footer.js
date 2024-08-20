@@ -148,8 +148,11 @@ const Footer = () => {
                         textAlign: 'center'
                     }}>Get in touch.</span>
                 </div>
-                <div style={{border: '1px solid lightGray', width: '100%'}}/>
-
+                <div style={{
+                    backgroundColor: 'lightGray',
+                    height: '0.2vh',
+                    width: '100%'
+                }}/>
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(8,1fr)',

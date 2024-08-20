@@ -40,9 +40,9 @@ const FAQ = () => {
                             fontSize:'1.2vw',
                             color:'#ff471d',
                             marginTop :'0.5vh'
-                        }}>info@cargokite.com
+                        }}>info@progist.co.kr
                         </div>
-                        <div style={{backgroundColor: '#ff471d', height:'0.12vh', width:'10.2vw', marginTop:'0.2vh'}}></div>
+                        <div style={{backgroundColor: '#ff471d', height:'0.12vh', width:'10.2vw', marginTop:'0.2vh'}}/>
                     </div>
                 </div>
             }

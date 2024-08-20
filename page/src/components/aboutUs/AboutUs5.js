@@ -3,6 +3,7 @@ import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 import {getAboutUsContent} from "../../resource/contents/AboutUsContent";
 import {Link} from "react-router-dom";
+import InfoCard from "../temp/InfoCard";
 
 const AboutUs5 = () => {
 
@@ -18,38 +19,41 @@ const AboutUs5 = () => {
             position: 'relative',
         }}>
             <Div3ContentsLayout
-                div1='2' span1='5' div2='8' span2='3' div3='12' span3='4'
+                div1='2' span1='6' div2='8' span2='3' div3='12' span3='4'
                 style={{
-                    backgroundColor: 'white',
+                    backgroundColor: '#e8ecee',
                     aspectRatio: '5.5/1',
+                    paddingTop:'9%',
+                    paddingBottom:'2%',
                 }}
                 first={
-                    <div className='title' style={{}}>{content.aboutUsTitle3 || ''}</div>
+                    <div className='title' style={{
+                        fontSize:'4.2vw'
+                    }}>{content.aboutUsTitle3 || ''}</div>
                 }
                 third={
                     <div style={{
                         position: 'absolute',
-                        top: '3%',
-                        fontSize: '1vw',
+                        // top: '0%',
+                        fontSize: '1.1vw',
                         lineHeight: 1.5,
                     }}>
-                        {content.aboutUsSubtitle1 || ''}
-                        <div style={{
-                            marginTop: '12%',
-                            color: '#fd471d',
-                        }}>
-                            <Link to='/recruit' style={{
-                                color: 'inherit',
-                                cursor: 'pointer',
-                            }}>
-                                Check our Job openings</Link>
-                        </div>
+                        {content.infoCardContents3?(
+                            <InfoCard
+
+                                subtitle={content.infoCardContents3.subtitle}
+                                link={content.infoCardContents3.link}
+                                width='100%'/>
+                        ):null}
+
                     </div>
                 }
             />
             <div style={{
-                position: 'absolute', opacity: '60%',
-                border: '1px solid lightGray', width: '82%',
+                backgroundColor: 'lightGray',
+                height: '0.2vh',
+                width: '100%',
+                position: 'absolute',
                 marginLeft: '9%',
                 bottom: '0'
             }}/>

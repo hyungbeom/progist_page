@@ -20,7 +20,7 @@ const Members = () => {
             <Div3ContentsLayout
                 div1='2' span1='2' div2='7' span2='3' div3='12' span3='4'
                 style={{
-                    backgroundColor: 'white',
+                    backgroundColor: '#e8ecee',
                     paddingTop:'7%',
                     paddingBottom:'5%',
                 }}

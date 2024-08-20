@@ -16,7 +16,6 @@ const AboutUs4 = () => {
         <Div3ContentsLayout
             div1='2' div2='7' div3='14' span1='4' span2='5' span3='3'
             style={{
-                paddingBottom:'7%'
             }}
             first={
                 <div style={{

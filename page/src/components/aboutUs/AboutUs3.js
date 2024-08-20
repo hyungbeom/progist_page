@@ -13,7 +13,7 @@ const AboutUs3 = () => {
 
     return (
         <div style={{
-            backgroundColor: 'white',
+            
             display: 'grid',
             gridTemplateColumns: 'repeat(16,1fr)',
             gap: '1%',

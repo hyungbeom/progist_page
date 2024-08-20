@@ -1,3 +1,7 @@
+import {Link} from "react-router-dom";
+import React from "react";
+import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
+
 export const getAboutUsContent = () => {
 
     // page1
@@ -36,11 +40,29 @@ export const getAboutUsContent = () => {
 
     const aboutUsTitle3='Let\'s meet our\n' + 'awesome team\n' + 'members.'
 
-    const aboutUsSubtitle1='We are looking for mission-driven, skilled, and'+'\n'+'kind people to help us build the sustainable'+'\n'+' shipping technology of the future.'
+    const infoCardContents3= {
+        subtitle: 'We are looking for mission-driven, skilled, and' + '\n' + 'kind people to help us build the sustainable' + '\n' + ' shipping technology of the future.',
+        link:
+            <Link to='/recruit'
+                  style={{
+                    color: 'inherit',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    fontWeight: 550,
+                    }}>
+                        Check our Job openings
+                        <div style={{
+                            backgroundColor: '#ff471d',
+                            height: '0.12vh',
+                            width: '11.5vw',
+                            marginTop: '0.2vh'
+                        }}/>
+            </Link>
+    }
 
-    const memberList=[
-        {name:'Lee Hyung beom', position:'Co-Founder&CTO', photo:'././img/member1.png'},
-        {name:'Kim Jin hwa', position:'Programer', photo:'././img/member2.png'},
+    const memberList = [
+        {name: 'Lee Hyung beom', position: 'Co-Founder&CTO', photo: '././img/member1.png'},
+        {name: 'Kim Jin hwa', position:'Programer', photo:'././img/member2.png'},
         {name:'Kim Jin hwa', position:'Designer', photo:'././img/member3.png'},
         {name:'Kim Jin hwa', position:'Programer', photo:'././img/member4.png'},
         {name:'Kim Jin hwa', position:'Programer', photo:'././img/member5.png'},
@@ -52,12 +74,11 @@ export const getAboutUsContent = () => {
         aboutUsTitle2,
         aboutUsTitle3,
 
-        aboutUsSubtitle1,
-
         aboutUsImg1,
 
         infoCardContents1,
         infoCardContents2,
+        infoCardContents3,
 
         memberList,
     }

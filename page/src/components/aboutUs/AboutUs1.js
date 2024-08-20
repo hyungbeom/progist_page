@@ -16,8 +16,7 @@ const AboutUs1 = () => {
             <Div3ContentsLayout
                 div1='3' div2='5' span1='2' span2='12'
                 style={{
-                    backgroundColor: 'white',
-                    aspectRatio:'2.2/1',
+                    aspectRatio:'1.8/1',
                     position:'relative',
                 }}
                 first={

@@ -3,7 +3,8 @@ function InfoCard({img='', title ='', subtitle ='', link='',
 
 
     return (
-        <div style={{alignItems: "flex-start",  display: "flex", flexDirection: "column",
+        <div style={{
+            display: "flex", flexDirection: "column",
             whiteSpace: 'pre-line',
              gap:"1vw", width:width, ...style}}>
 
@@ -21,8 +22,6 @@ function InfoCard({img='', title ='', subtitle ='', link='',
                 fontSize: '1vw',
                 color:'#ff471d'
             }}>{link}</div>
-
-
         </div>
     )
 

@@ -17,7 +17,6 @@ const Progress1 = () => {
             div1='2' span1='7' div2='13' span2='4' div3='' span3=''
             style={{
                 aspectRatio: '2.2/1',
-                backgroundColor: 'white',
                 position: 'relative',
             }}
             first={
@@ -42,7 +41,9 @@ const Progress1 = () => {
                 <div style={{}}>
                     {content.progressSubtitle1 ? (
                         <div style={{
-                            fontSize: '1.5vw',
+                            width:'100%',
+                            fontSize: '1.35vw',
+                            lineHeight: 1.3,
                             position: 'absolute',
                             bottom: '11%',
                             color: '#4b4b4b'
@@ -53,8 +54,10 @@ const Progress1 = () => {
                 </div>
             }>
             <div style={{
-                position: 'absolute', opacity: '60%',
-                border: '1px solid lightGray', width: '82%',
+                backgroundColor: 'lightGray',
+                height: '0.2vh',
+                width: '82%',
+                position: 'absolute',
                 marginLeft: '9%',
                 bottom: '0'
             }}/>

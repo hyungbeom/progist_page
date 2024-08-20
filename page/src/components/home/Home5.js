@@ -16,16 +16,13 @@ const Home5 = () => {
         <Div3ContentsLayout
             div1='1' div2='6' div3='12' span1='5' span2='6' span3='5'
             style={{
-                // backgroundColor: 'gray',
                 paddingBottom:'15%'
             }}
             first={
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyItems: 'flex-end',
-                        alignItems: 'flex-end',
-                        justifyContent: 'flex-end'
+                        width:'100%',
                     }}>
                         {content.infoCardContents7 ?
                             (<InfoCard
@@ -33,7 +30,7 @@ const Home5 = () => {
                                 subtitle={content.infoCardContents7.subtitle}
                                 style={{
                                     textAlign:'end',
-                                    marginTop: '30%'
+                                    marginTop: '30%',
                                 }}
                             />):null}
                         {content.infoCardContents8 ?
@@ -79,7 +76,6 @@ const Home5 = () => {
                             title={content.infoCardContents9.title}
                             subtitle={content.infoCardContents9.subtitle}
                             style={{
-                                textAlign:'end',
                                 marginTop: '30%'
                             }}
                         />):null}
@@ -88,7 +84,6 @@ const Home5 = () => {
                             title={content.infoCardContents10.title}
                             subtitle={content.infoCardContents10.subtitle}
                             style={{
-                                textAlign:'end',
                                 marginTop: '30%'
                             }}
                         />):null}

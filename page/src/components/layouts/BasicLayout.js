@@ -3,7 +3,7 @@ import React from 'react';
 const BasicLayout = ({children, style}) => {
     return (
         <div style={{
-            backgroundColor: 'white',
+
             display: 'grid',
             gridTemplateColumns: 'repeat(16,1fr)',
             gap: '1%',
