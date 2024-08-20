@@ -4,7 +4,7 @@ import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import InfoCard from "../temp/InfoCard";
 import BasicLayout from "../layouts/BasicLayout";
 
-const HomeContentPage6 = () => {
+const Home6 = () => {
 
     const [content, setContent] = useState({});
 
@@ -188,4 +188,4 @@ const HomeContentPage6 = () => {
     );
 };
 
-export default HomeContentPage6;
+export default Home6;

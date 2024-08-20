@@ -3,7 +3,7 @@ import {getHomeContents} from "../../resource/contents/HomeContents";
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import InfoCard from "../temp/InfoCard";
 
-const HomeContentPage5 = () => {
+const Home5 = () => {
 
     const [content, setContent] = useState({});
 
@@ -99,4 +99,4 @@ const HomeContentPage5 = () => {
     );
 };
 
-export default HomeContentPage5;
+export default Home5;

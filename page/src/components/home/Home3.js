@@ -3,7 +3,7 @@ import BasicLayout from "../layouts/BasicLayout";
 import {getHomeContents} from "../../resource/contents/HomeContents";
 import '../../resource/css/body.css';
 
-const HomeContentPage3 = () => {
+const Home3 = () => {
 
     const [content, setContent]=useState({})
     useEffect(() => {
@@ -40,4 +40,4 @@ const HomeContentPage3 = () => {
     ;
 };
 
-export default HomeContentPage3;
+export default Home3;

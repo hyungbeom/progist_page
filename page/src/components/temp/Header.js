@@ -41,6 +41,7 @@ function Header() {
                                 textDecoration: 'none',
                                 cursor:'pointer',
                                 color:'inherit', // 링크 연결 후에도 color를 유지함
+                                whiteSpace: 'nowrap',
                             }}>
                             <span
                             key={v.title}

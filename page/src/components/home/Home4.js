@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import BasicLayout from "../layouts/BasicLayout";
 import {getHomeContents} from "../../resource/contents/HomeContents";
 
-const HomesContentPage4 = () => {
+const Home4 = () => {
 
     const [content, setContent] = useState({});
 
@@ -25,4 +25,4 @@ const HomesContentPage4 = () => {
     );
 };
 
-export default HomesContentPage4;
+export default Home4;

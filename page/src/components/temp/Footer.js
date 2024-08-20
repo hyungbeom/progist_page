@@ -165,7 +165,7 @@ const Footer = () => {
                             marginTop:'45%',
                         }}>Head office</div>
                         <div style={{
-                            lineHeight:1.5,
+                            lineHeight:1.6,
                             marginTop:'11%',
                             color:'#4b4b4b',
                         }}>서울 강남구 논현동<br/>36-11 능원빌딩<br/>401호</div>
@@ -181,7 +181,7 @@ const Footer = () => {
                         }}>Postal & Visitor address
                         </div>
                         <div style={{
-                            lineHeight: 1.5,
+                            lineHeight: 1.6,
                             marginTop: '11%',
                             color: '#4b4b4b',
                         }}>서울 강남구 논현동<br/>36-11 능원빌딩<br/>401호
@@ -199,7 +199,7 @@ const Footer = () => {
                         <div style={{
                             fontWeight:500,
                             marginTop:'2%',
-                            fontSize:'1.5vw',
+                            fontSize:'1.7vw',
                             color:'#4b4b4b',
                         }}>info@progist.co.kr</div>
                         <div style={{
@@ -212,9 +212,9 @@ const Footer = () => {
                         <div style={{
                             fontWeight:500,
                             marginTop:'2%',
-                            fontSize:'1.5vw',
+                            fontSize:'1.7vw',
                             color:'#4b4b4b',
-                        }}>+82 10 1111 1111</div>
+                        }}>+82 10 8835 7381</div>
                     </div>
 
                 </div>
@@ -228,7 +228,7 @@ const Footer = () => {
                     color: '#4b4b4b',
                     position:'absolute',
                     whiteSpace: 'nowrap',
-                    bottom:'-34%'
+                    bottom:'-32%'
                 }}>
                     ⓒ2023 Progist All Rights Reserved.
                     <div style={{
