@@ -42,7 +42,7 @@ const FAQ = () => {
                             marginTop :'1%'
                         }}>info@progist.co.kr
                         </div>
-                        <div style={{backgroundColor: '#ff471d', height:'0.8', width:'10.2vw', marginTop:'0.5%'}}/>
+                        <div style={{backgroundColor: '#ff471d', height:'0.1vh', width:'10.2vw', marginTop:'0.5%'}}/>
                     </div>
                 </div>
             }

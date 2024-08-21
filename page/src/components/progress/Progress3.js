@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
-import {getProgressContent} from "../../resource/contents/ProgressContent";
+import {getProgressContent} from "../../resource/contents/ProgressContents";
 
 const Progress3 = () => {
 

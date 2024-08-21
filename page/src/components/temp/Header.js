@@ -1,7 +1,20 @@
 import {Link} from "react-router-dom";
 import {menuList} from "../../resource/contents/MenuList";
+import {useState} from "react";
+import GetInTouch from "../getInTouch/GetInTouch";
 
 function Header() {
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const handleOpenPopup = () => {
+        setIsPopupOpen(true);
+    }
+
+    const handleClosePopup = () => {
+        setIsPopupOpen(false);
+    }
+
 
     return (
         <div style={{
@@ -61,9 +74,12 @@ function Header() {
                         cursor:'pointer',
                         whiteSpace: 'nowrap',
                         textAlign:'center'
-                    }}>Get in touch</span>
+                    }} onClick={handleOpenPopup}
+                    >Get in touch</span>
                 </div>
             </div>
+
+            {isPopupOpen && <GetInTouch onClose={handleClosePopup} />}
 
         </div>
 

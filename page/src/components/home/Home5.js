@@ -3,6 +3,7 @@ import {getHomeContents} from "../../resource/contents/HomeContents";
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import InfoCard from "../temp/InfoCard";
 import BasicLayout from "../layouts/BasicLayout";
+import {Link} from "react-router-dom";
 
 const Home5 = () => {
 
@@ -129,17 +130,19 @@ const Home5 = () => {
                         position: 'absolute',
                         top: '150%',
                     }}>
-                        <div style={{
-                            fontSize: '2.2vw',
-                            fontWeight: 600,
-                            lineHeight: 1.1,
-                            position: 'absolute',
-                            top: '0',
-                            margin:'13%',
-                            color: 'white',
-                        }}>
-                            Explore<br/>Progist<br/>Progress
-                        </div>
+                        <Link to='/progress'>
+                            <div style={{
+                                fontSize: '2.2vw',
+                                fontWeight: 600,
+                                lineHeight: 1.1,
+                                position: 'absolute',
+                                top: '0',
+                                margin:'13%',
+                                color: 'white',
+                            }}>
+                                Explore<br/>Progist<br/>Progress
+                            </div>
+                        </Link>
                     </div>
 
                 </div>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
-import {getAboutUsContent} from "../../resource/contents/AboutUsContent";
+import {getAboutUsContent} from "../../resource/contents/AboutUsContents";
 
 const AboutUs3 = () => {
 

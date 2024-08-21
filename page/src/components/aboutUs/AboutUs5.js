@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
-import {getAboutUsContent} from "../../resource/contents/AboutUsContent";
+import {getAboutUsContent} from "../../resource/contents/AboutUsContents";
 import {Link} from "react-router-dom";
 import InfoCard from "../temp/InfoCard";
 

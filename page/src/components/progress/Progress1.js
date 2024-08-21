@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
-import {getProgressContent} from "../../resource/contents/ProgressContent";
+import {getProgressContent} from "../../resource/contents/ProgressContents";
 import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 
 const Progress1 = () => {

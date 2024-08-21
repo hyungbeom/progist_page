@@ -1,6 +1,21 @@
-import React, {useState} from "react";
+import {useState} from "react";
 
-const GetInTouch = () => {
+const GetInTouch = ({onClose}) => {
+
+    function CloseButton(){
+        return(
+            <img src='././img/closeIcon.png' alt='close'
+                onClick={onClose}
+                 style={{
+                     position: 'absolute',
+                     opacity:'70%',
+                     width: '2.5%',
+                     top:"4%",
+                     right:'2.5%',
+                     cursor:'pointer',
+                 }}/>
+        )
+    }
 
     function PopupHead (){
         return (
@@ -10,7 +25,8 @@ const GetInTouch = () => {
                 // backgroundColor: 'gray',
                 width: '23%',
                 padding: '6%',
-                top:'-10%',
+                top:'-14%',
+                color:'#000000',
             }}>
                 <div style={{
                     fontSize: '3vw',
@@ -46,6 +62,7 @@ const GetInTouch = () => {
                     fontSize: '1.8vw',
                     fontWeight: 600,
                     textAlign: 'left',
+                    color:'#000000',
                 }}>Send message
                 </div>
                 <img src="././img/arrowIcon.png" alt='arrow' style={{width: '20%', marginTop:'38.5%'}}/>
@@ -128,19 +145,9 @@ const GetInTouch = () => {
         )
     }
 
-    function CloseButton(){
-        return(
-            <img src='././img/closeIcon.png' alt='close'
-                 // onClick={}
-                 style={{
-                     position: 'absolute',
-                     opacity:'70%',
-                     width: '2.5%',
-                     top:"4%",
-                     right:'2.5%',
-                 }}/>
-        )
-    }
+    // if (isPopupClose) {
+    //     return null; // 팝업 창이 닫히면 아무 것도 렌더링하지 않음
+    // } // 컴포넌트를 제거하는 것은 조건문으로 가능하나, 불러오는 것은 리턴부에서 렌더링해야 함.
 
     return (
         <div>
@@ -151,6 +158,8 @@ const GetInTouch = () => {
             width:'100%',
             height:'100%',
             zIndex:20,
+            top: 0,
+            left: 0,
         }}> </div>
         <div style={{
             backgroundColor: '#fd471d',
