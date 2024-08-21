@@ -8,7 +8,7 @@ const Progress2 = () => {
             <Div3ContentsLayout
                 div1='2' span1='4' style={{
                 paddingTop:'2%',
-                aspectRatio:'20/1'
+                // aspectRatio:'20/1'
             }}
                 first={
                 <div style={{
@@ -20,7 +20,7 @@ const Progress2 = () => {
             <Div3ContentsLayout
                 div1='2' span1='14'
                 style={{
-                paddingTop:'2%',
+                paddingTop:'10%',
                 gap:'0%',
             }}
                 first={

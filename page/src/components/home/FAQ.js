@@ -26,23 +26,23 @@ const FAQ = () => {
                 }}>
                     <div className='head'>FAQ</div>
                     <div className='title' style={{
-                        marginTop:'4vh'
+                        marginTop:'5%'
                     }}>
                         Quick<br/>answers to<br/>questions you<br/>may have
                     </div>
                     <div style={{
                         fontSize:'1.2vw',
-                        lineHeight:'2.9vh',
-                        marginTop:'7vh'
+                        lineHeight:1.3,
+                        marginTop:'10%'
                     }}>
                         Can't find what you're looking for?<br/>Contact us here:<br/>
                         <div style={{
                             fontSize:'1.2vw',
                             color:'#ff471d',
-                            marginTop :'0.5vh'
+                            marginTop :'1%'
                         }}>info@progist.co.kr
                         </div>
-                        <div style={{backgroundColor: '#ff471d', height:'0.12vh', width:'10.2vw', marginTop:'0.2vh'}}/>
+                        <div style={{backgroundColor: '#ff471d', height:'0.8', width:'10.2vw', marginTop:'0.5%'}}/>
                     </div>
                 </div>
             }

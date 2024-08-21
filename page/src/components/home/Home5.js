@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {getHomeContents} from "../../resource/contents/HomeContents";
 import Div3ContentsLayout from "../layouts/Div3ContentsLayout";
 import InfoCard from "../temp/InfoCard";
+import BasicLayout from "../layouts/BasicLayout";
 
 const Home5 = () => {
 
@@ -12,84 +13,177 @@ const Home5 = () => {
         setContent(data)
     }, []);
 
-    return (
-        <Div3ContentsLayout
-            div1='1' div2='6' div3='12' span1='5' span2='6' span3='5'
-            style={{
-                paddingBottom:'15%'
-            }}
-            first={
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width:'100%',
-                    }}>
-                        {content.infoCardContents7 ?
-                            (<InfoCard
-                                title={content.infoCardContents7.title}
-                                subtitle={content.infoCardContents7.subtitle}
-                                style={{
-                                    textAlign:'end',
-                                    marginTop: '30%',
-                                }}
-                            />):null}
-                        {content.infoCardContents8 ?
-                            (<InfoCard
-                                title={content.infoCardContents8.title}
-                                subtitle={content.infoCardContents8.subtitle}
-                                style={{
-                                    textAlign:'end',
-                                    marginTop: '30%'
-                                }}
-                            />):null}
-                    </div>
-            }
-            second={
+
+    const SquareCard=({img='', text='', style})=>{
+        return(
+            <div style={{
+                width:'100%',
+                aspectRatio: '1 / 1',
+                backgroundColor:'#1d1d1e',
+                position:'relative',
+                ...style,
+            }}>
+                <img src={img} alt='icon' style={{
+                    width:'18%',
+                    aspectRatio: '1 / 1',
+                    position:'absolute',
+                    top:'10%',
+                    right:'10%'
+                }}/>
                 <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    width: 'auto',
-                    height: '100%',
-                    position: "relative",
-                    justifyItems: 'center',
-                    alignItems: 'center',
+                    fontSize:'1.4vw',
+                    position:'absolute',
+                    bottom: '0',
+                    margin: '10%',
+                    color: 'white',
                 }}>
-                    <img src='img/homePhone.png' alt='homeImg'
-                         style={{
-                             position: "absolute",
-                             width: '80%',
-                             marginTop: '3%'
-                         }}/>
-                    <img src='././img/CI.png' alt='CI'
-                         style={{
-                             width: '20%',
-                             position: 'absolute',
-                             zIndex: 10,
-                             top: '42%',
-                         }}/>
+                    {text}
                 </div>
-            }
-            third={
-                <div style={{}}>
-                    {content.infoCardContents9 ?
-                        (<InfoCard
-                            title={content.infoCardContents9.title}
-                            subtitle={content.infoCardContents9.subtitle}
-                            style={{
-                                marginTop: '30%'
-                            }}
-                        />):null}
-                    {content.infoCardContents10 ?
-                        (<InfoCard
-                            title={content.infoCardContents10.title}
-                            subtitle={content.infoCardContents10.subtitle}
-                            style={{
-                                marginTop: '30%'
-                            }}
-                        />):null}
+            </div>
+        )
+    }
+
+    return (
+        <BasicLayout style={{
+            backgroundColor:'black',
+            height:'100%',
+            paddingTop:'10%',
+            paddingBottom:'37.2%'
+        }}>
+            <div style={{
+                display: 'flex',
+                justifyItems: 'space-between',
+                flexDirection: 'row',
+                width: '100%',
+            }}>
+                <div style={{ // flex1
+                    flex:1,
+                    position:'relative',
+                }}>
+                    <div style={{
+                        width: '200%',
+                        aspectRatio: '1 / 0.95',
+                        backgroundColor: '#ff471d',
+                        position: 'relative',
+                        top: '-50%',
+                        zIndex: 10
+                    }}>
+                        <div style={{
+                            fontSize: '1.3vw',
+                            fontWeight: 500,
+                            position: 'absolute',
+                            bottom: '0',
+                            margin: '8%',
+                            color: 'white',
+                            top: '5%'
+                        }}>
+                            progress
+                        </div>
+                        <div style={{
+                            width: '100%',
+                            height:'100%',
+                            fontSize: '3.5vw',
+                            fontWeight: 500,
+                            lineHeight: 0.98,
+                            position: 'absolute',
+                            bottom: '0',
+                            margin: '8%',
+                            color: 'white',
+                            top: '17%'
+                        }}>
+                            {content.homeTitle4 || ''}
+                        </div>
+                    </div>
                 </div>
-            }
-        />
+                <div style={{ // flex2
+                    flex: 1,
+                    position: 'relative',
+                }}>
+                    {content.squareCardContents1 ? (
+                        <SquareCard
+                            img={content.squareCardContents1.img}
+                            text={content.squareCardContents1.text}
+                            style={{
+                                top:'100%',
+                            }}
+                        />
+                    ) : null}
+                </div>
+                <div style={{ // flex3
+                    flex: 1,
+                    position:'relative',
+                }}>
+                    {content.squareCardContents2 ? (
+                        <SquareCard
+                            img={content.squareCardContents2.img}
+                            text={content.squareCardContents2.text}
+                            style={{
+                                top:'50%',
+                            }}
+                        />
+                    ) : null}
+                    <div style={{
+                        width: '100%',
+                        aspectRatio: '1 / 1',
+                        backgroundColor: '#ff471d',
+                        position: 'absolute',
+                        top: '150%',
+                    }}>
+                        <div style={{
+                            fontSize: '2.2vw',
+                            fontWeight: 600,
+                            lineHeight: 1.1,
+                            position: 'absolute',
+                            top: '0',
+                            margin:'13%',
+                            color: 'white',
+                        }}>
+                            Explore<br/>Progist<br/>Progress
+                        </div>
+                    </div>
+
+                </div>
+                <div style={{  // flex4
+                    flex: 1,
+                    position: 'relative',
+                }}>
+                    {content.squareCardContents3 ? (
+                        <SquareCard
+                            img={content.squareCardContents3.img}
+                            text={content.squareCardContents3.text}
+                            style={{
+                                top:0
+                            }}
+                        />
+                    ) : null}
+                    {content.squareCardContents4 ? (
+                        <SquareCard
+                            img={content.squareCardContents4.img}
+                            text={content.squareCardContents4.text}
+                            style={{
+                                top:'50%'
+                            }}
+                        />
+                    ) : null}
+                </div>
+                <div style={{  // flex5
+                    flex:1,
+                    position:'relative',
+                }}>
+                    {content.squareCardContents5 ? (
+                        <SquareCard
+                            img={content.squareCardContents5.img}
+                            text={content.squareCardContents5.text}
+                            style={{
+                                top:'50%'
+                            }}
+                        />
+                    ) : null}
+                </div>
+            </div>
+
+
+        </BasicLayout>
 
     );
 };

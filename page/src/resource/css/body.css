@@ -6,7 +6,6 @@
     font-display: swap;
 }
 
-
 body{
     background-color: #fdfdfd;
     font-family: 'Inter', sans-serif;
@@ -22,6 +21,22 @@ body{
 
 .highlight{
     color:#ff471d;
+}
+
+.point{
+    background-color: #ff471d;
+}
+
+.input{
+    background: none;
+    border: none;
+    font-size: 1vw;
+    color: white;
+}
+
+.input::placeholder{
+    color:#ffF;
+    opacity: 50%;
 }
 
 .head{

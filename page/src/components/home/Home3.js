@@ -13,7 +13,9 @@ const Home3 = () => {
 
     return (
         <BasicLayout style={{
-            // backgroundColor: 'gray',
+            aspectRatio: '16 / 9',
+            paddingTop:'15%',
+            paddingBottom:'10%',
         }}>
             <div className='title' style={{
                 alignItems: 'center',
@@ -21,23 +23,31 @@ const Home3 = () => {
                 flexDirection: 'column',
             }}>
                 <div className='head' style={{
-                    marginBottom:'8vh'
+                    marginBottom: '2%'
                 }}>
                     solution
                 </div>
                 <span style={{
-                    marginBottom:'6vh'
+                    marginBottom: '1vh'
                 }}>{content.homeTitle3 || ''}</span>
                 <span className='highlight' style={{
-                    marginBottom:'8vh'
+                    marginBottom: '20%'
                 }}
                 >{content.homeTitle3_1 || ''}</span>
+            </div>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '2.3vw'
+            }}>
+                {content.homeSubTitle || ''}
             </div>
         </BasicLayout>
 
 
-)
-    ;
+    )
+        ;
 };
 
 export default Home3;

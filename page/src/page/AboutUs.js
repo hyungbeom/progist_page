@@ -1,7 +1,3 @@
-import React from 'react';
-
-import Header from "../components/temp/Header";
-import Footer from "../components/temp/Footer";
 import AboutUs1 from "../components/aboutUs/AboutUs1";
 import AboutUs2 from "../components/aboutUs/AboutUs2";
 import AboutUs3 from "../components/aboutUs/AboutUs3";

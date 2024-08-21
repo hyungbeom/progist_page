@@ -45,6 +45,7 @@ const AboutUs4 = () => {
                     </div>
                     {content.aboutUsImg1 ?
                         (<img src={content.aboutUsImg1} alt='about us img' style={{
+                            width:'100%',
                             marginTop:'110%'
                         }}/>) : null}
                 </div>
