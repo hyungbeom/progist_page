@@ -1,8 +1,15 @@
 import Div3ContentsLayout from "../components/layouts/Div3ContentsLayout";
+import {useEffect, useState} from "react";
+import {getRecruitContents} from "../resource/contents/RecruitContents";
 
 const Recruit = () => {
 
+    const [content, setContent] = useState({});
 
+    useEffect(() => {
+        const data=getRecruitContents()
+        setContent(data)
+    });
 
     return (
         <div>
@@ -16,7 +23,9 @@ const Recruit = () => {
                     <div className='head'>Job openings</div>
                 }
                 second={
-                    <div className='title'>Are you ready for your next challenge?</div>
+                    <div className='title'>
+                        {content.RecruitTitle1 || ''}
+                    </div>
                 }
             />
             <Div3ContentsLayout
@@ -31,8 +40,8 @@ const Recruit = () => {
                 second={
                     <div className='title'>Are you ready for your next challenge?</div>
                 }
-            />
 
+            />
             <Div3ContentsLayout>
 
             </Div3ContentsLayout>

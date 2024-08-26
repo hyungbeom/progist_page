@@ -4,11 +4,12 @@ import Home3 from "../components/home/Home3";
 import Home4 from "../components/home/Home4";
 import Home5 from "../components/home/Home5";
 import FAQ from "../components/home/FAQ";
+import LandingPage from "../components/home/LandingPage";
 
 const Home = () => {
     return (
         <>
-            {/*<LandingPage/>*/}
+            <LandingPage/>
             <Home1/>
             <Home2/>
             <Home3/>
