@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Pretendard Variable';
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url('../assets/fonts/PretendardVariable.ttf') format('truetype');
+}
+body {
+    background-color: #fdfdfd;
+    font-family: 'Pretendard Variable', sans-serif;
+    font-weight: 400;
+    margin : 0;
+}
+
+/* 랜딩페이지 */
+
+.contents_container {
+    /*background-color: #C17F00;*/
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top:17%;
+    left: 9.3%;
+}
+.main_title{
+    font-size: 6.7vw;
+    font-weight: 600;
+}
+.subtitle{
+    font-size: 1.5vw;
+    font-weight: 550;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1%;
+}
+
+/* header */
+
+.header_layout{
+    /*background-color: gray;*/
+    padding: 1.5% 3%;
+    width: 100%;
+    height: auto;
+    color: white;
+    position: fixed;
+    top: 0;
+    z-index : 100;
+    box-sizing:border-box;
+}
+
+.header_container {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.ci_container {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+#ci{
+    float:left;
+    width:2.8vw;
+}
+
+#ci_text{
+    float:left;
+    width:8.7vw;
+    margin-left:1vw;
+}
+
+.menu_container {
+    right: 0;
+    width :40%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.9vw;
+    font-weight: 300;
+}
+
+.menu_item {
+    color: #575757;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.menu_container > :last-child {
+    color: #FFFFFF;
+    background-color: #C17F02;
+    padding: 2.5% 3%;
+}
