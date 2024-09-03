@@ -1,39 +1,31 @@
 import React from 'react';
-import GridContentsLayout from "../layouts/GridContentsLayout";
-import {LandingpageSubtitle1, LandingpageSubtitle2, LandingpageTitle} from "../../assets/contents/HomeContents";
+import {Home1Images, Home1Subtitle1, Home1Subtitle2, Home1Title} from "../../assets/contents/HomeContents";
 
 const Home1 = () => {
     return (
-        <GridContentsLayout
-            style={{
-                backgroundColor:'gray',
-                aspectRatio:'1.57 / 1',
-                padding:'0',
-                width:'100%',
-                position:'relative',
-            }}
+        <div className="page_layout">
 
-            div1='1' span1='16' div2='0' span2='0' div3='0' span3='0'
-
-            first_contents={
-                <div className='contents_container'>
-                    <div className='main_title'>
-                        {LandingpageTitle}
-                    </div>
-                    <div className='subtitle'>
-                        <div>
-                            {LandingpageSubtitle1}
-                        </div>
-                        <div className='signature'>
-                            {LandingpageSubtitle2}
-                        </div>
-                    </div>
+            <div className='title_container'>
+                <div className='main_title'>
+                    {Home1Title}
                 </div>
+                <div className='subtitle'>
+                    {Home1Subtitle1}
+                    <span>{Home1Subtitle2}</span>
+                </div>
+            </div>
+            <div className='photo_container'>
+                {Home1Images? Home1Images.map((image, index) => (
+                    <div className='photo_item' key={index}>
+                        <img src={image.src} alt={image.alt}/>
+                    </div>
+                )):null}
+            </div>
 
-            }
+        </div>
 
-        />
-    );
+    )
+        ;
 };
 
 export default Home1;
