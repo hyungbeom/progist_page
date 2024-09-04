@@ -42,6 +42,10 @@ function Header() {
     }, []);
 
     function clickToTopButton(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // 스크롤을 부드럽게 이동하게 합니다. ('auto'로 설정하면 즉시 이동)
+        });
     }
 
     return (
@@ -51,8 +55,11 @@ function Header() {
                     <img src={CI} alt="CI" id="ci"/>
                     <img src={CI_text} alt="CI" id="ci_text"/>
                 </div>
-                <div className='menu_container'>
-                    {menuList.map((v) => {
+                <div className='menu_container'
+                     onMouseEnter={handleMouseEnter}
+                     onMouseLeave={handleMouseLeave}
+                >
+                    {menuList.slice(0,menuList.length - 1).map((v) => {
                         return (
                             <Link to={v.link} key={v.title}
                                   className={`menu_item ${isMenuOpen ? 'open' : 'close'}`}>
@@ -61,7 +68,8 @@ function Header() {
                     })}
                     <div className={`menu_minimalized ${isMinMenuOpen ? 'open' : 'close'}`}
                     onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}>
+                    // onMouseLeave={handleMouseLeave}
+                    >
                         <div className='menu_minimalized_icon'/>
                         <div className='menu_minimalized_icon'/>
                         <div className='menu_minimalized_icon'/>
@@ -69,12 +77,12 @@ function Header() {
                     <Link to={menuList[menuList.length - 1].link} key={menuList[menuList.length - 1].title}
                           className='menu_item'>
                         {menuList[menuList.length - 1].title}
-                    </Link>)
+                    </Link>
 
                 </div>
             </div>
 
-            <div className='to_top_button'
+            <div className={`to_top_button ${window.scrollY >= 10? 'isTop' : 'isNotTop'}`}
                  onClick={clickToTopButton}>
                 <img src={ToTopButton} alt="To Top Button"/>
             </div>
