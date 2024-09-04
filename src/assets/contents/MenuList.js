@@ -1,6 +1,6 @@
 export const menuList = [
-    { title: 'Home.', link: '/home' },
-    { title: 'About.', link: '/about' },
+    { title: 'Home.', link: '/' },
+    { title: 'About us.', link: '/about' },
     { title: 'Services.', link: '/services' },
     { title: 'Contact Now.', link: '/contact' }
 ];

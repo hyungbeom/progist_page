@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import {div} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
-import {menuList} from "../../assets/contents/MenuList";
-import Div3ContentsLayout from "../layouts/GridContentsLayout";
 import {Link} from "react-router-dom";
+import {menuList} from "../../assets/contents/MenuList";
+import GridContentsLayout from "../layouts/GridContentsLayout";
 
-const Footer = () => {
+
+function Footer() {
 
     const [email, setEmail] = useState('')
 
-    function clickSubscribe() {
+    function clickSendButton() {
 
     }
 
@@ -17,48 +17,50 @@ const Footer = () => {
     }
 
 
-    function SubscribeCard() {
+    function LeaveContactCard() {
 
         return (
             <div style={{
-                width: '23vw',
+                width: '100%',
                 aspectRatio:'1/1.2',
                 backgroundColor: '#212121',
-                padding:'12%',
-                position: 'absolute',
+                padding:'10%',
+                boxSizing: 'border-box',
+                display:'flex',
+                flexDirection:'column',
+                justifyContent:'flex-start',
             }}>
                 <img src="/img/mail_icon.png" alt="mail"
-                style={{
+                     style={{
                     width:'18%'
                 }}/>
 
-                <div style={{color: 'white', fontSize: '3vw', paddingTop: '7%', lineHeight: 0.95}}>
-                    <div>Subscribe to</div>
-                    <div>Newsletters</div>
+                <div style={{color: 'white', fontSize: '2.1vw',
+                    paddingTop: '7%', lineHeight: 1.2}}>
+                    <div>이메일 또는 전화번호를</div>
+                    <div>남겨주세요</div>
                 </div>
-
-
                 <div style={{
                     color: '#909090',
                     fontSize: '1vw',
                     fontWeight: '600'
                 }}>
                     <div style={{
-                        marginTop:'2%'
+                        marginTop:'5%'
                     }}>
-                        Want to stay up to date?
+                        연락처를 남겨주시면
                     </div>
                     <div style={{
                         marginTop:'1.5%'
                     }}>
-                        Sign up for CargoKite's biannual update.
+                      신속히 연락드리겠습니다.
                     </div>
                 </div>
 
 
                 <div style={{
                     border: '0.5px solid Darkgray',
-                    marginTop:'3%',
+                    marginTop:'7%',
                     height:'14%',
                 }}>
                     <input type="text"
@@ -73,10 +75,10 @@ const Footer = () => {
                                color: "white",
                                fontSize: '0.9vw'
                            }}
-                           placeholder={'Enter your email'}/>
+                           placeholder={'연락받으실 이메일 혹은 전화번호'}/>
                 </div>
                 <div style={{
-                    backgroundColor: '#ff461e',
+                    backgroundColor: '#C17F02',
                     height: '15%',
                     marginTop: '3%',
                     cursor: 'pointer',
@@ -86,33 +88,42 @@ const Footer = () => {
                     alignItems:'center',
                     justifyContent: 'center',
                     fontSize: '1vw',
-                    fontWeight: '600'
+                    fontWeight: 500,
                 }}
-                     onClick={clickSubscribe}>
-                    Subscribe
+                     onClick={clickSendButton}>
+                     Send
                 </div>
-                <div style={{color: '#909090', fontSize: '0.7vw', padding: '3% 0'}}>Don't worry about spam. We hate it too</div>
+
+                <div className="privacy_agreement"
+                     style={{
+                         color: '#909090',
+                         fontSize: '0.7vw',
+                         width: '100%',
+                         display:'flex',
+                         flexDirection:'row',
+                         justifyContent:'flex-end',
+                         alignItems:'center',
+                         marginTop: '1.5%',
+                }}>
+                    <div style={{
+                    }}>
+                        {'개인정보 처리방침에 동의합니다.\u00A0\u00A0'}
+                    </div>
+                        <input className='privacy_checkbox'
+                               type='checkbox'/>
+                    </div>
+
+
             </div>
         )
     }
 
-    function FooterCompanyInfo(){
+    function FooterCompanyInfo() {
         return (
             <div style={{
                 position:'relative',
+                marginTop:'24%',
             }}>
-                <div style={{
-                    // backgroundColor: 'gray',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    fontSize: '1.1vw',
-                    fontWeight: 500,
-                    whiteSpace: 'nowrap',
-                    width: '100%',
-                    margin: '3% 0',
-                }}>
                     {/*메뉴*/}
                     <div style={{
                         // backgroundColor: 'gray',
@@ -120,7 +131,11 @@ const Footer = () => {
                         flexDirection: 'row',
                         justifyContent: 'space-between',
                         alignItems: 'center',
+                        fontSize: '1.1vw',
+                        fontWeight: 600,
+                        whiteSpace: 'nowrap',
                         width: '100%',
+                        margin: '5% 0',
                     }}>
                         {menuList.map((v) => {
                             return (
@@ -138,25 +153,16 @@ const Footer = () => {
                                 </Link>)
                         })}
                     </div>
-                    <span style={{
-                        marginLeft: '2vw',
-                        width: '6.5vw',
-                        padding: '1.8%',
-                        color: '#fd461e',
-                        cursor: 'pointer',
-                        whiteSpace: 'nowrap',
-                        textAlign: 'center'
-                    }}>Get in touch.</span>
-                </div>
                 <div style={{
                     backgroundColor: 'lightGray',
-                    height: '0.2vh',
+                    height: '1px',
                     width: '100%'
                 }}/>
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(8,1fr)',
-                    gap:'2%'
+                    gap:'2%',
+                    marginTop: '14%',
                 }}>
                     <div style={{
                         gridColumn: '1 / span 2',
@@ -164,13 +170,14 @@ const Footer = () => {
                         fontSize:'0.9vw',
                     }}>
                         <div style={{
-                            fontWeight:500,
-                            marginTop:'45%',
+                            fontWeight:700,
+
                         }}>Head office</div>
                         <div style={{
                             lineHeight:1.6,
                             marginTop:'11%',
                             color:'#4b4b4b',
+                            fontWeight:500,
                         }}>서울 강남구 논현동<br/>36-11 능원빌딩<br/>401호</div>
                     </div>
                     <div style={{
@@ -179,14 +186,15 @@ const Footer = () => {
                         fontSize:'0.9vw',
                     }}>
                         <div style={{
-                            fontWeight: 500,
-                            marginTop: '45%',
-                        }}>Postal & Visitor address
+                            fontWeight: 700,
+
+                        }}>Visitor address
                         </div>
                         <div style={{
                             lineHeight: 1.6,
                             marginTop: '11%',
                             color: '#4b4b4b',
+                            fontWeight:500,
                         }}>서울 강남구 논현동<br/>36-11 능원빌딩<br/>401호
                         </div>
                     </div>
@@ -195,11 +203,11 @@ const Footer = () => {
                     }}>
                         <div style={{
                             fontWeight: 500,
-                            marginTop: '28%',
                             fontSize:'0.8vw',
                             color:'#4b4b4b',
                         }}>Email</div>
                         <div style={{
+                            whiteSpace: 'nowrap',
                             fontWeight:500,
                             marginTop:'2%',
                             fontSize:'1.7vw',
@@ -207,12 +215,13 @@ const Footer = () => {
                         }}>info@progist.co.kr</div>
                         <div style={{
                             fontWeight:500,
-                            marginTop:'10%',
+                            marginTop:'5%',
                             fontSize:'0.8vw',
                             color:'#4b4b4b',
                         }}>
                             Phone</div>
                         <div style={{
+                            whiteSpace: 'nowrap',
                             fontWeight:500,
                             marginTop:'2%',
                             fontSize:'1.7vw',
@@ -229,18 +238,17 @@ const Footer = () => {
                     justifyContent:'flex-between',
                     fontSize: '0.8vw',
                     color: '#4b4b4b',
-                    position:'absolute',
                     whiteSpace: 'nowrap',
-                    bottom:'-32%'
+                    marginTop:'15%'
                 }}>
-                    ⓒ2023 Progist All Rights Reserved.
+                    ⓒ2024 Progist All Rights Reserved.
                     <div style={{
                         display: 'flex',
                         flexDirection: 'row',
                         justifyContent: 'flex-end',
                         gap:'15%',
                         whiteSpace: 'nowrap',
-                        marginLeft: '43%',
+                        marginLeft: '38%',
                         }}>
                         <span>Legal notice</span>
                         <span>Privacy policy</span>
@@ -252,28 +260,18 @@ const Footer = () => {
     }
 
     return (
-        <Div3ContentsLayout
-            div1='2' div2='8' div3='' span1='4' span2='8' span3=''
-            style={{
-                backgroundColor: '#e8ecee',
-                aspectRatio: '3.5/1',
-            }}
-            first={
-                <div style={{
-                    width:'100%',
-                    height: '100%',
-                    position:'relative',
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:'flex-start',
-                    top:'-33%'
-            }}>
-                <SubscribeCard/>
-            </div>
-            }
-            second={
-                <FooterCompanyInfo/>
-            }
+            <GridContentsLayout
+                div1='2' span1='5' div2='9' span2='7' div3='0' span3='0'
+                style={{
+                    background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #E7EBEE 30%, #E7EBEE 100%)',
+                    padding: '10% 3.5%',
+                }}
+                first_contents={
+                    <LeaveContactCard/>
+                }
+                second_contents={
+                    <FooterCompanyInfo/>
+                }
             />
     );
 };

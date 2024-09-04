@@ -27,3 +27,7 @@ export const Home2Images=[
 
 // home4
 export const Home4Subtitle = '우리는 고객의 비전에 맞춰 프로그램과 브랜드 전략을 기획하고, 그것을 토대로 멋지게 디자인합니다.'
+
+// home5
+export const Home5Title = 'All-in-one at Progist'
+export const Home5Subtitle = '꿈을 현실로 만들고 비전을 실현합니다.'
