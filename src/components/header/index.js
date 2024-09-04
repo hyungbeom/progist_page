@@ -19,19 +19,19 @@ function Header() {
             setIsMinMenuOpen(true);
         }
 
-        let lastScrollY = window.scrollY;
+        // let lastScrollY = window.scrollY;
 
         const handleScroll = () => {
-            if (window.scrollY > lastScrollY) {
-                // 스크롤 다운 (접히기)
-                setIsMenuOpen(false);
-                setIsMinMenuOpen(true);
-            } else {
-                // 스크롤 업 (펼쳐지기)
+            if (window.scrollY <= 10) {
+                // 스크롤이 창의 최상단일 때 펼치기
                 setIsMenuOpen(true);
                 setIsMinMenuOpen(false);
+            } else {
+                // 그 외 스크롤 위치일 때 접기
+                setIsMenuOpen(false);
+                setIsMinMenuOpen(true);
             }
-            lastScrollY = window.scrollY;
+            // lastScrollY = window.scrollY;
         };
 
     useEffect(() => {

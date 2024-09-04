@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import GridContentsLayout from "../layouts/GridContentsLayout";
+import mailIcon from "../../assets/images/footer_icon_mail.png";
 
 
 function Footer() {
@@ -26,11 +27,8 @@ function Footer() {
                 backgroundColor: '#212121',
                 padding:'10%',
                 boxSizing: 'border-box',
-                display:'flex',
-                flexDirection:'column',
-                justifyContent:'flex-start',
             }}>
-                <img src="/img/mail_icon.png" alt="mail"
+                <img src={mailIcon} alt="mail"
                      style={{
                     width:'18%'
                 }}/>
@@ -58,23 +56,10 @@ function Footer() {
                 </div>
 
 
-                <div style={{
-                    border: '0.5px solid Darkgray',
-                    marginTop:'7%',
-                    height:'14%',
-                }}>
+                <div className='footer_input'>
                     <input type="text"
                            value={email}
                            onChange={writeEmail}
-                           style={{
-                               background: 'none',
-                               border: 'none',
-                               width: '100%',
-                               paddingLeft: '5%',
-                               paddingTop: '6%',
-                               color: "white",
-                               fontSize: '0.9vw'
-                           }}
                            placeholder={'연락받으실 이메일 혹은 전화번호'}/>
                 </div>
                 <div style={{
