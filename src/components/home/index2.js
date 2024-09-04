@@ -19,7 +19,7 @@ const Home2 = () => {
             scrollTrigger: {
                 trigger: '.home2_title_photo', // 스크롤 트리거 요소
                 start: 'top +30%', // 트리거가 시작되는 시점 (뷰포트 상단에서 중앙까지)
-                end: '+=100%', // 트리거가 끝나는 시점
+                end: '+=98%', // 트리거가 끝나는 시점
                 scrub: true, // 스크롤에 따라 애니메이션이 동기화
             },
         })

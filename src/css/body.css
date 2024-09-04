@@ -227,6 +227,7 @@ body {
     align-items: flex-start;
     gap: 3%;
     padding-top: 9.6%;
+    transition: transform ease;
 }
 
 .photo_item {
