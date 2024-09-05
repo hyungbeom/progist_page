@@ -3,7 +3,8 @@ import {Route, Routes} from "react-router-dom";
 
 import Home from "./views/Home";
 import AboutUs from "./views/AboutUs";
-import Progress from "./views/Progress";
+import Service from "./views/Service";
+import Contact from "./views/Contact";
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
             {/*<Route index element={<Home />}/>*/}
             <Route path='/' element={<Home />}/>
             <Route path='/aboutus' element={<AboutUs/>}/>
-            <Route path='/service' element={<Progress/>}/>
+            <Route path='/service' element={<Service/>}/>
+            <Route path='/contact' element={<Contact/>}/>
         </Routes>
 
     );

@@ -7,12 +7,12 @@ const Home1 = () => {
         <div className="page_layout">
 
             <div className='title_container'>
-                <div className='main_title'>
+                <div className='main_title' id='home_main_title'>
                     {Home1Title}
                 </div>
-                <div className='subtitle'>
+                <div className='subtitle' id='home_subtitle'>
                     {Home1Subtitle1}
-                    <span>{Home1Subtitle2}</span>
+                    <span className='signature'>{Home1Subtitle2}</span>
                 </div>
             </div>
             <div className='photo_container_wrapper'>

@@ -1,9 +1,7 @@
-import AboutUs1 from "../components/aboutUs/AboutUs1";
-import AboutUs2 from "../components/aboutUs/AboutUs2";
-import AboutUs3 from "../components/aboutUs/AboutUs3";
-import AboutUs4 from "../components/aboutUs/AboutUs4";
-import AboutUs5 from "../components/aboutUs/AboutUs5";
-import Members from "../components/aboutUs/Members";
+import AboutUs1 from "../components/aboutUs/insdex1";
+import AboutUs2 from "../components/aboutUs/insdex2";
+import AboutUs3 from "../components/aboutUs/insdex3";
+
 
 const AboutUs = () => {
     return (
@@ -11,9 +9,9 @@ const AboutUs = () => {
             <AboutUs1/>
             <AboutUs2/>
             <AboutUs3/>
-            <AboutUs4/>
-            <AboutUs5/>
-            <Members/>
+            {/*<AboutUs4/>*/}
+            {/*<AboutUs5/>*/}
+            {/*<Members/>*/}
         </>
     );
 };

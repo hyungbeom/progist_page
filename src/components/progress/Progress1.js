@@ -23,7 +23,7 @@
 //                     <div className='head' style={{
 //                         position: 'absolute',
 //                         bottom: '60%',
-//                     }}>Progress
+//                     }}>Service
 //                     </div>
 //                     {content.progressTitle1 ? (
 //                         <div className='title' style={{
