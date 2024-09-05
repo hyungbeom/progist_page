@@ -8,31 +8,30 @@ import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-
 function Footer() {
 
-    useGSAP(() => {
-        const tl_footer=gsap.timeline({repeat: -1,})
-            tl_footer.to(
-            "#origin",
-            {startAt: {x: `+=100%`},
-                duration: 4,
-                ease: "none",
-                x: `-=225%`,
-                repeat: -1,
-            })
-            tl_footer.fromTo(
-            "#clone",{x: `+=100%`},
-            {startAt: {x: `+=100%`},
-                duration: 4,
-                ease: "none",
-                x: `-=225%`,
-                repeat: -1,
-                // delay: 2,
-                },'-=2');
-        },
-        { scope: ".text_flow_container" }
-    );
+    // useGSAP(() => {
+    //     const tl_footer=gsap.timeline({repeat: -1,})
+    //         tl_footer.to(
+    //         "#origin",
+    //         {startAt: {x: `+=100%`},
+    //             duration: 4,
+    //             ease: "none",
+    //             x: `-=225%`,
+    //             repeat: -1,
+    //         })
+    //         tl_footer.fromTo(
+    //         "#clone",{x: `+=100%`},
+    //         {startAt: {x: `+=100%`},
+    //             duration: 4,
+    //             ease: "none",
+    //             x: `-=225%`,
+    //             repeat: -1,
+    //             // delay: 2,
+    //             },'-=2');
+    //     },
+    //     { scope: ".text_flow_container" }
+    // );
 
     const [email, setEmail] = useState('')
 
@@ -288,8 +287,8 @@ function Footer() {
             }>
         </GridContentsLayout>
             <div className="text_flow_container">
-                <p className="text_flow" id='origin'>Turn your Vision into Reality</p>
-                <p className="text_flow" id='clone'>Turn your Vision into Reality</p>
+                <p className="text_flow" id='origin_footer'>Turn your Vision into Reality!</p>
+                <p className="text_flow" id='clone_footer'>Turn your Vision into Reality!</p>
             </div>
         </>
     )

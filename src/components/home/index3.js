@@ -12,7 +12,7 @@ const Home3 = () => {
 
     useGSAP(()=>{
 
-        const tl3=gsap.timeline({
+        const tl=gsap.timeline({
             scrollTrigger: {
                 trigger: '.home3_title',
                 start: 'top bottom',
@@ -21,20 +21,20 @@ const Home3 = () => {
             }
         })
 
-        tl3.to('.home3_title',
+        tl.to('.home3_title',
             {startAt: {scale:0.01}, scale:1, duration:1,});
 
-        tl3.to('.prog',
+        tl.to('.prog',
             {x:'80%', opacity:0, duration:1,})
             .to('.ist',
             {x:'-80%', opacity:0, duration:1,},'-=1')
             .to('.plus',
                 {opacity:0, duration:1,},'-=1');
 
-        tl3.to('.home3_title2_image',
+        tl.to('.home3_title2_image',
                 {opacity:1, duration:0.5,},'-=0.5');
 
-        tl3.to('.home3_subtitle',
+        tl.to('.home3_subtitle',
             {opacity:1, duration:0.5,},'-=0.5')
     },[])
 

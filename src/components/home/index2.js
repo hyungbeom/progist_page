@@ -24,7 +24,7 @@ const Home2 = () => {
                 ease: "sine",
                 scrollTrigger: {
                     trigger: '#home2_title_photo', // 스크롤 트리거 요소
-                    start: 'center +40%', // 트리거가 시작되는 시점
+                    start: 'top +35%', // 트리거가 시작되는 시점
                     end: '+=90%', // 트리거가 끝나는 시점
                     scrub: true,
                     pin: true,

@@ -3,34 +3,8 @@ import {Home5Subtitle, Home5Title} from "../../assets/contents/HomeContents";
 import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import {PartnerList} from "../../assets/contents/PartnerList";
-import {useGSAP} from "@gsap/react";
-import {gsap} from "gsap";
 
 const Home5 = () => {
-
-    useGSAP(() => {
-            const tl5=gsap.timeline({repeat: -1,})
-            tl5.fromTo(
-                "#origin",
-                {x: 0},
-                {
-                    duration: 6,
-                    ease: "none",
-                    x: `-=225%`,
-                    repeat: -1,
-                })
-            tl5.fromTo(
-                "#clone",{x: `+=100%`},
-                {
-                    duration: 6,
-                    ease: "none",
-                    x: `-=225%`,
-                    repeat: -1,
-                    // delay: 2,
-                },'-=2');
-        },
-        { scope: ".partner_wrapper" }
-    );
 
     return (
         <div className="home5_page_layout">
@@ -52,7 +26,7 @@ const Home5 = () => {
                 </div>
                 <div className='partner_container' id='clone'>
                     {PartnerList.map((partner, index) => (
-                        <div className='partner'>o
+                        <div className='partner'>
                             <img key={index} src={partner} alt='partner image'/>
                         </div>
                     ))}

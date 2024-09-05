@@ -219,7 +219,7 @@ body {
     font-weight: 550;
     display: flex;
     flex-direction: row;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .subtitle > span {
@@ -249,43 +249,57 @@ body {
 .bold {
     font-weight: 800;
 }
+
+@keyframes flowContainer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.photo_container_wrapper {
+    width: 100%;
+    overflow: hidden;
+}
 .photo_container {
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    animation: flowContainer 4s linear 1;
 }
 
 .photo_item {
-    grid-area: 1 / 1;
+    /*grid-area: 1 / 1;*/
     border-radius: 10px;
     overflow: hidden;
-    width: 20%;
+    /*width: 20%;*/
 }
 
-/*.photo_item:nth-child(1) {*/
-/*    width: 17%;*/
-/*    aspect-ratio: 0.97 / 1;*/
-/*    margin-top: 0;*/
-/*}*/
-/*.photo_item:nth-child(2) {*/
-/*    width: 19%;*/
-/*    aspect-ratio: 1.1 / 1;*/
-/*    margin-top: 1.5%;*/
-/*}*/
-/*.photo_item:nth-child(3),*/
-/*.photo_item:nth-child(7) {*/
-/*    width: 20%;*/
-/*    aspect-ratio: 1.1 / 1;*/
-/*    margin-top: 3%;*/
-/*}*/
-/*.photo_item:nth-child(4),*/
-/*.photo_item:nth-child(8) {*/
-/*    width: 33%;*/
-/*    aspect-ratio: 1.94 / 1;*/
-/*    margin-top: 1.5%;*/
-/*}*/
+.photo_item:nth-child(1) {
+    width: 17%;
+    aspect-ratio: 0.97 / 1;
+    margin-top: 0;
+}
+.photo_item:nth-child(2) {
+    width: 19%;
+    aspect-ratio: 1.1 / 1;
+    margin-top: 3%;
+}
+.photo_item:nth-child(3) {
+    width: 19%;
+    aspect-ratio: 1.1 / 1;
+    margin-top: 5%;
+}
+.photo_item:nth-child(4) {
+    width: 30%;
+    aspect-ratio: 1.5 / 1;
+    /*margin-top: 1.5%;*/
+}
 
 .photo_item > img {
     margin-top: 20%;
@@ -458,6 +472,14 @@ body {
     font-size: 1.3vw;
     margin-top: 1.8%;
 }
+@keyframes flowContents {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
 .partner_wrapper{
     overflow: hidden;
     display: grid;
@@ -473,6 +495,15 @@ body {
     display: flex;
     flex-direction: row;
 }
+#origin{
+    animation: flowContents 7s linear infinite;
+}
+#clone{
+    transform: translateX(-100%);
+    animation: flowContents 7s linear infinite;
+    animation-delay: 3.5s;
+}
+
 .partner {
     flex: 1;
     border: 1px solid lightgray;
@@ -503,4 +534,14 @@ body {
     margin: 0;
     color: #FFFFFF;
     opacity: 0.7;
+}
+#origin_footer{
+    animation: flowContents 7s linear infinite;
+    animation-direction: reverse;
+}
+#clone_footer{
+    transform: translateX(-100%);
+    animation: flowContents 7s linear infinite;
+    animation-delay: 3.5s;
+    animation-direction: reverse;
 }
