@@ -5,15 +5,15 @@ const GridContentsLayout = ({style, div1, span1, div2, span2, div3, span3,
     return (
         <div className='layout_frame'
              style={{
-             display: 'grid',
-             gridTemplateColumns: 'repeat(16,1fr)',
-             gap: '1%',
-             width: '100%',
-             padding: "0 3.5% 0 3.5%",
+                 display: 'grid',
+                 gridTemplateColumns: 'repeat(16,1fr)',
+                 gap: '1%',
+                 width: '100%',
+                 padding: "0 3.5% 0 3.5%",
                  boxSizing: 'border-box',
-             aspectRatio: '16 / 9',
-             whiteSpace:'pre-line',
-             ...style
+                 aspectRatio: '16 / 9',
+                 whiteSpace:'pre-line',
+                 ...style
         }}>
             <div className='first_grid' style={{
                 gridColumn:`${div1} / span ${span1}`,  // 시작열 / span 차지하는 열 개수

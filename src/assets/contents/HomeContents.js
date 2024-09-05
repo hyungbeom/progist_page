@@ -24,9 +24,17 @@ export const Home2Images=[
     {src: home2Image2, alt:'home image2'},
     {src: home2Image3, alt:'home image3'},
 ]
+export const Home2Title1_1 = '우리는'
+export const Home2Title1_2 = 'Progist'
+export const Home2Title1_3 = '입니다.'
+export const Home2Title2 = '아이디어를 현실로 만드는 IT 전문기업'
+export const Home2Text = '우리는 고객의 비전을 실현하기 위해\n전략적 컨설팅과 혁신적인 IT 솔루션을 제공하며,\n명확한 목표 달성을 위해 맞춤형 접근을 통한 차별화된 성과를 창출합니다.'
 
-// home4
-export const Home4Subtitle = '우리는 고객의 비전에 맞춰 프로그램과 브랜드 전략을 기획하고, 그것을 토대로 멋지게 디자인합니다.'
+
+
+// home3
+export const Home3Subtitle = '우리는 고객의 비전에 맞춰 프로그램과 브랜드 전략을 기획하고, 그것을 토대로 멋지게 디자인합니다.'
+
 
 // home5
 export const Home5Title = 'All-in-one at Progist'

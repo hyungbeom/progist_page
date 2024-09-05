@@ -3,9 +3,36 @@ import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import GridContentsLayout from "../layouts/GridContentsLayout";
 import mailIcon from "../../assets/images/footer_icon_mail.png";
+import { gsap } from "gsap";
+import {useGSAP} from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 
 function Footer() {
+
+    useGSAP(() => {
+        const tl_footer=gsap.timeline({repeat: -1,})
+            tl_footer.to(
+            "#origin",
+            {startAt: {x: `+=100%`},
+                duration: 4,
+                ease: "none",
+                x: `-=225%`,
+                repeat: -1,
+            })
+            tl_footer.fromTo(
+            "#clone",{x: `+=100%`},
+            {startAt: {x: `+=100%`},
+                duration: 4,
+                ease: "none",
+                x: `-=225%`,
+                repeat: -1,
+                // delay: 2,
+                },'-=2');
+        },
+        { scope: ".text_flow_container" }
+    );
 
     const [email, setEmail] = useState('')
 
@@ -22,6 +49,7 @@ function Footer() {
 
         return (
             <div style={{
+                marginTop:'-5%',
                 width: '100%',
                 aspectRatio:'1/1.2',
                 backgroundColor: '#212121',
@@ -245,20 +273,27 @@ function Footer() {
     }
 
     return (
-            <GridContentsLayout
-                div1='2' span1='5' div2='9' span2='7' div3='0' span3='0'
-                style={{
-                    background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 30%, #E7EBEE 30%, #E7EBEE 100%)',
-                    padding: '10% 3.5%',
-                }}
-                first_contents={
-                    <LeaveContactCard/>
-                }
-                second_contents={
-                    <FooterCompanyInfo/>
-                }
-            />
-    );
+        <>
+        <GridContentsLayout
+            div1='2' span1='5' div2='9' span2='7' div3='0' span3='0'
+            style={{
+                background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #E7EBEE 40%, #E7EBEE 100%)',
+                padding: '10% 3.5% 0 3.5%', aspectRatio:'2.25/1',
+            }}
+            first_contents={
+                <LeaveContactCard/>
+            }
+            second_contents={
+                <FooterCompanyInfo/>
+            }>
+        </GridContentsLayout>
+            <div className="text_flow_container">
+                <p className="text_flow" id='origin'>Turn your Vision into Reality</p>
+                <p className="text_flow" id='clone'>Turn your Vision into Reality</p>
+            </div>
+        </>
+    )
+        ;
 };
 
 export default Footer;

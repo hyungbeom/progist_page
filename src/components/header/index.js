@@ -56,19 +56,18 @@ function Header() {
                     <img src={CI_text} alt="CI" id="ci_text"/>
                 </div>
                 <div className='menu_container'
-                     onMouseEnter={handleMouseEnter}
                      onMouseLeave={handleMouseLeave}
                 >
                     {menuList.slice(0,menuList.length - 1).map((v) => {
                         return (
                             <Link to={v.link} key={v.title}
+                                  onMouseEnter={handleMouseEnter}
                                   className={`menu_item ${isMenuOpen ? 'open' : 'close'}`}>
                                 {v.title}
                             </Link>)
                     })}
                     <div className={`menu_minimalized ${isMinMenuOpen ? 'open' : 'close'}`}
                     onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave}
                     >
                         <div className='menu_minimalized_icon'/>
                         <div className='menu_minimalized_icon'/>

@@ -8,7 +8,7 @@ const Home4 = () => {
             <div className="home4_title_container">
                 <img src={CI_text} alt="CI"/>
                 <div className='home4_subtitle'>
-                    {Home4Subtitle}
+                    {/*{Home4Subtitle}*/}
                 </div>
 
             </div>
