@@ -34,8 +34,8 @@ function Footer() {
             }}>
                 <img src={mailIcon} alt="mail"
                      style={{
-                    width:'18%'
-                }}/>
+                         width:'18%'
+                     }}/>
 
                 <div style={{color: 'white', fontSize: '2.1vw',
                     paddingTop: '7%', lineHeight: 1.2}}>
@@ -55,7 +55,7 @@ function Footer() {
                     <div style={{
                         marginTop:'1.5%'
                     }}>
-                      신속히 연락드리겠습니다.
+                        신속히 연락드리겠습니다.
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ function Footer() {
                     fontWeight: 500,
                 }}
                      onClick={clickSendButton}>
-                     Send
+                    Send
                 </div>
 
                 <div className="privacy_agreement"
@@ -93,14 +93,14 @@ function Footer() {
                          justifyContent:'flex-end',
                          alignItems:'center',
                          marginTop: '1.5%',
-                }}>
+                     }}>
                     <div style={{
                     }}>
                         {'개인정보 처리방침에 동의합니다.\u00A0\u00A0'}
                     </div>
-                        <input className='privacy_checkbox'
-                               type='checkbox'/>
-                    </div>
+                    <input className='privacy_checkbox'
+                           type='checkbox'/>
+                </div>
 
 
             </div>
@@ -113,35 +113,35 @@ function Footer() {
                 position:'relative',
                 marginTop:'24%',
             }}>
-                    {/*메뉴*/}
-                    <div style={{
-                        // backgroundColor: 'gray',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        fontSize: '1.1vw',
-                        fontWeight: 600,
-                        whiteSpace: 'nowrap',
-                        width: '100%',
-                        margin: '5% 0',
-                    }}>
-                        {menuList.map((v) => {
-                            return (
-                                <Link to={v.link}
-                                      style={{
-                                          textDecoration: 'none',
-                                          cursor: 'pointer',
-                                          color: 'inherit', // 링크 연결 후에도 color를 유지함
-                                      }}>
+                {/*메뉴*/}
+                <div style={{
+                    // backgroundColor: 'gray',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    fontSize: '1.1vw',
+                    fontWeight: 600,
+                    whiteSpace: 'nowrap',
+                    width: '100%',
+                    margin: '5% 0',
+                }}>
+                    {menuList.map((v) => {
+                        return (
+                            <Link to={v.link}
+                                  style={{
+                                      textDecoration: 'none',
+                                      cursor: 'pointer',
+                                      color: 'inherit', // 링크 연결 후에도 color를 유지함
+                                  }}>
                             <span
                                 key={v.title}
                             >
                             {v.title}
                             </span>
-                                </Link>)
-                        })}
-                    </div>
+                            </Link>)
+                    })}
+                </div>
                 <div style={{
                     backgroundColor: 'lightGray',
                     height: '1px',
@@ -238,7 +238,7 @@ function Footer() {
                         gap:'15%',
                         whiteSpace: 'nowrap',
                         marginLeft: '38%',
-                        }}>
+                    }}>
                         <span>Legal notice</span>
                         <span>Privacy policy</span>
                         <span>Linkedin</span>
@@ -250,19 +250,19 @@ function Footer() {
 
     return (
         <>
-        <GridContentsLayout
-            div1='2' span1='5' div2='9' span2='7' div3='0' span3='0'
-            style={{
-                background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #E7EBEE 40%, #E7EBEE 100%)',
-                padding: '10% 3.5% 0 3.5%', aspectRatio:'2.25/1',
-            }}
-            first_contents={
-                <LeaveContactCard/>
-            }
-            second_contents={
-                <FooterCompanyInfo/>
-            }>
-        </GridContentsLayout>
+            <GridContentsLayout
+                div1='2' span1='5' div2='9' span2='7' div3='0' span3='0'
+                style={{
+                    background: 'linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #E7EBEE 40%, #E7EBEE 100%)',
+                    padding: '10% 3.5% 0 3.5%', aspectRatio:'2.25/1',
+                }}
+                first_contents={
+                    <LeaveContactCard/>
+                }
+                second_contents={
+                    <FooterCompanyInfo/>
+                }>
+            </GridContentsLayout>
             <div className="text_flow_container">
                 <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>

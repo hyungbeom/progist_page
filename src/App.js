@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 
 import Home from "./views/Home";
 import AboutUs from "./views/AboutUs";
-import Service from "./views/Service";
+import Services from "./views/Services";
 import Contact from "./views/Contact";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
             {/*<Route index element={<Home />}/>*/}
             <Route path='/' element={<Home />}/>
             <Route path='/aboutus' element={<AboutUs/>}/>
-            <Route path='/service' element={<Service/>}/>
+            <Route path='/services' element={<Services/>}/>
             <Route path='/contact' element={<Contact/>}/>
         </Routes>
 

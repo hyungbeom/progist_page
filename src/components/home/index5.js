@@ -17,14 +17,14 @@ const Home5 = () => {
                 </Link>
             </div>
             <div className='partner_wrapper'>
-                <div className='partner_container' id='origin'>
+                <div className='partner_container origin'>
                     {PartnerList.map((partner, index) => (
                         <div className='partner'>
                             <img key={index} src={partner} alt='partner image'/>
                         </div>
                     ))}
                 </div>
-                <div className='partner_container' id='clone'>
+                <div className='partner_container clone'>
                     {PartnerList.map((partner, index) => (
                         <div className='partner'>
                             <img key={index} src={partner} alt='partner image'/>

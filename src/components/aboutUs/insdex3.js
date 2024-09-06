@@ -7,8 +7,7 @@ const AboutUs2 = () => {
         console.log(currentIndex);
 
     const handleMouseEnter = (e) => {
-        // console.log(e.target.accessKey);
-        setCurrentIndex(e.target.accessKey); // alt는 string이므로 숫자로 변환
+        setCurrentIndex(e.target.accessKey);
     }
 
     const handleMouseLeave = () => {
@@ -34,8 +33,8 @@ const AboutUs2 = () => {
                     {MemberList.map((member, index) => {
                         return (
                             <>
-                            <div key={index} accessKey={index} className="member position"
-                                 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.position}</div>
+                                <div key={index} accessKey={index} className="member position"
+                                    onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.position}</div>
                                 <div className='underline'/>
                             </>
                         )})}
@@ -53,12 +52,8 @@ const AboutUs2 = () => {
                     About Us.
                 </div>
                 <div className='mamber_photo_container'>
-                    {MemberList.map((member, index) => {
-                        return (
-                                <img key={index} accessKey={index} className="member_photo"
-                                src={member.photo} alt='photo'
-                                     id={currentIndex===index? 'active':null}/>
-                        )})}
+                    <img className="member_photo"
+                         src={MemberList[currentIndex].photo} alt='photo'/>
                 </div>
             </div>
 
