@@ -17,17 +17,17 @@ const Home2 = () => {
             {
                 startAt: {filter: 'brightness(100%)'},
                 x: '-65%',
-                y: '400%',
+                y: '1100%',
                 filter: 'brightness(60%)',
                 borderRadius: 0,
                 scale: 11,
                 ease: "sine",
                 scrollTrigger: {
-                    trigger: '#home2_title_photo', // 스크롤 트리거 요소
-                    start: 'top +35%', // 트리거가 시작되는 시점
+                    trigger: '.long_page_layout', // 스크롤 트리거 요소
+                    start: 'top top', // 트리거가 시작되는 시점
                     end: '+=100%', // 트리거가 끝나는 시점
                     scrub: true,
-                    pin: true,
+                    // pin: true,
                 },
             })
     },[])

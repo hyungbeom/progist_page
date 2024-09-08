@@ -34,6 +34,7 @@ const AboutUs2 = () => {
                         return (
                             <>
                                 <div key={index} accessKey={index} className="member position"
+
                                     onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.position}</div>
                                 <div className='underline'/>
                             </>

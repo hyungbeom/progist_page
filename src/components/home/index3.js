@@ -12,7 +12,7 @@ const Home3 = () => {
 
     useGSAP(()=>{
 
-        const tl=gsap.timeline({
+        let tl=gsap.timeline({
             scrollTrigger: {
                 trigger: '.home3_title',
                 start: 'top bottom',
