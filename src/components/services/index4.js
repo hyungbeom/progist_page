@@ -49,7 +49,7 @@ const Services4 = () => {
             animation: tl,
             snap: [0.125, 0.375, 0.625, 0.875], //스크롤 트리거의 전체 구간을 등분
             trigger: ".pin",
-            start: "top top",
+            start: "top -10%",
             end: "+=500%",
             pin: true,
             scrub: true,

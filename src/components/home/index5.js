@@ -1,41 +1,43 @@
 import React from 'react';
-import {Home5Subtitle, Home5Title} from "../../assets/contents/HomeContents";
-import {Link} from "react-router-dom";
-import {menuList} from "../../assets/contents/MenuList";
-import {PartnerList} from "../../assets/contents/PartnerList";
+import {Home1Images, Home1Subtitle1, Home1Subtitle2, Home1Title} from "../../assets/contents/HomeContents";
+import backgroundImage from "../../assets/images/home_1_4.jpg";
 
-const Home5 = () => {
+const Home1 = () => {
+
+    const backgroundStyle={
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",  // 이미지 크기를 화면에 맞춤
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat", // 이미지 반복 방지
+        height: "100%",
+        animation: "zoomBackground 10s infinite", // 애니메이션 적용
+    };
 
     return (
-        <div className="home5_page_layout">
-            <div className="home5_title_container">
-                <div className='home5_title'>{Home5Title}</div>
-                <div className='home5_subtitle'>{Home5Subtitle}</div>
-                <Link to={menuList[menuList.length - 1].link} key={menuList[menuList.length - 1].title}
-                      className='contact_us_button'>
-                    with Progist
-                </Link>
-            </div>
-            <div className='partner_wrapper'>
-                <div className='partner_container origin'>
-                    {PartnerList.map((partner, index) => (
-                        <div className='partner'>
-                            <img key={index} src={partner} alt='partner image'/>
-                        </div>
-                    ))}
+        <div className="layout flex" style={backgroundStyle}>
+                <div className='title_container'>
+                    <div className='slogan'>
+                        {Home1Title}
+                    </div>
+                    <div className='subtitle' id='home_subtitle'>
+                        {Home1Subtitle1}
+                        <span className='signature'>{Home1Subtitle2}</span>
+                    </div>
                 </div>
-                <div className='partner_container clone'>
-                    {PartnerList.map((partner, index) => (
-                        <div className='partner'>
-                            <img key={index} src={partner} alt='partner image'/>
-                        </div>
-                    ))}
+                <div className='photo_container_wrapper'>
+                    <div className='photo_container'>
+                        {Home1Images ? Home1Images.map((image, index) => (
+                            <div className='photo_item' key={index}>
+                                <img src={image.src} alt={image.alt}/>
+                            </div>
+                        )) : null}
+                    </div>
                 </div>
+
             </div>
-        </div>
 
-    )
-        ;
-};
+            )
+            ;
+            };
 
-export default Home5;
+            export default Home1;

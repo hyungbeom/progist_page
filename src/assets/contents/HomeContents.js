@@ -9,8 +9,7 @@ import home2Image3 from '../../assets/images/home_2_3.jpg';
 
 // home1
 export const Home1Title = 'Turn your Vision into Reality'
-export const Home1Subtitle1 = '당신의 상상을 현실로,'
-export const Home1Subtitle2 = '\u00A0\u00A0프로지스트'
+export const Home1Subtitle1 = 'IT전문가 프로지스트입니다'
 export const Home1Images=[
     {src: homeImage1, alt:'home image1'},
     {src: homeImage2, alt:'home image2'},

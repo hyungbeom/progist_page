@@ -33,7 +33,7 @@ const Home2 = () => {
     },[])
 
     return (
-        <div className="long_page_layout">
+        <div className="long_page_layout slide-in">
 
             <div className='title' id='home2_title1'>
                 {Home2Title1_1}
