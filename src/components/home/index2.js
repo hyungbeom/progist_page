@@ -35,22 +35,22 @@ const Home2 = () => {
     return (
         <div className="long_page_layout slide-in">
 
-            <div className='title' id='home2_title1'>
-                {Home2Title1_1}
-                <span className='bold'>{Home2Title1_2}</span>
-                <img id='home2_title_photo' src={Home2Images[0].src} alt={Home2Images[0].alt}/>
-                {Home2Title1_3}
-            </div>
+            {/*<div className='title' id='home2_title1'>*/}
+            {/*    {Home2Title1_1}*/}
+            {/*    <span className='bold'>{Home2Title1_2}</span>*/}
+            {/*    <img id='home2_title_photo' src={Home2Images[0].src} alt={Home2Images[0].alt}/>*/}
+            {/*    {Home2Title1_3}*/}
+            {/*</div>*/}
 
-            <div id='home2_photo_container'>
-                <img src={Home2Images[1].src} alt={Home2Images[1].alt}/>
-                <img src={Home2Images[2].src} alt={Home2Images[2].alt}/>
-            </div>
+            {/*<div id='home2_photo_container'>*/}
+            {/*    <img src={Home2Images[1].src} alt={Home2Images[1].alt}/>*/}
+            {/*    <img src={Home2Images[2].src} alt={Home2Images[2].alt}/>*/}
+            {/*</div>*/}
 
-            <div className='title_container center' id='home2_title2'>
-                <span className='title bold'>{Home2Title2}</span><br/>
-                <span className='text' id='home2_text'>{Home2Text}</span>
-            </div>
+            {/*<div className='title_container center' id='home2_title2'>*/}
+            {/*    <span className='title bold'>{Home2Title2}</span><br/>*/}
+            {/*    <span className='text' id='home2_text'>{Home2Text}</span>*/}
+            {/*</div>*/}
 
         </div>
 

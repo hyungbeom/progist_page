@@ -22,25 +22,16 @@ const AboutUs2 = () => {
                     {MemberList.map((member, index)=>{
                         return(
                             <>
-                                <div key={index} accessKey={index} className="member name"
-                                     onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.name}</div>
-                                <div className='underline'/>
+                                <div className='member'>
+                                    <div key={index} accessKey={index} className="name"
+                                         onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.name}</div>
+                                    <div key={index} accessKey={index} className="position"
+                                        onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.position}</div>
+                                </div>
+                                    <div className='underline'/>
                             </>
                         )})}
                 </div>
-
-                <div className="member_card">
-                    {MemberList.map((member, index) => {
-                        return (
-                            <>
-                                <div key={index} accessKey={index} className="member position"
-
-                                    onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>{member.position}</div>
-                                <div className='underline'/>
-                            </>
-                        )})}
-                </div>
-
             </div>
     )
     }

@@ -16,7 +16,7 @@ const Home3 = () => {
             scrollTrigger: {
                 trigger: '.home3_title',
                 start: 'top bottom',
-                // scrub: true,
+                toggleActions: "restart none reverse none",
                 repeat:-1,
             }
         })
