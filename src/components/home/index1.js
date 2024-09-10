@@ -23,7 +23,7 @@ const Home1 = () => {
     useGSAP(()=>{
 
         function timeline1() {
-            var tl1 = gsap.timeline({})
+            let tl1 = gsap.timeline({})
 
             tl1.addLabel("label1")
 
@@ -52,7 +52,7 @@ const Home1 = () => {
             },
             trigger: "#home1",
             start: "top top",
-            end: "+=300%",
+            end: "+=200%",
             pin: true,
             scrub: 2,
             anticipatePin: 1,
@@ -64,43 +64,59 @@ const Home1 = () => {
         timeline1();
 
         function timeline2(){
-            var tl2 = gsap.timeline({})
+            let tl2 = gsap.timeline()
 
-            tl2.to(".background_image>:nth-child(3)",{
+            tl2.fromTo("#home_background_image3",
+                {filter:'brightness(0.5)'},
+            {
                 position:'absolute',
                 borderRadius: '5%',
                 filter:'brightness(100%)',
                 x: '133%',
-                y: '160%',
+                y: '250%',
                 scale:0.28,
                 ease:"sine",
-                toggleActions: "play none none none",
             }, '-=0.2')
-                .to('.photo_container',{
-                    x:'0',
-                    duration:2,
-                    toggleActions: "play none none none",
-                },'-=1')
 
             ScrollTrigger.create({
                 animation: tl2,
-                trigger: "#home2",
-                start: "top +=50%",
+                trigger: ".home_title_container",
+                start: "center top",
                 end: "+=50%",
                 pin: true,
-                anticipatePin: 1,
                 scrub:1,
                 markers: true,
-                // toggleActions: "play none none none",
                 ontoggleActions: "restart none reverse none",
-
             },);
             return tl2;
         }
-
         timeline2();
 
-    },[])
+        function timeline3(){
+            let tl3 = gsap.timeline({})
+
+            tl3
+                .to('.photo_container',{
+                    x:'0',
+                    duration:2,
+                },'-=1')
+
+            ScrollTrigger.create({
+                animation: tl3,
+                trigger: "#home2",
+                start: "top top",
+                end: "+=50%",
+                pin: true,
+                markers: true,
+                toggleActions: "play none none none",
+                ontoggleActions: "restart none reverse none",
+
+            },);
+            return tl3;
+        }
+        timeline3();
+        }
+        ,[])
 
         return (
             <>
@@ -111,7 +127,7 @@ const Home1 = () => {
                         <img src={backgroundImage2} style={{zIndex: 2, transform: 'translateX(100%)'}}
                              className='home_background_image' alt='home_background_image2'/>
                         <img src={backgroundImage3} style={{zIndex: 3, transform: 'translateX(100%)'}}
-                             className='home_background_image' alt='home_background_image3'/>
+                             className='home_background_image' alt='home_background_image3' id='home_background_image3'/>
                         <div id='home_title_container'>
                             <div style={{
                                 fontSize: '2.8vw',
