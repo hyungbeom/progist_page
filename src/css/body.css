@@ -565,14 +565,58 @@ body {
     font-weight: 900;
 }
 .contact_us_button {
-    width: 16%;
+    width: 40%;
     color: #FFFFFF;
     background-color: #C17F02;
-    padding: 0;
+    padding: 2.2% 0;
     text-decoration: none;
-    font-size: 1.3vw;
+    font-size: 1.25vw;
     margin-top: 1.8%;
+    text-align: center;
+    justify-content: center;
 }
+.contact_us_button {
+    color: rgba(255, 255, 255, 1);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+}
+.contact_us_button:before, .contact_us_button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 1;
+    transform: translate(-105%, 0);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.contact_us_button:after {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.contact_us_button:hover:before, .contact_us_button:hover:after {
+    opacity: 0;
+    transform: translate(0, 0);
+}
+
+
+
 @keyframes flowContents {
     0% {
         transform: translateX(-100%);
@@ -608,9 +652,9 @@ body {
 .partner {
     flex: 1;
     border: 1px solid lightgray;
-    justify-content: center;
-    align-items: center;
     padding: 1%;
+    display: flex;
+    justify-content: center;
 }
 .partner>img {
     width: 40%;

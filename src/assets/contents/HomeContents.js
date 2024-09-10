@@ -32,5 +32,4 @@ export const Home3Subtitle = '우리는 고객의 비전에 맞춰 프로그램�
 
 
 // home5
-export const Home5Title = 'All-in-one at Progist'
-export const Home5Subtitle = '꿈을 현실로 만들고 비전을 실현합니다.'
+export const Home5Title = '그들이 경험한 성장을,\n이제 여러분도 경험할 차례입니다.'

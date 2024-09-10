@@ -22,58 +22,76 @@ const Home1 = () => {
 
     useGSAP(()=>{
 
-        let tl1 = gsap.timeline({})
+        function timeline1() {
+            var tl1 = gsap.timeline({})
 
-        tl1.add("label1")
+            tl1.addLabel("label1")
 
-        tl1.to(".background_image>:nth-child(2)", { xPercent: -100 })
-            .to('.image_navi:nth-child(1)', { width: '1%' }, "-=0.2")
-            .to('.image_navi:nth-child(2)', { width: '10%' }, "-=0.4")
-            .add("label2")
+            tl1.to(".background_image>:nth-child(2)", { xPercent: -100 })
+                .to('.image_navi:nth-child(1)', { width: '1%' }, "-=0.2")
+                .to('.image_navi:nth-child(2)', { width: '10%' }, "-=0.4")
+                .addLabel("label2")
 
-        tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
-            .to('.image_navi:nth-child(2)', { width: '1%' },"-=0.2")
-            .to('.image_navi:nth-child(3)', { width: '10%' }, "-=0.4")
-            .add("label3")
+            tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
+                .to('.image_navi:nth-child(2)', { width: '1%' },"-=0.2")
+                .to('.image_navi:nth-child(3)', { width: '10%' }, "-=0.4")
+                .addLabel("label3")
 
-        tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
-            .to("#slogan_container",{opacity:0},'-=0.1')
-            .to("#home_title_container",{opacity:1}, '-=0.1')
-            .add("label4",)
-
-        // tl1.to("#home_title_container",{opacity:1}, '+=1')
-        //     .add("label5", )
-
-        tl1.to(".background_image>:nth-child(3)",{
-            // scrollTrigger:{pin:false},
-            position:'absolute',
-            borderRadius: '5%',
-            filter:'brightness(100%)',
-            x: '133%',
-            y: '125%',
-            scale:0.28,
-            duration:2,
-        }, '+=1')
-            .to('.photo_container',{x:'0', duration:5},"+=5")
-            .add("label6", )
+            tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
+                .to("#slogan_container",{opacity:0},'-=0.1')
+                .to("#home_title_container",{opacity:1}, '-=0.1')
+                .addLabel("label4",)
 
         ScrollTrigger.create({
             animation: tl1,
             snap: {
-                snapTo: "labels", // 타임라인의 label에 스냅
-                duration: { min: 0.3, max: 1 }, // 스냅 전환 시간 설정
-                delay: 1, // 스냅 지연 시간
-                ease: "power1.inOut", // 스냅 전환시 부드러움 설정
+                snapTo: "labels",
+                duration: { min: 0.3, max: 1 },
+                delay: 1,
+                ease: "power1.in",
             },
-            trigger: ".layout",
+            trigger: "#home1",
             start: "top top",
-            end: "+=350%",
+            end: "+=300%",
             pin: true,
             scrub: 2,
             anticipatePin: 1,
             markers: true,
         },);
 
+            return tl1;
+        }
+
+        function timeline2(){
+            var tl2 = gsap.timeline({})
+
+            tl2.to(".background_image>:nth-child(3)",{
+                position:'absolute',
+                borderRadius: '5%',
+                filter:'brightness(100%)',
+                x: '133%',
+                y: '160%',
+                scale:0.28,
+                duration: 0.7,
+            }, '-=0.2')
+                .to('.photo_container',{x:'0', duration:1},'-=1')
+
+            ScrollTrigger.create({
+                animation: tl2,
+                trigger: "#home2",
+                start: "top +=10%",
+                end: "+=30%",
+                pin: true,
+                anticipatePin: 1,
+                markers: true,
+                toggleActions: "restart none reverse none",
+
+            },);
+
+            return tl2;
+        }
+        timeline1();
+        timeline2();
 
     },[])
 
@@ -121,7 +139,7 @@ const Home1 = () => {
                     </div>
                 </div>
 
-                <div className="layout" style={{padding: '14.5% 0 0 0', zIndex:1,  overflow: 'visible'}}>
+                <div className="layout" id='home2' style={{padding: '14.5% 0 0 0', zIndex:1,  overflow: 'visible'}}>
                     <div className='text center' style={{textAlign:'center'}}>
                         {Home1Text}
                     </div>
