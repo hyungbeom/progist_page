@@ -8,7 +8,7 @@ import Member7 from '../../assets/images/member_7_ali.png'
 
 
 // page1
-export const AboutUsText1 = 'CargoKite\'s journey\n' + 'was inspired by a\n' + 'passion for kitesurfing.'
+export const AboutUsText1 = '우리는 기업의 디지털 성공을 이끄는\ne-Business Total Service 전문가입니다.\n웹 개발, 전자상거래 솔루션, IT 인프라 구축, 마케팅 전략 등\n디지털 비즈니스의 모든 측면에서 고객의 요구를 충족시키며,\n맞춤형 솔루션을 제공합니다.'
 
 export const MemberList = [
     {name: 'Lee Hyung beom', position: 'Co-Founder&CEO', photo: Member1},

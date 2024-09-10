@@ -16,6 +16,7 @@ const Services4 = () => {
         tl
             .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:1, scrub: false, duration: 3})
             .to("#process_card_01", {yPercent: -30})
+            .addLabel("label1")
 
         tl
             .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:0},)
@@ -24,6 +25,7 @@ const Services4 = () => {
         tl
             .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:1},)
             .to("#process_card_02", {yPercent: -30})
+            .addLabel("label2")
 
         tl
             .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:0},)
@@ -32,6 +34,7 @@ const Services4 = () => {
         tl
             .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:1},)
             .to("#process_card_03", {yPercent: -30})
+            .addLabel("label3")
 
         tl
             .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:0},)
@@ -40,6 +43,7 @@ const Services4 = () => {
         tl
             .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:1},)
             .to("#process_card_04", {yPercent: -30})
+            .addLabel("label4")
 
         tl
             .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:0},)
@@ -47,7 +51,7 @@ const Services4 = () => {
 
         ScrollTrigger.create({
             animation: tl,
-            snap: [0.125, 0.375, 0.625, 0.875], //스크롤 트리거의 전체 구간을 등분
+            snap: {}, //스크롤 트리거의 전체 구간을 등분
             trigger: ".pin",
             start: "top -10%",
             end: "+=500%",

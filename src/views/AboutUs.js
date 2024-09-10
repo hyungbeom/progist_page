@@ -9,7 +9,7 @@ const AboutUs = () => {
         <>
             <ScrollToTop/>
             <AboutUs1/>
-            <AboutUs2/>
+            {/*<AboutUs2/>*/}
             <AboutUs3/>
             {/*<AboutUs4/>*/}
             {/*<AboutUs5/>*/}

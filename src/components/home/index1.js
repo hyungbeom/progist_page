@@ -35,12 +35,12 @@ const Home1 = () => {
             tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
                 .to('.image_navi:nth-child(2)', { width: '1%' },"-=0.2")
                 .to('.image_navi:nth-child(3)', { width: '10%' }, "-=0.4")
-                .addLabel("label3")
+                .add("label3")
 
             tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
                 .to("#slogan_container",{opacity:0},'-=0.1')
                 .to("#home_title_container",{opacity:1}, '-=0.1')
-                .addLabel("label4",)
+                .add("label4",)
 
         ScrollTrigger.create({
             animation: tl1,
@@ -61,6 +61,7 @@ const Home1 = () => {
 
             return tl1;
         }
+        timeline1();
 
         function timeline2(){
             var tl2 = gsap.timeline({})
@@ -72,25 +73,31 @@ const Home1 = () => {
                 x: '133%',
                 y: '160%',
                 scale:0.28,
-                duration: 0.7,
+                ease:"sine",
+                toggleActions: "play none none none",
             }, '-=0.2')
-                .to('.photo_container',{x:'0', duration:1},'-=1')
+                .to('.photo_container',{
+                    x:'0',
+                    duration:2,
+                    toggleActions: "play none none none",
+                },'-=1')
 
             ScrollTrigger.create({
                 animation: tl2,
                 trigger: "#home2",
-                start: "top +=10%",
-                end: "+=30%",
+                start: "top +=50%",
+                end: "+=50%",
                 pin: true,
                 anticipatePin: 1,
+                scrub:1,
                 markers: true,
-                toggleActions: "restart none reverse none",
+                // toggleActions: "play none none none",
+                ontoggleActions: "restart none reverse none",
 
             },);
-
             return tl2;
         }
-        timeline1();
+
         timeline2();
 
     },[])
@@ -122,8 +129,9 @@ const Home1 = () => {
                     </div>
 
                     <div className='contents flex column'>
-                        <div className='grid_container' id='slogan_container'>
-                            <div className='slogan'>
+                        <div className='grid_container' style={{
+                            color: '#FFFFFF', margin : '25% 0 0 9%', width: '70%'}} id='slogan_container'>
+                            <div className='main_title'>
                                 {Home1Title}
                             </div>
                             <div className='subtitle' style={{padding: '1% 0 0 9%'}}>
