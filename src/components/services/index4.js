@@ -20,7 +20,7 @@ const Services4 = () => {
 
         tl
             .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:0},)
-            .to("#process_card_01>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
+            .to("#process_card_01>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_01", {yPercent: 0})
 
         tl
@@ -30,7 +30,7 @@ const Services4 = () => {
 
         tl
             .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:0},)
-            .to("#process_card_02>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
+            .to("#process_card_02>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_02", {yPercent: 0})
 
         tl
@@ -40,7 +40,7 @@ const Services4 = () => {
 
         tl
             .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:0},)
-            .to("#process_card_03>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
+            .to("#process_card_03>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_03", {yPercent: 0})
 
         tl
@@ -50,7 +50,7 @@ const Services4 = () => {
 
         tl
             .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:0},)
-            .to("#process_card_04>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
+            .to("#process_card_04>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_04", {yPercent: 0})
 
         ScrollTrigger.create({
@@ -58,7 +58,7 @@ const Services4 = () => {
             snap: 'labels',
             trigger: "#services4",
             start: "top -10%",
-            end: "+=500%",
+            end: "+=550%",
             pin: true,
             scrub: true,
             anticipatePin: 1,

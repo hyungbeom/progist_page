@@ -15,8 +15,9 @@ const Home2 = () => {
         let tl=gsap.timeline({
             scrollTrigger: {
                 trigger: '.center_page_layout',
-                start: 'top center',
+                start: 'top top',
                 toggleActions: "restart none reverse none",
+                pin: true,
                 repeat:-1,
             }
         })
