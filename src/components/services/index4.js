@@ -13,45 +13,49 @@ const Services4 = () => {
 
         const tl = gsap.timeline({defaults: {scrub: 1, duration: 3, ease: "power1.inOut"} });
 
-        tl
-            .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:1, scrub: false, duration: 3})
+        tl.addLabel("label0")
+            .to("#process_card_01 *", {opacity:1, filter:'none'})
             .to("#process_card_01", {yPercent: -30})
             .addLabel("label1")
 
         tl
             .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:0},)
+            .to("#process_card_01>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_01", {yPercent: 0})
 
         tl
-            .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:1},)
+            .to("#process_card_02 *", {opacity:1, filter:'none'})
             .to("#process_card_02", {yPercent: -30})
             .addLabel("label2")
 
         tl
             .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:0},)
+            .to("#process_card_02>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_02", {yPercent: 0})
 
         tl
-            .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:1},)
+            .to("#process_card_03 *", {opacity:1, filter:'none'})
             .to("#process_card_03", {yPercent: -30})
             .addLabel("label3")
 
         tl
             .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:0},)
+            .to("#process_card_03>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_03", {yPercent: 0})
 
         tl
-            .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:1},)
+            .to("#process_card_04 *", {opacity:1, filter:'none'})
             .to("#process_card_04", {yPercent: -30})
             .addLabel("label4")
 
         tl
             .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:0},)
+            .to("#process_card_04>:nth-child(3)", {filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_04", {yPercent: 0})
 
         ScrollTrigger.create({
             animation: tl,
-            snap: {}, //스크롤 트리거의 전체 구간을 등분
+            snap: 'labels',
             trigger: "#services4",
             start: "top -10%",
             end: "+=500%",

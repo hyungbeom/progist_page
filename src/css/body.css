@@ -207,6 +207,7 @@ body {
     flex-direction: column;
     padding: 1% 0 0 0;
 }
+
 .layout {
     /*background-color: gray;*/
     width: 100%;
@@ -245,7 +246,6 @@ body {
     position: absolute;
 }
 .background_image {
-    /*background-color: coral;*/
     display: grid;
     overflow: hidden;
 }
@@ -257,6 +257,10 @@ body {
     filter: brightness(0.5);
     /*opacity: 0.5;*/
 }
+#home_background_image3{
+    transform: translateX(0%);
+    z-index: 3;
+}
 .main_title {
     /*130*/
     font-size: 6.8vw;
@@ -267,11 +271,12 @@ body {
     /*36*/
     font-size: 1.9vw;
     font-weight: 400;
+    white-space: nowrap;
 }
 .image_navi {
     width: 1%;
     background-color: #FFFFFF;
-    height: 2px;
+    height: 3px;
 }
 #home_title_container{
     color:#ffffff;
@@ -345,16 +350,6 @@ body {
 .signature_bg {
     background-color : #C17F02;
 }
-
-@keyframes flowContainer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-    /*animation: flowContainer 4s linear 1;*/
 
 .photo_container_wrapper {
     width: 100%;
@@ -572,7 +567,7 @@ body {
     -o-transition: all 0.5s;
     transition: all 0.5s;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    /*border: 1px solid rgba(255, 255, 255, 0.5);*/
     overflow: hidden;
 }
 .shining_button:before, .shining_button:after {
@@ -655,6 +650,28 @@ body {
 #about_us2 {
     /*background-color: cadetblue;*/
 }
+.member_photo_area {
+    width: 50%;
+}
+.member_photo{
+    margin: 15% 0 0 4%;
+    width: 26%;
+    height: auto;
+    aspect-ratio: 3 / 3.5;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.photo_transition {
+    transform: scale(1.1); /* 확대 효과 */
+    opacity: 1; /* 투명도 변화 */
+}
+.member_photo_container {
+    position: relative; /* absolute 위치 지정의 기준을 위해 relative 설정 */
+    width: 100%;
+    height: 100%;
+}
 .member_card_container {
     /*background-color: #575757;*/
     margin-top: 30%;
@@ -680,49 +697,27 @@ body {
     flex-direction: row;
 }
 .name {
-    padding: 5% 0;
+    padding: 2% 0;
+    margin: 3% 0;
     width: 50%;
     font-weight: 800;
 }
 .position {
     width: 50%;
-    padding: 5% 0;
+    padding: 2% 0;
+    margin: 3% 0;
     /*font-weight: 800;*/
 }
 .underline {
     width:100%;
     height: 1px;
     background-color: darkgray;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
 }
 .member:hover +.underline,
 .position:hover.underline {
     background-color: #C17F02;  /* 배경색 변경 */
     height: 2px;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-.member_photo{
-    margin: 12% 0 0 3%;
-    width: 23%;
-    height: auto;
-    aspect-ratio: 3 / 3.5;
-    position: absolute;
-    overflow: hidden;
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-}
-.member_photo_container {
-    position: relative; /* absolute 위치 지정의 기준을 위해 relative 설정 */
-    width: 100%;
-    height: 100%;
 }
 .stack_card_container {
     padding: 5% 5% 0 5%;
@@ -775,30 +770,32 @@ body {
         transform: translateX(0%);
     }
     50% {
-        transform: translateX(-100%);
-    }
-    50.1% {
         transform: translateX(100%);
+    }
+    50.01% {
+        transform: translateX(-100%);
     }
     100% {
         transform: translateX(0%);
     }
 }
-@keyframes flowContents_clone {
+@keyframes flowContents_clone{
     0% {
+        transform: translateX(-100%);
+    }
+    50% {
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-200%);
+        transform: translateX(100%);
     }
 }
 .origin{
-    animation: flowContents 7s linear infinite;
+    animation: flowContents 20s linear infinite;
 }
 .clone{
-    /*animation-delay: 3.5s;*/
-    /*transform: translateX(-100%);*/
-    animation: flowContents_clone 7s linear infinite;
+    animation-delay: 5s;
+    animation: flowContents_clone 20s linear infinite;
 }
 .tech_image_container {
     margin-top: 5%;
@@ -820,7 +817,7 @@ body {
     width: 100%;
     aspect-ratio: 1 / 1;
     margin-top: 20%;
-    /*filter: brightness(1.2) saturate(0.5) blur(2px);*/
+    filter: brightness(0.8) saturate(0.5) blur(2px);
 }
 .process_card_title_container {
     display: flex;
@@ -908,4 +905,15 @@ input {
     border-radius: 10px;
     color: #dcdcdc;
     border: #dcdcdc solid 1px;
+}
+.EssentialSign {
+    width: 1.5%;
+    aspect-ratio: 1/1;
+    margin: 0 0 3% 1%;
+    border-radius: 50%;
+}
+.label_container {
+    display: flex;
+    width: 100%;
+    height: auto;
 }

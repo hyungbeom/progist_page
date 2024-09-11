@@ -11,9 +11,6 @@ const AboutUs = () => {
             <AboutUs1/>
             {/*<AboutUs2/>*/}
             <AboutUs3/>
-            {/*<AboutUs4/>*/}
-            {/*<AboutUs5/>*/}
-            {/*<Members/>*/}
         </>
     );
 };

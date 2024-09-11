@@ -5,13 +5,19 @@ const AboutUs2 = () => {
 
     const [currentIndex, setCurrentIndex] = useState(6);
         console.log(currentIndex);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     const handleMouseEnter = (e) => {
         setCurrentIndex(e.target.accessKey);
+        setIsTransitioning(true)
+    }
+    const handleMouseLeave = () => {
+        setIsTransitioning(false)
     }
 
-    const handleMouseLeave = () => {
-    }
+    useEffect(() => {
+        setIsTransitioning(false)
+    }, [currentIndex]);
 
     function MemberCard(){
 
@@ -39,12 +45,12 @@ const AboutUs2 = () => {
     return (
         <div className='grid_page_layout'>
 
-            <div className='subtitle_area'>
-                <div className='subtitle'>
+            <div className='member_photo_area'>
+                <div className='subtitle bold'>
                     About Us.
                 </div>
                 <div className='mamber_photo_container'>
-                    <img className="member_photo"
+                    <img className={`member_photo ${isTransitioning ? 'photo_transition' : ''}`}
                          src={MemberList[currentIndex].photo} alt='photo'/>
                 </div>
             </div>

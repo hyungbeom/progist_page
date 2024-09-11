@@ -7,7 +7,7 @@ const Services2 = () => {
         <div className='grid_page_layout'>
 
             <div className='subtitle_area' style={{gridColumn : '1 / span 9', width: '100%'}}>
-                <div className='subtitle'>
+                <div className='subtitle bold'>
                     Services.
                 </div>
                 <div className='title' style={{textAlign: 'left', marginTop:'35%'}}>

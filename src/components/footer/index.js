@@ -39,8 +39,7 @@ function Footer() {
 
                 <div style={{color: 'white', fontSize: '2.1vw',
                     paddingTop: '7%', lineHeight: 1.2}}>
-                    <div>이메일 또는 전화번호를</div>
-                    <div>남겨주세요</div>
+                    <div>이메일 또는 전화번호를<br/>남겨주세요</div>
                 </div>
                 <div style={{
                     color: '#909090',
@@ -48,14 +47,10 @@ function Footer() {
                     fontWeight: '600'
                 }}>
                     <div style={{
-                        marginTop:'5%'
+                        marginTop: '5%',
+                        lineHeight: 1.5
                     }}>
-                        연락처를 남겨주시면
-                    </div>
-                    <div style={{
-                        marginTop:'1.5%'
-                    }}>
-                        신속히 연락드리겠습니다.
+                        연락처를 남겨주시면<br/>신속히 연락드리겠습니다.
                     </div>
                 </div>
 
@@ -66,19 +61,12 @@ function Footer() {
                            onChange={writeEmail}
                            placeholder={'연락받으실 이메일 혹은 전화번호'}/>
                 </div>
-                <div style={{
-                    backgroundColor: '#C17F02',
-                    height: '15%',
-                    marginTop: '3%',
-                    cursor: 'pointer',
-                    textAlign: 'center',
-                    color: 'white',
-                    display:'flex',
-                    alignItems:'center',
-                    justifyContent: 'center',
-                    fontSize: '1vw',
-                    fontWeight: 500,
-                }}
+                <div className='shining_button'
+                     style={{
+                         width: '100%',
+                         fontSize: '1vw',
+                         padding: '5% 0'
+                         }}
                      onClick={clickSendButton}>
                     Send
                 </div>

@@ -3,13 +3,13 @@ import {AboutUsText1} from "../../assets/contents/AboutUsContents";
 import AboutUs_image_1 from "../../assets/images/aboutUs_1.png"
 import AboutUs_image_2 from "../../assets/images/aboutUs_2.png"
 
-const AboutUs3 = () => {
+const AboutUs2 = () => {
 
     function Square({style}){
         return(
             <div style={{
                 backgroundColor: '#EAEEF0',
-                width: '100%',  // 그리드 셀에 맞도록 너비를 자동으로 조정
+                width: '100%',
                 height: 'auto',
                 aspectRatio:'1/1',
                 borderRadius: '5%',
@@ -18,13 +18,14 @@ const AboutUs3 = () => {
             </div>
         )
     }
-    function SquarePhoto({src, alt}){
+    function SquarePhoto({src, alt, style}){
         return(
             <img style={{
-                width: '105%',  // 그리드 셀에 맞도록 너비를 자동으로 조정
+                width: '105%',
                 height: 'auto',
                 aspectRatio:'1/1',
                 borderRadius: '5%',
+                ...style
             }}
                  src={src}
                  alt={alt}
@@ -53,17 +54,19 @@ const AboutUs3 = () => {
             <div style={{
                 gridColumn: '10 / span 2',
             }}>
-                <SquarePhoto src={AboutUs_image_2} alt={'AboutUs_image_2'}/>
-                <Square style={{width:'50%',
+                <SquarePhoto src={AboutUs_image_2} alt='AboutUs_image_2'
+                             style={{transform: 'translateX(-30%)'}}/>
+                <Square style={{
+                    width:'50%',
                     marginTop: '180%',
-                    marginLeft: '50%',
+                    marginLeft: '0%',
                 }}/>
             </div>
             <div style={{
                 gridColumn: '12 / span 4',
                 marginTop: '45%',
             }}>
-                <SquarePhoto src={AboutUs_image_1} alt={'AboutUs_image_1'}/>
+                <SquarePhoto src={AboutUs_image_1} alt='AboutUs_image_1'/>
             </div>
             <div style={{
                 gridColumn: '16 / span 1',
@@ -77,4 +80,4 @@ const AboutUs3 = () => {
     );
 };
 
-export default AboutUs3;
+export default AboutUs2;

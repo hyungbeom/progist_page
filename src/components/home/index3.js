@@ -1,64 +1,58 @@
 import React from 'react';
-import CI_text from "../../assets/images/CI_text.png";
-import {Home3Subtitle} from "../../assets/contents/HomeContents";
-import {gsap} from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {useGSAP} from "@gsap/react";
-
-gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger);
+import {Home5Title} from "../../assets/contents/HomeContents";
+import {menuList} from "../../assets/contents/MenuList";
+import {PartnerList} from "../../assets/contents/PartnerList";
 
 const Home3 = () => {
 
-    useGSAP(()=>{
-
-        let tl=gsap.timeline({
-            scrollTrigger: {
-                trigger: '.home3_title',
-                start: 'top bottom',
-                toggleActions: "restart none reverse none",
-                repeat:-1,
-            }
-        })
-
-        tl.to('.home3_title',
-            {startAt: {scale:0.01}, scale:1, duration:1,});
-
-        tl.to('.prog',
-            {x:'80%', opacity:0, duration:1,})
-            .to('.ist',
-            {x:'-80%', opacity:0, duration:1,},'-=1')
-            .to('.plus',
-                {opacity:0, duration:1,},'-=1');
-
-        tl.to('.home3_title2_image',
-                {opacity:1, duration:0.5,},'-=0.5');
-
-        tl.to('.home3_subtitle',
-            {opacity:1, duration:0.5,},'-=0.5')
-    },[])
-
     return (
-        <div className="center_page_layout">
-            <div className="home3_title_container">
-                <div className='home3_title prog'>
-                    PROGRAM
+        <div className="layout flex center">
+            <div className="container flex center" style={{marginBottom:'5%'}}>
+                <div style={{
+                    width: '100%',
+                    whiteSpace: 'pre-line',
+                    fontSize: '2.8vw',
+                    textAlign: 'center',
+                    marginBottom:'5%',
+                }}>{Home5Title}
                 </div>
-                <div className='home3_title plus'>
-                    +
+                <a href={menuList[menuList.length - 1].link} key={menuList[menuList.length - 1].title}
+                      className='shining_button'>
+                    문의하기
+                </a>
+            </div>
+            <div className='partner_wrapper'>
+                <div className='partner_container origin'>
+                    {PartnerList.map((partner, index) => (
+                        <div className='partner'>
+                            <img key={index} src={partner} alt='partner image'/>
+                        </div>
+                    ))}
                 </div>
-                <div className='home3_title ist'>
-                    -IST
+                <div className='partner_container clone'>
+                    {PartnerList.map((partner, index) => (
+                        <div className='partner'>
+                            <img key={index} src={partner} alt='partner image'/>
+                        </div>
+                    ))}
                 </div>
             </div>
-            <div className="home3_title2_container">
-                <img className="home3_title2_image" src={CI_text} alt="CI"/>
-                <div className='home3_subtitle'>
-                    {Home3Subtitle}
+            <div className='partner_wrapper'>
+                <div className='partner_container origin'  id='reverse'>
+                    {PartnerList.map((partner, index) => (
+                        <div className='partner'>
+                            <img key={index} src={partner} alt='partner image'/>
+                        </div>
+                    ))}
                 </div>
-
+                <div className='partner_container clone'  id='reverse'>
+                    {PartnerList.map((partner, index) => (
+                        <div className='partner'>
+                            <img key={index} src={partner} alt='partner image'/>
+                        </div>
+                    ))}
+                </div>
             </div>
-
         </div>
 
     )

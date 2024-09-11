@@ -11,7 +11,7 @@ const Services = () => {
         <>
             <ScrollToTop/>
             <Services1/>
-            <Services2/>
+            {/*<Services2/>*/}
             <Services3/>
             <Services4/>
             <Services5/>
