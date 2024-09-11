@@ -10,7 +10,7 @@ const AboutUs1 = () => {
 
     useGSAP(()=> {
 
-        function timeline3() {
+        function timeline1() {
             let tl3 = gsap.timeline({})
 
             tl3.to(".main_title", {xPercent: -122, yPercent: 520, scale:0.28, fontWeight:600, position:'absolute', zIndex:5})
@@ -26,9 +26,9 @@ const AboutUs1 = () => {
 
             return tl3;
         }
-        timeline3();
+        timeline1();
 
-        function timeline4() {
+        function timeline2() {
             let tl4 = gsap.timeline({})
 
             tl4.to(".text", {x:0,  duration:1})
@@ -50,7 +50,7 @@ const AboutUs1 = () => {
             return tl4;
         }
 
-        timeline4()
+        timeline2()
 
     })
 

@@ -284,8 +284,6 @@ body {
     padding-top:20%;
     opacity: 0;
 }
-
-
 @keyframes change {
     from {
         transform: translateY(100%);
@@ -348,14 +346,14 @@ body {
     background-color : #C17F02;
 }
 
-/*@keyframes flowContainer {*/
-/*    0% {*/
-/*        transform: translateX(-100%);*/
-/*    }*/
-/*    100% {*/
-/*        transform: translateX(0);*/
-/*    }*/
-/*}*/
+@keyframes flowContainer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
     /*animation: flowContainer 4s linear 1;*/
 
 .photo_container_wrapper {
@@ -445,7 +443,7 @@ body {
     display: flex;
     justify-content: flex-start;
     white-space: pre-line;
-    /* 24 */
+    /*24*/
     font-size: 1.24vw;
     line-height: 1.5;
 }
@@ -555,7 +553,7 @@ body {
 .home5_title {
     font-weight: 900;
 }
-.contact_us_button {
+.shining_button {
     width: 40%;
     color: #FFFFFF;
     background-color: #C17F02;
@@ -565,8 +563,9 @@ body {
     margin-top: 1.8%;
     text-align: center;
     justify-content: center;
+    cursor: pointer;
 }
-.contact_us_button {
+.shining_button {
     color: rgba(255, 255, 255, 1);
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -576,7 +575,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.5);
     overflow: hidden;
 }
-.contact_us_button:before, .contact_us_button:after {
+.shining_button:before, .shining_button:after {
     content: '';
     position: absolute;
     top: 0;
@@ -595,23 +594,13 @@ body {
     border-right-color: rgba(255, 255, 255, 1);
     background-color: rgba(255, 255, 255, 0.25);
 }
-
-.contact_us_button:after {
+.shining_button:after {
     -webkit-transition-delay: 0.2s;
     transition-delay: 0.2s;
 }
-
-.contact_us_button:hover:before, .contact_us_button:hover:after {
+.shining_button:hover:before, .shining_button:hover:after {
     opacity: 0;
     transform: translate(0, 0);
-}
-@keyframes flowContents {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
 }
 .partner_wrapper{
     overflow: hidden;
@@ -627,14 +616,6 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: row;
-}
-.origin{
-    animation: flowContents 7s linear infinite;
-}
-.clone{
-    transform: translateX(-100%);
-    animation: flowContents 7s linear infinite;
-    animation-delay: 3.5s;
 }
 
 .partner {
@@ -789,8 +770,40 @@ body {
     position: relative;
     white-space: nowrap;
 }
+@keyframes flowContents {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    50.1% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes flowContents_clone {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+.origin{
+    animation: flowContents 7s linear infinite;
+}
+.clone{
+    /*animation-delay: 3.5s;*/
+    /*transform: translateX(-100%);*/
+    animation: flowContents_clone 7s linear infinite;
+}
 .tech_image_container {
     margin-top: 5%;
+    width: 100%;
+    /*align-items: flex-end;*/
 }
 .tech_image {
     grid-area: 1 / 1;
@@ -847,4 +860,52 @@ body {
     gap:5%;
     align-items: flex-end;
     bottom: 0;
+}
+.step_card_description {
+    font-size: 1.04vw;
+    white-space: pre-line;
+}
+.step_card:hover .subtitle {
+    background: linear-gradient(90deg, #C17F02 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: left;
+    color: white;
+    transition: background-position 0.7s ease-in-out;
+}
+.step_card:hover .underline {
+    background: linear-gradient(90deg, #C17F02 50%, transparent 50%);
+    /* linear-gradient(90도, 색상, 비율, 색상, 비율  */
+    /* 기본상태를 right로 하고 효과상태를 left로 한 후, */
+    /* transition으로 position을 옮겨줌 */
+    background-size: 200% 100%; /* 너비 높이 */
+    background-position: left;
+    transition: background-position 0.5s ease-in-out;
+}
+.step_card .subtitle {
+    background-position: right;
+    transition: background-position 0.7s ease-in-out;
+    padding: 0 2%;
+}
+.step_card .underline {
+    background-position: right;
+    transition: background-position 0.5s ease-in-out;
+}
+.contact_input {
+    padding: 5% 8% 0 8%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 7%;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 2% 0;
+    font-size: 1.04vw;
+}
+input {
+    margin: 1% 0 0 0;
+    padding: 3% 5%;
+    border-radius: 10px;
+    color: #dcdcdc;
+    border: #dcdcdc solid 1px;
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Home5Title} from "../../assets/contents/HomeContents";
-import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import {PartnerList} from "../../assets/contents/PartnerList";
 
@@ -18,7 +17,7 @@ const Home4 = () => {
                 }}>{Home5Title}
                 </div>
                 <a href={menuList[menuList.length - 1].link} key={menuList[menuList.length - 1].title}
-                      className='contact_us_button'>
+                      className='shining_button'>
                     문의하기
                 </a>
             </div>

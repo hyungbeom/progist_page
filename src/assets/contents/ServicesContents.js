@@ -21,4 +21,5 @@ export const ServicesProcessContents=[
     {title:"마무리", description:"파비콘과 메타 정보를 설정해 웹사이트를 깔끔하게 공유한 후,\n구글과 네이버 계정으로 검색엔진 등록을 진행해드립니다.", src:ProcessImage4},
 ]
 
+export const ServicesComunicationText='Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 실시간으로 소통하며,\n고객사는 프로젝트 진행 상황을 즉시 확인할 수 있습니다.\n필요한 경우 Google Meet, Zoom, Slack을 활용해 신속하게 미팅을 진행합니다.'
 

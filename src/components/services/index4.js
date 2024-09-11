@@ -52,7 +52,7 @@ const Services4 = () => {
         ScrollTrigger.create({
             animation: tl,
             snap: {}, //스크롤 트리거의 전체 구간을 등분
-            trigger: ".pin",
+            trigger: "#services4",
             start: "top -10%",
             end: "+=500%",
             pin: true,
@@ -80,9 +80,9 @@ const Services4 = () => {
     }
     return (
         <>
-            <div className='layout flex pin'>
+            <div className='layout flex' id='services4'>
                 <div className='subtitle bold subtitle_in_contents'>
-                    Services.>Process
+                    Services.> Process
                 </div>
                 <div className='process_container'>
                     <div>

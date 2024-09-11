@@ -3,6 +3,7 @@ import Services2 from "../components/services/index2";
 import Services3 from "../components/services/index3";
 import Services4 from "../components/services/index4";
 import ScrollToTop from "../components/tools/ScrollToTop";
+import Services5 from "../components/services/index5";
 
 
 const Services = () => {
@@ -13,6 +14,7 @@ const Services = () => {
             <Services2/>
             <Services3/>
             <Services4/>
+            <Services5/>
         </>
     );
 };
