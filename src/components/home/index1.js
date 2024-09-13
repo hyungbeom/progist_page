@@ -15,7 +15,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);gsap.registerPlugin(ScrollTrigger);
 
 const Home1 = () => {
 
@@ -28,7 +28,7 @@ const Home1 = () => {
 
                 tl1.to(".background_image>:nth-child(2)", { xPercent: -100 })
                     .to('.image_navi:nth-child(1)', { width: '1%' }, "-=0.2")
-                    .to('.image_navi:nth-child(2)', { width: '10%' }, "-=0.4")
+                    .to('.image_navi:nth-child(2)', { width: '10%',  }, "-=0.4")
                     .addLabel("label2")
 
                 tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
@@ -39,8 +39,7 @@ const Home1 = () => {
                 tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
                     .to("#slogan_container",{opacity:0},'-=0.1')
                     .to("#home_title_container",{opacity:1}, '-=0.1')
-                    .addLabel("label4",)
-                    .pause(3)
+                    .addLabel("label4",'+=3')
 
                 ScrollTrigger.create({
                     animation: tl1,
@@ -52,7 +51,7 @@ const Home1 = () => {
                     },
                     trigger: "#home1",
                     start: "top top",
-                    end: "bottom top+=10%",
+                    end: "+=450%",
                     pin: true,
                     scrub: 2,
                     anticipatePin: 1,
@@ -69,21 +68,22 @@ const Home1 = () => {
 
                 tl2.to("#home_background_image3",
                     {
+                        startAt:{filter:"brightness(0.5)"},
                         position:'absolute',
                         borderRadius: '5%',
-                        filter:'brightness(100%)',
+                        filter:'brightness(1)',
                         xPercent: -67,
                         yPercent: 230,
                         scale:0.28,
-                        ease:"sine.in",
-                    }, '')
+                        ease:"sine",
+                    }, )
 
                 ScrollTrigger.create({
                     animation: tl2,
                     trigger: "#home2",
                     start: "top +=40%",
-                    end: "bottom +=10%",
-                    scrub:2,
+                    end: "center +=1%",
+                    scrub:3,
                     // markers: true,
                     // ontoggleActions: "restart none reverse none",
                 },);
