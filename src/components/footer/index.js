@@ -116,7 +116,7 @@ function Footer() {
                 }}>
                     {menuList.map((v) => {
                         return (
-                            <Link to={v.link}
+                            <Link key={v.title} to={v.link}
                                   style={{
                                       textDecoration: 'none',
                                       cursor: 'pointer',

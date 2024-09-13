@@ -15,7 +15,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 const Home1 = () => {
@@ -57,6 +56,7 @@ const Home1 = () => {
                     pin: true,
                     scrub: 2,
                     anticipatePin: 1,
+                    toggleActions: 'restart none restart none',
                     // markers: true,
                 },);
 
@@ -75,7 +75,7 @@ const Home1 = () => {
                         xPercent: -67,
                         yPercent: 230,
                         scale:0.28,
-                        ease:"sine",
+                        ease:"sine.in",
                     }, '')
 
                 ScrollTrigger.create({

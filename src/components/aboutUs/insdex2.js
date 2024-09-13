@@ -25,6 +25,7 @@ const AboutUs2 = () => {
                 height: 'auto',
                 aspectRatio:'1/1',
                 borderRadius: '5%',
+                overflow: 'hidden',
                 ...style
             }}
                  src={src}

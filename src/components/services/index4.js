@@ -4,14 +4,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 
 const Services4 = () => {
 
     useGSAP(()=>{
 
-        const tl = gsap.timeline({defaults: {scrub: 1, duration: 3, ease: "power1.inOut"} });
+        const tl = gsap.timeline({defaults: {scrub: 1, duration: 3, ease: "power1.in"} });
 
         tl.addLabel("label0")
             .to("#process_card_01 *", {opacity:1, filter:'none'})
@@ -60,7 +59,7 @@ const Services4 = () => {
             start: "top -10%",
             end: "+=500%",
             pin: true,
-            scrub: true,
+            scrub: 1,
             anticipatePin: 1,
         },);
 

@@ -3,7 +3,7 @@ import {MemberList} from "../../assets/contents/AboutUsContents";
 
 const AboutUs2 = () => {
 
-    const [currentIndex, setCurrentIndex] = useState(6);
+    const [currentIndex, setCurrentIndex] = useState(0);
         console.log(currentIndex);
     const [isTransitioning, setIsTransitioning] = useState(false);
 

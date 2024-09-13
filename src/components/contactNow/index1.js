@@ -103,7 +103,7 @@ const ContactNow1 = () => {
                     </div>
                 </div>
                 <div style={{display: 'flex', width:'100%', height:'auto', justifyContent:'flex-end', alignItems: 'center'}}>
-                <button className='shining_button' style={{fontSize:'0.93vw', width:'25%', margin:'1.5% 8% 0 0', padding:'1% 10%'}}
+                <button className='shining_button' style={{fontSize:'0.93vw', width:'25%', margin:'1.5% 8% 0 0', padding:'1% 10%', border: "none"}}
                 onClick={handleClickSummit}>제출하기</button>
                 </div>
             </div>
