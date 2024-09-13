@@ -8,6 +8,7 @@ const ContactNow2 = () => {
 
     function KakaoMap(){
 
+        // TODO 회사 key로 변경하기
         useEffect(() => {
             const script = document.createElement('script');
             script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=def64a963694c7877a24f3fc0fc6b7aa&autoload=false`;
@@ -23,9 +24,9 @@ const ContactNow2 = () => {
                     const map = new window.kakao.maps.Map(container, options);
 
                     // 마커 이미지 설정
-                    const imageSrc = MapMarker; // 마커 이미지 URL
-                    const imageSize = new window.kakao.maps.Size(67, 94); // 마커 이미지의 크기
-                    const imageOption = { offset: new window.kakao.maps.Point(34, 75) }; // 마커의 좌표에 대한 이미지의 위치 조정
+                    const imageSrc = MapMarker;
+                    const imageSize = new window.kakao.maps.Size(67, 94);
+                    const imageOption = { offset: new window.kakao.maps.Point(34, 75) };
                     const position = new window.kakao.maps.LatLng(37.5150748, 127.0290261);
 
                     // 마커 이미지 생성

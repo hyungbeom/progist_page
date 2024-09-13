@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <>
             <ScrollToTop/>
-            {/*<ContactNow1/>*/}
+            <ContactNow1/>
             <ContactNow2/>
         </>
     );

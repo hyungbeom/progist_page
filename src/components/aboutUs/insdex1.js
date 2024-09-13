@@ -100,7 +100,7 @@ const AboutUs1 = () => {
                 </div>
 
                 <div className='contents_area' style={{
-                    // marginTop: '300%',
+                    marginTop: '5%',
                 }}>
                     <div className='flex row' style={{
                         alignItems: 'flex-end',
