@@ -21,7 +21,7 @@ const Services1 = () => {
                 start: "top top+=70%",
                 end: "center center+=50%",
                 scrub: 1.5,
-                markers: true,
+                // markers: true,
             },);
 
             return tl1;

@@ -82,7 +82,7 @@ const Home1 = () => {
                     animation: tl2,
                     trigger: "#home2",
                     start: "top +=40%",
-                    end: "center +=1%",
+                    end: "center -=20%",
                     scrub:3,
                     // markers: true,
                     // ontoggleActions: "restart none reverse none",

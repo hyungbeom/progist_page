@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {gsap} from "gsap";
 import {useGSAP} from "@gsap/react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import Modal from "../Modal";
-import useSendEmail from "../tools/SendEmail";
+import Modal from "../modal";
+import handleSendEmail from "../tools/SendEmail";
 
 const ContactNow1 = () => {
 
@@ -18,7 +18,7 @@ const ContactNow1 = () => {
             trigger: ".main_title",
             start: "top +=10%",
             scrub: 1,
-            markers: true,
+            // markers: true,
         },);
 
     })
@@ -35,7 +35,7 @@ const ContactNow1 = () => {
         phone: '',
         company: '',
         position: '',
-        // file: null,
+        file: null,
         message: '',
     });
 
@@ -55,28 +55,45 @@ const ContactNow1 = () => {
             ...emailContents,
             file: e.target.files[0],
         });
+        console.log(e.target.files[0]);
     };
 
-    const { handleSendEmail, status } = useSendEmail(emailContents);
     const [modalMessage, setModalMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     // 제출 버튼 클릭 시 이메일 전송
-    const handleClickSubmit = async () => {
+    const handleClickSubmit = async (e) => {
+        e.preventDefault();
+
         if (!emailContents.email || !emailContents.name || !emailContents.phone || !emailContents.message) {
             setModalMessage('이메일, 이름, 전화번호, 프로젝트 설명은 필수 항목입니다.');
             setIsModalOpen(true); // 모달 열기
             return;
         }
 
-        await handleSendEmail().then(r => console.log(status+'contact'));
-        setModalMessage(status);
-        setIsModalOpen(true); // 모달 열기
+        try{
+            await handleSendEmail(emailContents)
+            setModalMessage('프로젝트 의뢰가 접수되었습니다. 확인 후 빠르게 회신드리겠습니다.')
+            console.log(e.target.files)
+        } catch (error) {
+            setModalMessage('오류가 발생했습니다. 유선으로 문의 부탁드립니다.')
+        }
+        setIsModalOpen(true)
+
     };
 
     const handleCloseModal = () => {
         setIsModalOpen(false); // 모달 닫기
         setModalMessage(''); // 초기화
+        setEmailContents({
+            email: '',
+            name: '',
+            phone: '',
+            company: '',
+            position: '',
+            file: null,
+            message: '',
+        });
     };
 
     return (
@@ -87,7 +104,7 @@ const ContactNow1 = () => {
                 </div>
             </div>
 
-            <div className='layout flex column' id='contact_now1' style={{aspectRatio: '1.23/1', gap: '2%'}}>
+            <form className='layout flex column' id='contact_now1' style={{aspectRatio: '1.23/1', gap: '2%'}}>
                 <div style={{padding: '13% 0 0 8%'}}>
                     <div style={{fontSize: '3.1vw', fontWeight: 750}}>맞춤형 솔루션 받기</div>
                     <div className='text' style={{marginTop: '0.8%'}}>프로지스트와 함께 꿈을 실현시켜보세요.</div>
@@ -129,10 +146,13 @@ const ContactNow1 = () => {
                         2. 프로젝트 정보
                     </div>
                     <div style={{gridColumn: '3 / span 8', display: 'flex', flexDirection: 'column',}}>
-                        <label>
-                            파일첨부<input type='file' onChange={handleFileChange}
-                                       style={{cursor: 'pointer', padding: '1% 2.5%'}} placeholder='파일 업로드하기'/>
-                        </label>
+                        {/*<form encType="multipart/form-data" method="post">*/}
+                            <label>
+                                파일첨부
+                                <input type='file' onChange={handleFileChange} name='file'
+                                           style={{cursor: 'pointer', padding: '1% 2.5%'}} placeholder='파일 업로드하기'/>
+                            </label>
+                        {/*</form>*/}
                         <label>
                             <div className='label_container'>프로젝트 설명<EssentialSign
                                 style={{width: '0.7%', marginBottom: '1.2%'}}/></div>
@@ -160,7 +180,7 @@ const ContactNow1 = () => {
                     {/* 모달 표시 */}
                     <Modal isOpen={isModalOpen} onClose={handleCloseModal} message={modalMessage} />
                 </div>
-            </div>
+            </form>
         </>
     );
 };

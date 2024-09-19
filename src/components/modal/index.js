@@ -14,7 +14,8 @@ const Modal = ({ isOpen, onClose, message }) => {
             backgroundColor: 'rgba(0,0,0,0.5)',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            zIndex:20,
         }}>
             <div style={{
                 background: 'white',

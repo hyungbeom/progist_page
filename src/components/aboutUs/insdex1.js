@@ -17,11 +17,11 @@ const AboutUs1 = () => {
 
             ScrollTrigger.create({
                 animation: tl1,
-                trigger: "#about_us",
+                trigger: ".main_title",
                 start: "top top",
                 end: "center center+=150%",
                 scrub: 1.5,
-                markers: true,
+                // markers: true,
             },);
 
             return tl1;
@@ -37,8 +37,8 @@ const AboutUs1 = () => {
 
             ScrollTrigger.create({
                 animation: tl2,
-                trigger: "#about_us2",
-                start: "top +=10%",
+                trigger: "#about_us",
+                start: "top +=20%",
                 // pin: true,
                 // markers: true,
                 toggleActions: "restart none reverse none",
@@ -88,7 +88,7 @@ const AboutUs1 = () => {
                 </div>
             </div>
 
-            <div className='layout flex row' id='about_us2'>
+            <div className='layout flex row' id='about_us'>
 
                 <div className='subtitle_area'>
                     <div className='text' style={{

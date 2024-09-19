@@ -23,7 +23,7 @@ const Services5 = () => {
             animation: tl,
             trigger:'#services5',
             start: "top top+=10%",
-            markers: true,
+            // markers: true,
             toggleActions: "restart none restart none", /* onEnter onLeave onEnterBack onLeaveBack*/
             repeat:-1,
             },)

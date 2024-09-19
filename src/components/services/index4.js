@@ -13,44 +13,38 @@ const Services4 = () => {
         const tl = gsap.timeline({defaults: {scrub: 1, duration: 3, ease: "power1.in"} });
 
         tl.addLabel("label0")
-            .to("#process_card_01 *", {opacity:1, filter:'none'})
             .to("#process_card_01", {yPercent: -30})
+            .to("#process_card_01 *", {opacity:1, filter:'none'},)
             .addLabel("label1")
 
         tl
-            .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:0},)
-            .to("#process_card_01>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_01", {yPercent: 0})
-
-        tl
+            .to("#process_card_01>:nth-child(1), #process_card_01>:nth-child(2)", {opacity:0},'+=0.5')
+            .to("#process_card_01>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},'+=0.5')
             .to("#process_card_02 *", {opacity:1, filter:'none'})
             .to("#process_card_02", {yPercent: -30})
             .addLabel("label2")
 
         tl
-            .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:0},)
-            .to("#process_card_02>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_02", {yPercent: 0})
-
-        tl
+            .to("#process_card_02>:nth-child(1), #process_card_02>:nth-child(2)", {opacity:0},'+=0.5')
+            .to("#process_card_02>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},'+=0.5')
             .to("#process_card_03 *", {opacity:1, filter:'none'})
             .to("#process_card_03", {yPercent: -30})
             .addLabel("label3")
 
         tl
-            .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:0},)
-            .to("#process_card_03>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_03", {yPercent: 0})
-
-        tl
+            .to("#process_card_03>:nth-child(1), #process_card_03>:nth-child(2)", {opacity:0},'+=0.5')
+            .to("#process_card_03>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},'+=0.5')
             .to("#process_card_04 *", {opacity:1, filter:'none'})
             .to("#process_card_04", {yPercent: -30})
             .addLabel("label4")
 
         tl
-            .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:0},)
-            .to("#process_card_04>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},)
             .to("#process_card_04", {yPercent: 0})
+            .to("#process_card_04>:nth-child(1), #process_card_04>:nth-child(2)", {opacity:0},'+=0.5')
+            .to("#process_card_04>:nth-child(3)", {startAt: {filter: 'brightness(0.8) saturate(0.5) blur(2px)'}, filter:'brightness(0.8) saturate(0.5) blur(2px)'},'+=0.5')
 
         ScrollTrigger.create({
             animation: tl,
@@ -59,7 +53,7 @@ const Services4 = () => {
             start: "top -10%",
             end: "+=550%",
             pin: true,
-            scrub: 1,
+            scrub: 2,
             anticipatePin: 1,
         },);
 
