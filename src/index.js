@@ -10,7 +10,7 @@ root.render(
     <BrowserRouter>
         <Header/>
         <App />
-        <Index/>
+        {/*<Index/>*/}
     </BrowserRouter>
 
 );
