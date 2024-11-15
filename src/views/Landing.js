@@ -11,14 +11,20 @@ const Landing = () => {
         <div style={{width: '100%', height: 'auto',}}>
 
             <div ref={back1} style={{
-                top:0,
+                top: 0,
                 width: '100%',
                 height: 'auto',
                 margin: '0 auto',
                 // position: 'fixed',
-                zIndex:2
+                zIndex: 2
             }}>
-                <div style={{width: '1920px', height: '1080px', margin: '0 auto', position: 'relative', backgroundImage: 'url(/temp_background.png)',}}>
+                <div style={{
+                    width: '1920px',
+                    height: '1080px',
+                    margin: '0 auto',
+                    position: 'relative',
+                    backgroundImage: 'url(/temp_background.png)',
+                }}>
 
                     <div style={{
                         width: '100%',
@@ -62,12 +68,13 @@ const Landing = () => {
                     </div>
                     <div style={{
                         width: '100%',
+                        height: 'auto',
                         fontSize: 36,
                         color: colorList['black'],
                         textAlign: 'center',
                         position: 'absolute',
                         top: 400,
-                        lineHeight: 1.3
+                        lineHeight: 1.3,
                     }}>
                         프로지스트는 고객의 비전을 실현하기 위해<br/>
                         <span style={{fontWeight: 600}}>전략적 컨설팅</span>과 혁신적인 IT 솔루션을 제공하며, <span
@@ -79,64 +86,121 @@ const Landing = () => {
 
                 </div>
             </div>
+
+
             <div ref={back1} style={{
                 width: '1920px',
-                height: '1080px',
-                margin: '0 auto',
+                height: 'auto',
+                margin: '1080px auto 0 auto',
+                paddingBottom: '215px',
                 backgroundColor: 'white',
                 position: 'relative',
-                marginTop: '1080px',
             }}>
-                <div style={{fontSize: 50, width:'100%', height:'auto', textAlign:'center', paddingTop: 145, lineHeight:1.4}}><span style={{fontWeight: 600}}>프로젝트 매니저, 디자이너, 개발자</span>가<br/>
+                <div style={{
+                    fontSize: 50,
+                    width: '100%',
+                    height: 'auto',
+                    textAlign: 'center',
+                    paddingTop: 145,
+                    lineHeight: 1.4,
+                }}><span style={{fontWeight: 600}}>프로젝트 매니저, 디자이너, 개발자</span>가<br/>
                     한팀으로 하나의 프로젝트를 진행합니다.
                 </div>
 
-                <div style={{fontSize: 24, width:'100%', textAlign:'center', lineHeight:1.5, paddingTop: 55}}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
+                <div style={{
+                    fontSize: 24,
+                    width: '100%',
+                    textAlign: 'center',
+                    lineHeight: 1.5,
+                    paddingTop: 55,
+                    marginBottom: 214
+                }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
                     더 좋은 퀄리티를 위해 노력합니다.
                 </div>
 
-                {landingContents.map((v, i)=>{
+                {landingContents.map((v, i) => {
                     return (
                         <div key={i} style={{
-                            width: 1440,
+                            width: 1460,
+                            height: 516,
                             display: 'grid',
-                            gridTemplateColumns: '625px 1fr 625PX',
-                            margin: '214px auto 0 auto'
+                            gridTemplateColumns: '1fr 1fr',
+                            margin: '0 auto 0 auto',
+                            columnGap: 200,
+                            boxSizing: 'border-box',
+                            marginTop: 200,
                         }}>
                             {i % 2 === 0 ?
-                                <div style={{width: 580, height: 500}}>
-                                    <img src={v.src} alt='image' style={{objectFit: 'contain', width:580, height:500}}/>
-                                </div>:
-                                <div>
-                                    <span style={{
+                                <>
+                                    <div style={{
+                                        width: '100%',
+                                        height: 516,
                                         fontSize: 50,
                                         fontWeight: 600,
                                         color: colorList['navy'],
-                                        whiteSpace: 'pre-line'
-                                    }}>{v.mainText}</span><br/>
-                                    <span style={{lineHeight: 3.7}}>{v.subText}</span>
-                                </div>
-                            }
-
-                            <div/>
-                            {i % 2 === 0 ?
-                                <div>
-                                    <span style={{
+                                        whiteSpace: 'pre-line',
+                                        marginTop: 190,
+                                        boxSizing: 'border-box',
+                                    }}>{v.mainText}<br/>
+                                        <span style={{fontSize: 20, color: colorList['black']}}>{v.subText}</span>
+                                    </div>
+                                    <div>
+                                        <img src={v.src} alt='image' style={{
+                                            objectFit: 'contain',
+                                            width: '100%',
+                                            height: 'auto',
+                                            maxHeight: '100%'
+                                        }}/>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div>
+                                        <img src={v.src} alt='image' style={{
+                                            objectFit: 'contain',
+                                            width: '100%',
+                                            height: 'auto',
+                                            maxHeight: '100%'
+                                        }}/>
+                                    </div>
+                                    <div style={{
+                                        width: '110%',
+                                        height: 500,
                                         fontSize: 50,
                                         fontWeight: 600,
                                         color: colorList['navy'],
-                                        whiteSpace: 'pre-line'
-                                    }}>{v.mainText}</span><br/>
-                                    <span style={{lineHeight: 3.7}}>{v.subText}</span>
-                                </div> :
-                                <div style={{width: 580, height: 500}}>
-                                    <img src={v.src} alt='image' style={{objectFit: 'contain', width:580, height:500}}/>
-                                </div>
+                                        whiteSpace: 'pre-line',
+                                        marginTop: 190,
+                                        boxSizing: 'border-box',
+                                    }}>{v.mainText}<br/>
+                                        <span style={{fontSize: 20, color: colorList['black']}}>{v.subText}</span>
+                                    </div>
+                                </>
                             }
-
                         </div>
                     )
                 })}
+            </div>
+
+
+            <div ref={back1} style={{
+                width: '1920px',
+                height: 'auto',
+                margin: '0 auto',
+                backgroundColor: 'white',
+                position: 'relative',
+                textAlign:'center',
+            }}>
+                <div style={{fontSize:50, fontWeight:600, paddingTop:184}}>
+                    Process
+                </div>
+                <div style={{fontSize:24, marginTop:60}}>
+                    Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span style={{fontWeight:600}}>실시간으로 소통하며,</span><br/>
+                    고객사는 프로젝트 <span style={{fontWeight:600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
+                    필요한 경우 Google Meet, Zoom, Slack을 활용해 신속하게 미팅을 진행합니다.
+                </div>
+
+
 
 
             </div>
