@@ -49,7 +49,7 @@ function Header() {
     }
 
     return (
-        <div style={{width: '100%', height: 'auto',  position:'fixed',}}>
+        <div style={{width: '100%', height: 'auto',  position:'fixed', zIndex:5}}>
 
             <div style={{width: '1920px', height: 'auto',  margin:'0 auto',}}>
                     <div style={{display:'flex', gap:13, margin:'50px 0 0 90px'}}>
