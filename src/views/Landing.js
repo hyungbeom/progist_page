@@ -258,18 +258,19 @@ const Landing = () => {
                     margin: '170px auto 0 auto'
                 }}>
 
-                    <div style={{position: 'relative'}}>
+                    <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>
                         <img src={process01} alt='image' style={{width: 330, height: 420}}/>
                         <div style={{
                             textAlign: "left",
                             width: 330,
                             height: 420,
-                            backgroundColor: 'gray',
+                            backgroundColor: 'white',
                             position: 'absolute',
                             top: 0,
                             borderRadius: 10,
                             padding: 36,
-                            boxSizing: 'border-box'
+                            boxSizing: 'border-box',
+                            opacity:0
                         }}>
                             <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>서비스 기획</div>
                             <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객의 목표와 니즈를
@@ -284,23 +285,24 @@ const Landing = () => {
                             left: 36,
                             fontWeight: 600,
                             fontSize: 36,
-                            color: 'white'
+                            color: 'white',
                         }}>STEP1
                         </div>
                     </div>
 
-                    <div style={{position: 'relative'}}>
+                    <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>
                         <img src={process02} alt='image' style={{width: 330, height: 420}}/>
                         <div style={{
                             textAlign: "left",
                             width: 330,
                             height: 420,
-                            backgroundColor: 'gray',
+                            backgroundColor: 'white',
                             position: 'absolute',
                             top: 0,
                             borderRadius: 10,
                             padding: 36,
-                            boxSizing: 'border-box'
+                            boxSizing: 'border-box',
+                            opacity:0,
                         }}>
                             <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>UI/UX 디자인</div>
                             <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>직관적인 인터페이스와
@@ -319,18 +321,19 @@ const Landing = () => {
                         </div>
                     </div>
 
-                    <div style={{position: 'relative'}}>
+                    <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>
                         <img src={process03} alt='image' style={{width: 330, height: 420}}/>
                         <div style={{
                             textAlign: "left",
                             width: 330,
                             height: 420,
-                            backgroundColor: 'gray',
+                            backgroundColor: 'white',
                             position: 'absolute',
                             top: 0,
                             borderRadius: 10,
                             padding: 36,
-                            boxSizing: 'border-box'
+                            boxSizing: 'border-box',
+                            opacity:0
                         }}>
                             <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>디자인 피드백 반영</div>
                             <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객 피드백을 반영하여
@@ -350,18 +353,19 @@ const Landing = () => {
                         </div>
                     </div>
 
-                    <div style={{position: 'relative'}}>
+                    <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>
                         <img src={process04} alt='image' style={{width: 330, height: 420}}/>
                         <div style={{
                             textAlign: "left",
                             width: 330,
                             height: 420,
-                            backgroundColor: 'gray',
+                            backgroundColor: 'white',
                             position: 'absolute',
                             top: 0,
                             borderRadius: 10,
                             padding: 36,
-                            boxSizing: 'border-box'
+                            boxSizing: 'border-box',
+                            opacity:0
                         }}>
                             <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 120}}>프론트엔드 개발<br/>
                                 백엔드 개발<br/>

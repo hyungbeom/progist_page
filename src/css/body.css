@@ -726,6 +726,16 @@ body {
     animation: slideUp 1s ease-out forwards;
 }
 
+.step-card:hover > div:nth-child(2) {
+    opacity: 1 !important;
+    transition: opacity 0.3s ease;
+}
+
+.step-card:hover > div:last-child {
+    color: #082567 !important;
+    transition: opacity 0.2s ease;
+}
+
 /*#about_us2 {*/
 /*    !*background-color: cadetblue;*!*/
 /*}*/
