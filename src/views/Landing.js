@@ -1,10 +1,28 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {colorList} from "../assets/utils/colorList";
-import {landingContents} from "../assets/contents/LandingContents";
+import {coworkingImages, faqList, landingContents} from "../assets/contents/LandingContents";
+
+import process01 from "../assets/images/process_01.png"
+import process02 from "../assets/images/process_02.png"
+import process03 from "../assets/images/process_03.png"
+import process04 from "../assets/images/process_04.png"
+
+import iconFold from "../assets/images/icon_fold.png"
+import iconUnfold from "../assets/images/icon_unFold.png"
 
 const Landing = () => {
 
     const back1=useRef()
+
+    const [activeId, setActiveId] = useState(null)
+
+    const handleClickQuestion = (e) => {
+        console.log(e.target.id)
+        setActiveId(e.target.id);
+    };
+
+    // useEffect(()=>{
+    // }, [activeId])
 
 
     return (
@@ -93,7 +111,7 @@ const Landing = () => {
                 height: 'auto',
                 margin: '1080px auto 0 auto',
                 paddingBottom: '215px',
-                backgroundColor: 'white',
+                backgroundColor: colorList['backGray'],
                 position: 'relative',
             }}>
                 <div style={{
@@ -185,29 +203,307 @@ const Landing = () => {
 
             <div ref={back1} style={{
                 width: '1920px',
-                height: 'auto',
+                height: '1080px',
                 margin: '0 auto',
-                backgroundColor: 'white',
+                backgroundColor: colorList['backGray'],
                 position: 'relative',
-                textAlign:'center',
+                textAlign: 'center',
             }}>
-                <div style={{fontSize:50, fontWeight:600, paddingTop:184}}>
+                <div style={{fontSize: 50, fontWeight: 600, paddingTop: 184}}>
                     Process
                 </div>
-                <div style={{fontSize:24, marginTop:60}}>
-                    Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span style={{fontWeight:600}}>실시간으로 소통하며,</span><br/>
-                    고객사는 프로젝트 <span style={{fontWeight:600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
+                <div style={{fontSize: 24, marginTop: 55, lineHeight: 1.6}}>
+                    Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span style={{fontWeight: 600}}>실시간으로 소통하며,</span><br/>
+                    고객사는 프로젝트 <span style={{fontWeight: 600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
                     필요한 경우 Google Meet, Zoom, Slack을 활용해 신속하게 미팅을 진행합니다.
                 </div>
 
+                <div style={{
+                    display: 'flex',
+                    width: '1440px',
+                    justifyContent: 'space-between',
+                    margin: '170px auto 0 auto'
+                }}>
 
+                    <div style={{position: 'relative'}}>
+                        <img src={process01} alt='image' style={{width: 330, height: 420}}/>
+                        <div style={{
+                            textAlign: "left",
+                            width: 330,
+                            height: 420,
+                            backgroundColor: 'gray',
+                            position: 'absolute',
+                            top: 0,
+                            borderRadius: 10,
+                            padding: 36,
+                            boxSizing: 'border-box'
+                        }}>
+                            <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>서비스 기획</div>
+                            <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객의 목표와 니즈를
+                                바탕으로<br/>
+                                서비스 구조와 핵심 기능을 기획하여<br/>
+                                프로젝트의 방향성을 설정합니다.
+                            </div>
+                        </div>
+                        <div style={{
+                            position: 'absolute',
+                            top: 45,
+                            left: 36,
+                            fontWeight: 600,
+                            fontSize: 36,
+                            color: 'white'
+                        }}>STEP1
+                        </div>
+                    </div>
 
+                    <div style={{position: 'relative'}}>
+                        <img src={process02} alt='image' style={{width: 330, height: 420}}/>
+                        <div style={{
+                            textAlign: "left",
+                            width: 330,
+                            height: 420,
+                            backgroundColor: 'gray',
+                            position: 'absolute',
+                            top: 0,
+                            borderRadius: 10,
+                            padding: 36,
+                            boxSizing: 'border-box'
+                        }}>
+                            <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>UI/UX 디자인</div>
+                            <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>직관적인 인터페이스와
+                                브랜드<br/>
+                                아이덴티티를 반영한 시각 디자인을<br/> 설계해 사용자 경험을 극대화합니다.
+                            </div>
+                        </div>
+                        <div style={{
+                            position: 'absolute',
+                            top: 45,
+                            left: 36,
+                            fontWeight: 600,
+                            fontSize: 36,
+                            color: 'white'
+                        }}>STEP2
+                        </div>
+                    </div>
+
+                    <div style={{position: 'relative'}}>
+                        <img src={process03} alt='image' style={{width: 330, height: 420}}/>
+                        <div style={{
+                            textAlign: "left",
+                            width: 330,
+                            height: 420,
+                            backgroundColor: 'gray',
+                            position: 'absolute',
+                            top: 0,
+                            borderRadius: 10,
+                            padding: 36,
+                            boxSizing: 'border-box'
+                        }}>
+                            <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>디자인 피드백 반영</div>
+                            <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객 피드백을 반영하여
+                                디자인을<br/>
+                                수정, 보완해 최종 디자인을<br/>
+                                완성합니다.
+                            </div>
+                        </div>
+                        <div style={{
+                            position: 'absolute',
+                            top: 45,
+                            left: 36,
+                            fontWeight: 600,
+                            fontSize: 36,
+                            color: 'white'
+                        }}>STEP2
+                        </div>
+                    </div>
+
+                    <div style={{position: 'relative'}}>
+                        <img src={process04} alt='image' style={{width: 330, height: 420}}/>
+                        <div style={{
+                            textAlign: "left",
+                            width: 330,
+                            height: 420,
+                            backgroundColor: 'gray',
+                            position: 'absolute',
+                            top: 0,
+                            borderRadius: 10,
+                            padding: 36,
+                            boxSizing: 'border-box'
+                        }}>
+                            <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 120}}>프론트엔드 개발<br/>
+                                백엔드 개발<br/>
+                                서버 세팅
+                            </div>
+                            <div style={{textAlign: "left", fontSize: 18, marginTop: 54, lineHeight: 1.3}}>프론트엔드와 백엔드
+                                개발을 통해<br/>
+                                기능을 구현하고, 서버 세팅으로<br/>
+                                안정적인 운영 환경을 구축합니다.
+                            </div>
+                        </div>
+                        <div style={{
+                            position: 'absolute',
+                            top: 45,
+                            left: 36,
+                            fontWeight: 600,
+                            fontSize: 36,
+                            color: 'white'
+                        }}>STEP2
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div ref={back1} style={{
+                width: '1920px',
+                height: '790px',
+                margin: '0 auto',
+                backgroundColor: colorList['backGray'],
+                position: 'relative',
+                textAlign: 'center',
+            }}>
+                <div style={{textAlign: 'center', fontSize: 50, fontWeight: 600, paddingTop: 111}}>
+                    What We do
+                </div>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    columnGap: 20,
+                    rowGap: 30,
+                    gridAutoFlow: 'row',
+                    width: '1440px',
+                    margin: '230px auto 0 auto'
+                }}>
+
+                    {coworkingImages.map((v, i) => {
+                        return (
+                            <div style={{
+                                borderRadius: '10px',
+                                boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',
+                                width: 340,
+                                height: 132,
+                                backgroundColor: 'white',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                            }}>
+                                <img src={v.src} alt={`${v.src} image`}/>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
+            <div ref={back1} style={{
+                width: '1920px',
+                height: '1250px',
+                margin: '0 auto',
+                position: 'relative',
+                boxSizing: 'border-box'
+            }}>
+                <div style={{fontSize: 50, fontWeight: 600, padding: '145px 235px',}}>
+                    FAQ's
+                </div>
+                <div style={{position: 'absolute', top: 205, right: 235}}>
+                    {faqList.map((v, i) => {
+                        return (
+                            <div key={i} id={v.id} style={{
+                                width: 840,
+                                height: 'auto',
+                                padding: activeId === v.id ? "40px" : "20px 40px",
+                                boxSizing: 'border-box',
+                                backgroundColor: activeId === v.id ? colorList['backGray'] : "",
+                                borderRadius: '10px',
+                                boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
+                                cursor: 'pointer',
+                            }} onClick={handleClickQuestion}>
+                                <div onClick={handleClickQuestion} style={{
+                                    fontWeight: 550,
+                                    fontSize: 24,
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    paddingBottom: 30
+                                }}>{v.question}
+                                    <div style={{position: 'relative'}}>
+                                        {activeId === v.id ? <img src={iconFold} alt='fold' style={{
+                                                position: "absolute",
+                                                width: 25,
+                                                right: 45,
+                                                top: 12
+                                            }}/> :
+                                            <img src={iconUnfold} alt='unfold'
+                                                 style={{position: "absolute", width: 25, right: 45}}/>}</div>
+                                </div>
+                                <div style={{
+                                    fontSize: 18,
+                                    height: activeId === v.id ? 'auto' : 0
+                                }}>{activeId === v.id ? v.answer : ""}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+            <div ref={back1} style={{
+                width: '1920px',
+                height: '1080px',
+                margin: '0 auto',
+                position: 'relative',
+                boxSizing: 'border-box'
+            }}>
+                <div style={{
+                    width: 1440,
+                    height: 650,
+                    margin: '0 auto',
+                    position: 'relative',
+                }}>
+                    <img src={'/temp_background.png'} alt='contact' width={1440} height={650}
+                         style={{borderRadius: '20px'}}/>
+                    <div style={{
+                        width: '1440px',
+                        height: '652px',
+                        backgroundColor: 'white',
+                        opacity: 0.8,
+                        position: 'absolute',
+                        top: 1
+                    }}/>
+                    <div style={{position: 'absolute', top: 130, textAlign: 'center'}}>
+                        <div style={{fontWeight: 600, fontSize: 50}}>Contact<br/>
+                            <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>
+                        </div>
+                        <div>연락처를 남겨주시면<br/>
+                            신속히 답변드리겠습니다.
+                        </div>
+                        <div style={{
+                            width: 295,
+                            height: 60,
+                            color: '#AEAEAE',
+                            fontSize: 20,
+                            fontWeight: 500,
+                            lineHeight: 2.9,
+                            borderRadius: 30,
+                            border:'1px solid #AEAEAE'
+                        }}>
+                            이메일 또는 전화번호
+                        </div>
+                        <div style={{
+                            width: 295,
+                            height: 60,
+                            color: 'white',
+                            fontSize: 20,
+                            fontWeight: 500,
+                            lineHeight: 2.9,
+                            backgroundColor: colorList['navy'], borderRadius:30}}>
+                            문의하기
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 
-
         </div>
-    );
+    )
+        ;
 };
 
 export default Landing;
