@@ -433,7 +433,7 @@ const Landing = () => {
 
             <div ref={back1} style={{
                 width: '1920px',
-                height: '1250px',
+                height: '1400px',
                 margin: '0 auto',
                 position: 'relative',
                 boxSizing: 'border-box'
@@ -448,11 +448,13 @@ const Landing = () => {
                                 width: 840,
                                 height: 'auto',
                                 padding: activeId === v.id ? "40px" : "20px 40px",
+                                marginBottom: activeId === v.id ? 20 : 0,
                                 boxSizing: 'border-box',
                                 backgroundColor: activeId === v.id ? colorList['backGray'] : "",
                                 borderRadius: '10px',
                                 boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
                                 cursor: 'pointer',
+                                transition:'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'
                             }}>
                                 <div id={v.id} onClick={handleClickQuestion} style={{
                                     fontWeight: 550,
@@ -474,7 +476,8 @@ const Landing = () => {
                                 </div>
                                 <div style={{
                                     fontSize: 18,
-                                    height: activeId === v.id ? 'auto' : 0
+                                    maxHeight: activeId === v.id ? '1000px' : 0,
+                                    transition:'max-height 1.5s ease'
                                 }}>{activeId === v.id ? v.answer : ""}</div>
                             </div>
                         )
