@@ -17,27 +17,43 @@ const Landing = () => {
     const back1=useRef()
 
     const [activeId, setActiveId] = useState(null)
+    const [scrollY, setScrollY] = useState(0);
+
 
     const handleClickQuestion = (e) => {
-        console.log(e.target.id)
+        // console.log(e.target.id)
         setActiveId(e.target.id);
     };
 
-    // useEffect(()=>{
-    // }, [activeId])
+    const handleScroll = () => {
+        // 현재 스크롤 위치를 추적
+        setScrollY(window.scrollY);
+    };
+
+    useEffect(() => {
+        // 컴포넌트가 마운트될 때 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', handleScroll);
+        // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
 
 
     return (
         <div style={{width: '98vw', height: 'auto',}}>
 
             <div ref={back1} style={{
-                top: 0,
+                // top: isFixed?0:'1080px',
                 width: '98vw',
                 height: 'auto',
                 margin: '0 auto',
                 boxSizing: 'border-box',
-                // position: 'fixed',
-                zIndex: 2
+                position: 'absolute',
+                top: scrollY >= 0 && scrollY <= 1980? `${scrollY}px` : '1980px',
+                zIndex: 2,
+                // transition: 'top 0.1s'
             }}>
                 <div style={{
                     width: '1920px',
@@ -46,48 +62,60 @@ const Landing = () => {
                     position: 'relative',
                     backgroundImage: 'url(/temp_background.png)',
                 }}>
-
                     <div style={{
+                        position: 'absolute',
+                        backgroundColor: 'white',
+                        opacity: scrollY>=1200? '0.9':0,
+                        width: '100%',
+                        height: '100%',
+                        transition: 'opacity 0.5s ease'
+                    }}/>
+                    <div className={scrollY >= 550 ? 'fade-out' : 'fade-in'} style={{
                         width: '100%',
                         fontSize: 80,
                         color: 'white',
                         textAlign: 'center',
                         position: 'absolute',
                         top: 400,
-                        lineHeight: 1.3
+                        lineHeight: 1.3,
+                        opacity: 0,
                     }}>
                         <span style={{fontWeight: 600}}>Turn your Vision into Reality</span><br/>당신의 비전을 현실로, <span
                         style={{fontWeight: 600, color: colorList['mainColor']}}>PROGIST</span>
                     </div>
-                    <div style={{
-                        width: 'auto',
-                        fontSize: 80,
-                        color: 'white',
-                        position: 'absolute',
-                        top: 550,
-                        fontWeight: 600,
-                        lineHeight: 1.3,
-                        left: 240
-                    }}>
+                    <div className={scrollY >= 550 && scrollY < 1200 ? 'slide-up' : scrollY >= 1200 ? 'fade-out' : null}
+                         style={{
+                             width: 'auto',
+                             fontSize: 80,
+                             color: 'white',
+                             position: 'absolute',
+                             top: 550,
+                             fontWeight: 600,
+                             lineHeight: 1.3,
+                             left: 240,
+                             opacity: 0,
+                         }}>
                         우리는<br/>PROGIST<br/>입니다.
                     </div>
-                    <div style={{
-                        width: 'auto',
-                        fontSize: 24,
-                        color: 'white',
-                        position: 'absolute',
-                        top: 658,
-                        right: 280,
-                        padding: '32px 22px',
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                        lineHeight: 1.7,
-                    }}>
+                    <div className={scrollY >= 550 && scrollY < 1200 ? 'fade-in' : scrollY >= 1200 ? 'fade-out' : null}
+                         style={{
+                             width: 'auto',
+                             fontSize: 24,
+                             color: 'white',
+                             position: 'absolute',
+                             top: 658,
+                             right: 280,
+                             padding: '32px 22px',
+                             backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                             lineHeight: 1.7,
+                             opacity: 0,
+                         }}>
                         : “프로그램(program)”과 특정 분야의 전문성을<br/>
                         지닌 사람을 나타내는 “-ist”의 조합으로,<br/>
                         고객의 비전을 실현하는<br/>
                         <span style={{fontWeight: 600}}>e-Business 토탈 서비스 기업</span> 입니다.
                     </div>
-                    <div style={{
+                    <div className={scrollY >= 1200 ? 'slide-up' : null} style={{
                         width: '100%',
                         height: 'auto',
                         fontSize: 36,
@@ -96,6 +124,7 @@ const Landing = () => {
                         position: 'absolute',
                         top: 400,
                         lineHeight: 1.3,
+                        opacity: 0,
                     }}>
                         프로지스트는 고객의 비전을 실현하기 위해<br/>
                         <span style={{fontWeight: 600}}>전략적 컨설팅</span>과 혁신적인 IT 솔루션을 제공하며, <span
@@ -112,10 +141,11 @@ const Landing = () => {
             <div ref={back1} style={{
                 width: '1920px',
                 height: 'auto',
-                margin: '1080px auto 0 auto',
+                margin: '3060px auto 0 auto',
                 paddingBottom: '215px',
                 backgroundColor: colorList['backGray'],
                 position: 'relative',
+                transition:'margin 1s ease'
             }}>
                 <div style={{
                     fontSize: 50,
@@ -410,7 +440,7 @@ const Landing = () => {
                 <div style={{position: 'absolute', top: 205, right: 235}}>
                     {faqList.map((v, i) => {
                         return (
-                            <div key={i} id={v.id} style={{
+                            <div key={i} id={v.id} onClick={handleClickQuestion} style={{
                                 width: 840,
                                 height: 'auto',
                                 padding: activeId === v.id ? "40px" : "20px 40px",
@@ -419,13 +449,14 @@ const Landing = () => {
                                 borderRadius: '10px',
                                 boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
                                 cursor: 'pointer',
-                            }} onClick={handleClickQuestion}>
-                                <div onClick={handleClickQuestion} style={{
+                            }}>
+                                <div id={v.id} onClick={handleClickQuestion} style={{
                                     fontWeight: 550,
                                     fontSize: 24,
                                     display: 'flex',
                                     justifyContent: 'space-between',
-                                    paddingBottom: 30
+                                    paddingBottom: 30,
+                                    zIndex:5
                                 }}>{v.question}
                                     <div style={{position: 'relative'}}>
                                         {activeId === v.id ? <img src={iconFold} alt='fold' style={{
