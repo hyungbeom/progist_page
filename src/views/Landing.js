@@ -26,13 +26,14 @@ const Landing = () => {
 
 
     return (
-        <div style={{width: '100%', height: 'auto',}}>
+        <div style={{width: '98vw', height: 'auto',}}>
 
             <div ref={back1} style={{
                 top: 0,
-                width: '100%',
+                width: '98vw',
                 height: 'auto',
                 margin: '0 auto',
+                boxSizing:'border-box',
                 // position: 'fixed',
                 zIndex: 2
             }}>
@@ -57,7 +58,7 @@ const Landing = () => {
                         style={{fontWeight: 600, color: colorList['mainColor']}}>PROGIST</span>
                     </div>
                     <div style={{
-                        width: '100%',
+                        width: 'auto',
                         fontSize: 80,
                         color: 'white',
                         position: 'absolute',
@@ -464,13 +465,13 @@ const Landing = () => {
                         backgroundColor: 'white',
                         opacity: 0.8,
                         position: 'absolute',
-                        top: 1
+                        top: 0
                     }}/>
-                    <div style={{position: 'absolute', top: 130, textAlign: 'center'}}>
+                    <div style={{position: 'absolute', top: 130, width:'100%', display:'flex', flexDirection:'column',alignItems:'center', textAlign: 'center'}}>
                         <div style={{fontWeight: 600, fontSize: 50}}>Contact<br/>
                             <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>
                         </div>
-                        <div>연락처를 남겨주시면<br/>
+                        <div style={{marginTop:43,}} >연락처를 남겨주시면<br/>
                             신속히 답변드리겠습니다.
                         </div>
                         <div style={{
@@ -481,6 +482,7 @@ const Landing = () => {
                             fontWeight: 500,
                             lineHeight: 2.9,
                             borderRadius: 30,
+                            marginTop:43,
                             border:'1px solid #AEAEAE'
                         }}>
                             이메일 또는 전화번호
@@ -492,7 +494,10 @@ const Landing = () => {
                             fontSize: 20,
                             fontWeight: 500,
                             lineHeight: 2.9,
-                            backgroundColor: colorList['navy'], borderRadius:30}}>
+                            backgroundColor: colorList['navy'],
+                            borderRadius:30,
+                            marginTop:20,
+                        }}>
                             문의하기
                         </div>
                     </div>
