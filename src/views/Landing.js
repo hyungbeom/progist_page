@@ -9,6 +9,8 @@ import process04 from "../assets/images/process_04.png"
 
 import iconFold from "../assets/images/icon_fold.png"
 import iconUnfold from "../assets/images/icon_unFold.png"
+import CI from "../assets/images/CI.png";
+import CI_text from "../assets/images/CI_text.png";
 
 const Landing = () => {
 
@@ -33,7 +35,7 @@ const Landing = () => {
                 width: '98vw',
                 height: 'auto',
                 margin: '0 auto',
-                boxSizing:'border-box',
+                boxSizing: 'border-box',
                 // position: 'fixed',
                 zIndex: 2
             }}>
@@ -446,9 +448,10 @@ const Landing = () => {
             </div>
             <div ref={back1} style={{
                 width: '1920px',
-                height: '1080px',
+                height: '900px',
                 margin: '0 auto',
                 position: 'relative',
+                padding: '80px 0',
                 boxSizing: 'border-box'
             }}>
                 <div style={{
@@ -467,11 +470,19 @@ const Landing = () => {
                         position: 'absolute',
                         top: 0
                     }}/>
-                    <div style={{position: 'absolute', top: 130, width:'100%', display:'flex', flexDirection:'column',alignItems:'center', textAlign: 'center'}}>
+                    <div style={{
+                        position: 'absolute',
+                        top: 130,
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center'
+                    }}>
                         <div style={{fontWeight: 600, fontSize: 50}}>Contact<br/>
                             <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>
                         </div>
-                        <div style={{marginTop:43,}} >연락처를 남겨주시면<br/>
+                        <div style={{marginTop: 43, lineHeight: 1.4}}>연락처를 남겨주시면<br/>
                             신속히 답변드리겠습니다.
                         </div>
                         <div style={{
@@ -482,8 +493,8 @@ const Landing = () => {
                             fontWeight: 500,
                             lineHeight: 2.9,
                             borderRadius: 30,
-                            marginTop:43,
-                            border:'1px solid #AEAEAE'
+                            marginTop: 43,
+                            border: '1px solid #AEAEAE'
                         }}>
                             이메일 또는 전화번호
                         </div>
@@ -495,8 +506,8 @@ const Landing = () => {
                             fontWeight: 500,
                             lineHeight: 2.9,
                             backgroundColor: colorList['navy'],
-                            borderRadius:30,
-                            marginTop:20,
+                            borderRadius: 30,
+                            marginTop: 20,
                         }}>
                             문의하기
                         </div>
@@ -505,6 +516,46 @@ const Landing = () => {
                 </div>
 
             </div>
+
+            <div style={{width: '1920px', height: 'auto', margin: '0 auto'}}>
+                <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>
+                <div style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'grid',
+                    gridTemplateColumns: '4fr 2fr 3fr ',
+                    padding: '82px 170px 58px 170px'
+                }}>
+                    <div>
+                        <div style={{display: 'flex', gap: 13, margin: '22px 0 0 0'}}>
+                            <img src={CI} style={{width: 32}} alt="CI" id="ci"/>
+                            <img src={CI_text} style={{width: 107, objectFit: 'contain'}} alt="CI" id="ci_text"/>
+                        </div>
+                        <div style={{fontSize: 20, marginTop: 25}}>2024 @ progist All Rights Reserved.</div>
+                    </div>
+
+                    <div style={{color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: 13}}>
+                        <div>Who We Are</div>
+                        <div>Service</div>
+                        <div>Process</div>
+                        <div>What We do</div>
+                        <div>Contact</div>
+                    </div>
+
+                    <div style={{display: 'flex', flexDirection: 'column', gap: 13}}>
+                        <div><span style={{fontWeight: 550}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                        <div><span style={{fontWeight: 550}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                        <div><span style={{fontWeight: 550}}>Project Request</span> hblee@progist.co.kr</div>
+                        <div><span style={{fontWeight: 550}}>Tel</span> 010-8636-2553</div>
+                    </div>
+
+                </div>
+            </div>
+            <div className="text_flow_container">
+                <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
+                <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
+            </div>
+
 
         </div>
     )

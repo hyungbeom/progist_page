@@ -626,28 +626,63 @@ body {
 /*    height: auto;*/
 /*}*/
 
-/*.text_flow_container {*/
-/*    background-color: black;*/
-/*    width: 98vw;*/
-/*    height: 30%;*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    display: grid;*/
-/*    flex-direction: row;*/
-/*    justify-content: flex-start;*/
-/*    align-items: center;*/
-/*    position: relative;*/
-/*}*/
-/*.text_flow {*/
-/*    grid-area: 1 / 1;*/
-/*    font-size: 10vw;*/
-/*    margin: 0;*/
-/*    color: #FFFFFF;*/
-/*    opacity: 0.7;*/
-/*}*/
-/*#reverse {*/
-/*    animation-direction: reverse;*/
-/*}*/
+.text_flow_container {
+    background-color: black;
+    width: 98vw;
+    height: 30%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: grid;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+.text_flow {
+    grid-area: 1 / 1;
+    font-size: 10vw;
+    margin: 0;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+#reverse {
+    animation-direction: reverse;
+}
+
+.origin{
+    animation: flowContents 20s linear infinite;
+}
+.clone{
+    animation-delay: 5s;
+    animation: flowContents_clone 20s linear infinite;
+}
+
+@keyframes flowContents {
+    0% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+    50.01% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes flowContents_clone{
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 /*#about_us2 {*/
 /*    !*background-color: cadetblue;*!*/
 /*}*/
@@ -766,38 +801,7 @@ body {
 /*    position: relative;*/
 /*    white-space: nowrap;*/
 /*}*/
-/*@keyframes flowContents {*/
-/*    0% {*/
-/*        transform: translateX(0%);*/
-/*    }*/
-/*    50% {*/
-/*        transform: translateX(100%);*/
-/*    }*/
-/*    50.01% {*/
-/*        transform: translateX(-100%);*/
-/*    }*/
-/*    100% {*/
-/*        transform: translateX(0%);*/
-/*    }*/
-/*}*/
-/*@keyframes flowContents_clone{*/
-/*    0% {*/
-/*        transform: translateX(-100%);*/
-/*    }*/
-/*    50% {*/
-/*        transform: translateX(0%);*/
-/*    }*/
-/*    100% {*/
-/*        transform: translateX(100%);*/
-/*    }*/
-/*}*/
-/*.origin{*/
-/*    animation: flowContents 20s linear infinite;*/
-/*}*/
-/*.clone{*/
-/*    animation-delay: 5s;*/
-/*    animation: flowContents_clone 20s linear infinite;*/
-/*}*/
+
 /*.tech_image_container {*/
 /*    margin-top: 5%;*/
 /*    width: 100%;*/
