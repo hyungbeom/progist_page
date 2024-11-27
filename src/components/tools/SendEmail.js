@@ -1,23 +1,15 @@
 import emailjs from "@emailjs/browser";
 
-const handleSendEmail = async (emailContents) => {
-    // e.preventDefault();
+const handleSendEmail = async (contact) => {
 
     try {
         const templateParams = {
-            name: emailContents.name,
-            email: emailContents.email,
-            contact: emailContents.contact,
-            message: emailContents.message,
-            phone: emailContents.phone,
-            company: emailContents.company,
-            position: emailContents.position,
-            file: emailContents.file,
+            contact: contact,
         };
 
         await emailjs.send(
             'service_nc8eb5v',
-            'template_aqaydw8',
+            'template_u8x9818',
             templateParams, // 폼 대신 templateParams 참조
             'S8TdM4w0s5_wxoM_H'
         )

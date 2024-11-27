@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {colorList} from "../assets/utils/colorList";
-import {coworkingImages, faqList, landingContents} from "../assets/contents/LandingContents";
+import {coworkingImages, faqList, serviceContents} from "../assets/contents/LandingContents";
 
 import process01 from "../assets/images/process_01.png"
 import process02 from "../assets/images/process_02.png"
@@ -11,18 +11,56 @@ import iconFold from "../assets/images/icon_fold.png"
 import iconUnfold from "../assets/images/icon_unFold.png"
 import CI from "../assets/images/CI.png";
 import CI_text from "../assets/images/CI_text.png";
+import Header from "../components/header/header";
+import {menuList} from "../assets/contents/MenuList";
+import handleSendEmail from "../components/tools/SendEmail";
+import Modal from "../components/modal";
+
 
 const Landing = () => {
 
-    const back1=useRef()
-
     const [activeId, setActiveId] = useState(null)
     const [scrollY, setScrollY] = useState(0);
+    const [customerContact, setCustomerContact] = useState('')
 
+    const [modalMessage, setModalMessage] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const refs = useRef({
+        whoWeAre: null,
+        services: null,
+        process: null,
+        whatWeDo: null,
+        faq: null,
+        contact: null,
+    });
+
+    const handleScrollTo = (section) => {
+        if (refs.current[section]) {
+            refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     const handleClickQuestion = (e) => {
         // console.log(e.target.id)
         setActiveId(e.target.id);
+    };
+
+    const handleLogoColored = (e) => {
+        console.log(e, "handleLogoColored")
+    }
+
+    const handleClickContactButton = async (e) => {
+        e.preventDefault();
+
+        try{
+            await handleSendEmail(customerContact)
+            setModalMessage('연락처가 성공적으로 전송되었습니다. 확인 후 빠르게 회신드리겠습니다.')
+            setCustomerContact('')
+        } catch (error) {
+            setModalMessage('오류가 발생했습니다. 유선으로 문의 부탁드립니다.')
+        }
+        setIsModalOpen(true)
     };
 
     const handleScroll = () => {
@@ -42,9 +80,10 @@ const Landing = () => {
 
 
     return (
+        <>
+            <Header refs={refs}/>
         <div style={{width: '98vw', height: 'auto',}}>
-
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.whoWeAre = el)} style={{
                 // top: isFixed?0:'1080px',
                 width: '98vw',
                 height: 'auto',
@@ -138,7 +177,7 @@ const Landing = () => {
             </div>
 
 
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.services = el)} style={{
                 width: '1920px',
                 height: 'auto',
                 margin: '3060px auto 0 auto',
@@ -169,7 +208,7 @@ const Landing = () => {
                     더 좋은 퀄리티를 위해 노력합니다.
                 </div>
 
-                {landingContents.map((v, i) => {
+                {serviceContents.map((v, i) => {
                     return (
                         <div key={i} style={{
                             width: 1460,
@@ -234,7 +273,7 @@ const Landing = () => {
             </div>
 
 
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.process = el)} style={{
                 width: '1920px',
                 height: '1080px',
                 margin: '0 auto',
@@ -391,7 +430,7 @@ const Landing = () => {
                 </div>
             </div>
 
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.whatWeDo = el)} style={{
                 width: '1920px',
                 height: '790px',
                 margin: '0 auto',
@@ -414,7 +453,7 @@ const Landing = () => {
 
                     {coworkingImages.map((v, i) => {
                         return (
-                            <div style={{
+                            <div key={i} id={`${i}`} className='cooperate_company' style={{
                                 borderRadius: '10px',
                                 boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',
                                 width: 340,
@@ -424,14 +463,14 @@ const Landing = () => {
                                 alignItems: 'center',
                                 justifyContent: 'center'
                             }}>
-                                <img src={v.src} alt={`${v.src} image`}/>
+                                <img key={i} onMouseOver={handleLogoColored} src={v.src} alt={`${i}`}/>
                             </div>
                         )
                     })}
                 </div>
             </div>
 
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.faq = el)} style={{
                 width: '1920px',
                 height: '1400px',
                 margin: '0 auto',
@@ -484,7 +523,7 @@ const Landing = () => {
                     })}
                 </div>
             </div>
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.contact = el)} style={{
                 width: '1920px',
                 height: '900px',
                 margin: '0 auto',
@@ -517,10 +556,10 @@ const Landing = () => {
                         alignItems: 'center',
                         textAlign: 'center'
                     }}>
-                        <div style={{fontWeight: 600, fontSize: 50}}>Contact<br/>
+                        <div style={{fontWeight: 600, fontSize: 50, lineHeight:1.4}}>Contact<br/>
                             <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>
                         </div>
-                        <div style={{marginTop: 43, lineHeight: 1.4}}>연락처를 남겨주시면<br/>
+                        <div style={{marginTop: 30, lineHeight: 1.4, fontSize:24}}>연락처를 남겨주시면<br/>
                             신속히 답변드리겠습니다.
                         </div>
                         <div style={{
@@ -531,10 +570,10 @@ const Landing = () => {
                             fontWeight: 500,
                             lineHeight: 2.9,
                             borderRadius: 30,
-                            marginTop: 43,
+                            marginTop: 35,
                             border: '1px solid #AEAEAE'
                         }}>
-                            이메일 또는 전화번호
+                            <input value={customerContact} onChange={(e)=>setCustomerContact(e.target.value)} style={{fontSize:20, background: "transparent", width:'90%', textAlign:'center', border:'none'}} placeholder='이메일 또는 전화번호'/>
                         </div>
                         <div style={{
                             width: 295,
@@ -546,9 +585,11 @@ const Landing = () => {
                             backgroundColor: colorList['navy'],
                             borderRadius: 30,
                             marginTop: 20,
-                        }}>
+                            cursor:'pointer'
+                        }} onClick={handleClickContactButton}>
                             문의하기
                         </div>
+                        <Modal isOpen={isModalOpen} onClose={()=>setIsModalOpen(false)} message={modalMessage} />
                     </div>
 
                 </div>
@@ -562,7 +603,7 @@ const Landing = () => {
                     height: 'auto',
                     display: 'grid',
                     gridTemplateColumns: '4fr 2fr 3fr ',
-                    padding: '82px 170px 58px 170px'
+                    padding: '65px 170px 58px 170px'
                 }}>
                     <div>
                         <div style={{display: 'flex', gap: 13, margin: '22px 0 0 0'}}>
@@ -573,11 +614,11 @@ const Landing = () => {
                     </div>
 
                     <div style={{color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: 13}}>
-                        <div>Who We Are</div>
-                        <div>Service</div>
-                        <div>Process</div>
-                        <div>What We do</div>
-                        <div>Contact</div>
+                        {menuList.map((v, i)=> {
+                            return(
+                            <div key={i} style={{cursor: 'pointer'}} onClick={() => handleScrollTo(v.key)}>{v.title}</div>
+                                )
+                        })}
                     </div>
 
                     <div style={{display: 'flex', flexDirection: 'column', gap: 13}}>
@@ -589,15 +630,15 @@ const Landing = () => {
 
                 </div>
             </div>
-            <div className="text_flow_container">
+            <div className="text_flow_container" style={{width:'1920px', margin:'0 auto'}}>
                 <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
             </div>
 
 
         </div>
-    )
-        ;
+        </>
+    );
 };
 
 export default Landing;

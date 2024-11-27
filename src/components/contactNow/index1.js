@@ -79,7 +79,6 @@ const ContactNow1 = () => {
             setModalMessage('오류가 발생했습니다. 유선으로 문의 부탁드립니다.')
         }
         setIsModalOpen(true)
-
     };
 
     const handleCloseModal = () => {
