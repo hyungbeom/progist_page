@@ -160,49 +160,45 @@ const Landing = () => {
 
     useGSAP(()=>{
 
-            function timeline1() {
-                let tl1 = gsap.timeline({})
+        let tl1 = gsap.timeline({})
 
-                tl1.addLabel("label1")
+        tl1.addLabel("label1")
 
-                tl1.to(".background_image>:nth-child(2)", { xPercent: -100 })
-                    .to('.image_navi:nth-child(1)', { width: '1%' }, "-=0.2")
-                    .to('.image_navi:nth-child(2)', { width: '10%',  }, "-=0.4")
-                    .addLabel("label2")
+        tl1.to(".background_image>:nth-child(2)", { xPercent: -100 })
+            .to('.image_navi:nth-child(1)', { width: '1%' }, "-=0.2")
+            .to('.image_navi:nth-child(2)', { width: '10%',  }, "-=0.4")
+            .addLabel("label2")
 
-                tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
-                    .to('.image_navi:nth-child(2)', { width: '1%' },"-=0.2")
-                    .to('.image_navi:nth-child(3)', { width: '10%' }, "-=0.4")
-                    .addLabel("label3")
+        tl1.to(".background_image>:nth-child(3)", { xPercent: -100 })
+            .to('.image_navi:nth-child(2)', { width: '1%' },"-=0.2")
+            .to('.image_navi:nth-child(3)', { width: '10%' }, "-=0.4")
+            .addLabel("label3")
 
-                tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
-                    .to("#slogan_container",{opacity:0},'-=0.1')
-                    .to("#home_title_container",{opacity:1}, '-=0.1')
-                    .addLabel("label4",'+=3')
+        tl1.to(".background_image>:nth-child(3)", { scale:1.2},'+=0.2')
+            .to("#slogan_container",{opacity:0},'-=0.1')
+            .to("#home_title_container",{opacity:1}, '-=0.1')
+            .addLabel("label4",'+=3')
 
-                ScrollTrigger.create({
-                    animation: tl1,
-                    snap: {
-                        snapTo: "labels",
-                        duration: { min: 0.3, max: 1 },
-                        delay: 1,
-                        ease: "power1.in",
-                    },
-                    trigger: "#home1",
-                    start: "top top",
-                    end: "+=450%",
-                    pin: true,
-                    scrub: 2,
-                    anticipatePin: 1,
-                    toggleActions: 'restart none restart none',
-                    // markers: true,
-                },);
+        ScrollTrigger.create({
+            animation: tl1,
+            snap: {
+                snapTo: "labels",
+                duration: { min: 0.3, max: 1 },
+                delay: 1,
+                ease: "power1.in",
+            },
+            trigger: "#home1",
+            start: "top top",
+            end: "+=450%",
+            pin: true,
+            scrub: 2,
+            anticipatePin: 1,
+            toggleActions: 'restart none restart none',
+            // markers: true,
+        },);
 
-                return tl1;
-            }
-            timeline1();
-        }
-        ,[])
+        return tl1;
+        },[])
 
     return (
         <>
