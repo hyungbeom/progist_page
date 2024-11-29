@@ -30,7 +30,7 @@ import process04 from "../../assets/images/process_04.png"
 
 export const serviceContents = [
 {src:landingImage1, mainText:" Solutions tailored to\n each client’s unique need", subText:"고객의 고유한 요구와 목표에 맞춘 맞춤형 서비스를 제공합니다."},
-{src:landingImage2, mainText:" Comprehensive\n maintenance and support", subText:"프로젝트 완료 후에도 지속적인 지원과 유지보수를 통해\n고객의 성공을 지속적으로 돕습니다."},
+{src:landingImage2, mainText:" Comprehensive\n maintenance and support", subText:"프로젝트 완료 후에도 지속적인 지원과 유지보수를 통해 \n고객의 성공을 지속적으로 돕습니다."},
 {src:landingImage3, mainText:" A refined sense of modern,\n trend-conscious design", subText:"최신 디자인 트렌드를 반영하여 시각적으로 뛰어난 결과물을 창출합니다."},
 {src:landingImage4, mainText:" A team of skilled\nprofessionals with expertise", subText:"다양한 분야의 전문가들이 협업하여 최고의 결과물을 제공합니다."},
 ]
@@ -44,14 +44,14 @@ export const processContents = [
 ]
 
 export const coworkingImages = [
-    {src:coworking1, src2:coworking_gray1},
-    {src:coworking2, src2:coworking_gray2},
-    {src:coworking3, src2:coworking_gray3},
-    {src:coworking4, src2:coworking_gray4},
-    {src:coworking5, src2:coworking_gray5},
-    {src:coworking6, src2:coworking_gray6},
-    {src:coworking7, src2:coworking_gray7},
-    {src:coworking8, src2:coworking_gray8},
+    {src:coworking1, src2:coworking_gray1, width:150},
+    {src:coworking2, src2:coworking_gray2, width:''},
+    {src:coworking3, src2:coworking_gray3, width:150},
+    {src:coworking4, src2:coworking_gray4, width:''},
+    {src:coworking5, src2:coworking_gray5, width:150},
+    {src:coworking6, src2:coworking_gray6, width:''},
+    {src:coworking7, src2:coworking_gray7, width:''},
+    {src:coworking8, src2:coworking_gray8, width:150},
 ]
 
 export const faqList = [

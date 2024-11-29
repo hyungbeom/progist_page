@@ -47,7 +47,7 @@ function Header({refs}) {
                     <img src={CI_text} style={{width:107, objectFit:'contain'}} alt="CI" id="ci_text"/>
                 </div>
 
-                <div style={{width:'100%', fontSize:22, color: colorChange? colorList['navy']:'white', display:'flex', gap:80, position: 'absolute', top:52, transform:'translateX(28%)' }}>
+                <div style={{fontSize:22, color: colorChange? colorList['navy']:'white', display:'flex', gap:80, position: 'absolute', top:52, transform:'translateX(50%)' }}>
                     {menuList.map((v,i)=>{
                         return(
                             <div key={i} style={{cursor:'pointer'}} onClick={()=>handleScrollTo(v.key)}>

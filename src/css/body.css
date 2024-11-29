@@ -736,6 +736,12 @@ body {
     transition: opacity 0.2s ease;
 }
 
+.company-logo:hover,
+.company-logo:hover > img{
+    scale:1.05;
+    transition:scale 0.3s ease;
+}
+
 /*.cooperate_company:hover{*/
 /*    background-color: ;*/
 /*}*/
