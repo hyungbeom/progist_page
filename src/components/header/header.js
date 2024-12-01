@@ -11,7 +11,7 @@ function Header({refs}) {
     const [colorChange, setColorChange] = useState(false)
 
     const handleScroll = () => {
-        if (window.scrollY > 2000) {
+        if (window.scrollY > 1250) {
             setColorChange(true)
         } else {
             setColorChange(false)
