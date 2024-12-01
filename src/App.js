@@ -6,8 +6,8 @@ import Landing_m from "./views/Landing_m";
 
 function App() {
     return (
-        <Landing/>
-        // <Landing_m/>
+        // <Landing/>
+        <Landing_m/>
         //
         // <Routes>
         //     {/*<Route index element={<Home />}/>*/}

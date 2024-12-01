@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import CI from '../../assets/images/CI.png';
 import CI_text from '../../assets/images/CI_text.png';

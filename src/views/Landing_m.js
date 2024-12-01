@@ -1,23 +1,60 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {colorList} from "../assets/utils/colorList";
 import {coworkingImages, faqList, processContents, serviceContents} from "../assets/contents/LandingContents";
-
+import arrowDown from "../assets/images/icon_arrow_down.png"
+import arrowUp from "../assets/images/icon_arrow_up.png"
 import iconFold from "../assets/images/icon_fold.png"
 import iconUnfold from "../assets/images/icon_unFold.png"
-import CI from "../assets/images/CI.png";
-import CI_text from "../assets/images/CI_text.png";
+
+import Header_m from "../components/header/header_m";
+import handleSendEmail from "../components/tools/SendEmail";
 
 const Landing_m = () => {
 
-    const back1=useRef()
-
     const [activeId, setActiveId] = useState(null)
     const [scrollY, setScrollY] = useState(0);
+    const [customerContact, setCustomerContact] = useState('')
 
+    const [modalMessage, setModalMessage] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentCard, setCurrentCard] = useState(0);
+
+    const refs = useRef({
+        whoWeAre: null,
+        services: null,
+        process: null,
+        whatWeDo: null,
+        faq: null,
+        contact: null,
+    });
+
+    const handleProcessCard=(i)=>{
+        // console.log("Clicked index:", i);
+        setCurrentCard(i)
+    }
+
+    // const handleScrollTo = (section) => {
+    //     if (refs.current[section]) {
+    //         refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+    //     }
+    // };
 
     const handleClickQuestion = (e) => {
         // console.log(e.target.id)
         setActiveId(e.target.id);
+    };
+
+    const handleClickContactButton = async (e) => {
+        e.preventDefault();
+
+        try{
+            await handleSendEmail(customerContact)
+            setModalMessage('연락처가 성공적으로 전송되었습니다. 확인 후 빠르게 회신드리겠습니다.')
+            setCustomerContact('')
+        } catch (error) {
+            setModalMessage('오류가 발생했습니다. 유선으로 문의 부탁드립니다.')
+        }
+        setIsModalOpen(true)
     };
 
     const handleScroll = () => {
@@ -38,9 +75,9 @@ const Landing_m = () => {
 
     return (
         <div style={{width: '100vw', height: 'auto', display: 'flex', flexDirection: 'column'}}>
-
+            <Header_m/>
             {/*page1*/}
-            <div ref={back1} style={{
+            <div ref={(el) => (refs.current.whoWeAre = el)} style={{
                 width: '100%',
                 minWidth: 390,
                 aspectRatio: '0.46/1',
@@ -64,7 +101,7 @@ const Landing_m = () => {
             </div>
 
                 {/*page2*/}
-                <div ref={back1} style={{
+                <div style={{
                     width: '100%',
                     minWidth: 390,
                     aspectRatio: '0.46/1',
@@ -129,7 +166,7 @@ const Landing_m = () => {
             </div>
 
             {/*service*/}
-            <div style={{
+            <div ref={(el) => (refs.current.services = el)} style={{
                 width: '100%',
                 minWidth: 390,
                 aspectRatio: '0.135/1',
@@ -203,7 +240,7 @@ const Landing_m = () => {
 
 
             {/*process*/}
-            <div style={{
+            <div ref={(el) => (refs.current.process = el)} style={{
                 width: '100%',
                 minWidth: 390,
                 aspectRatio: '1.5/1',
@@ -230,276 +267,157 @@ const Landing_m = () => {
 
                     {processContents.map((v, i)=>{
                         return (
-                            <div key={i} style={{width: '99%', aspectRatio: '1/1', position: 'relative',}}>
-                                <img src={v.src} style={{width: '100%', aspectRatio: '1/1', objectFit: 'fill'}}/>
-                                <div style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'white', opacity:0.3}}>sss</div>
+                            <div onClick={() => handleProcessCard(i)} style={{width: '99%', aspectRatio: '1/1', position: 'absolute',
+                                top:currentCard>=i?i*100:i*100+200, margin:'0 auto', transition:'top 1s ease' }}>
+                            <div key={i} style={{width: '100%', aspectRatio: '1/1', position: 'relative',}}>
+                                <img src={v.src} style={{width: '100%', aspectRatio: '1/1', objectFit: 'fill'}} alt='process image'/>
+                                <div style={{borderRadius:'10px', position:'absolute', width:'100%', height:'100%', backgroundColor:'white', opacity:currentCard===i?0.7:0, top:0,}}/>
                                 <div style={{
                                     fontSize: '5.4vw',
                                     fontWeight: 600,
                                     position: 'absolute',
-                                    top: '5%',
-                                    left: '5%',
-                                    color: colorList['navy']
+                                    top: '7%',
+                                    left: '6%',
+                                    color: currentCard===i?colorList['navy']:'white',
                                 }}>
                                     STEP {i + 1}
                                 </div>
-                                <div style={{
+                                <img style={{position:'absolute', top: '7%', right:'6%', width:'18px'}} src={currentCard===i?arrowDown:arrowUp} alt='arrow down'/>
+
+                                {currentCard===i&&<div style={{
                                     fontSize: '5.4vw',
                                     fontWeight: 600,
                                     position: 'absolute',
-                                    top: '14%',
-                                    left: '5%',
+                                    top: '16.5%',
+                                    left: '6%',
                                     color: colorList['mainColor']
                                 }}>
                                     {v.title}
-                                </div>
+                                </div>}
                                 <div style={{
                                     fontSize: '4vw',
                                     fontWeight: 600,
                                     position: 'absolute',
-                                    top: '38%',
-                                    left: '5%',
+                                    top: '40%',
+                                    left: '6%',
                                     whiteSpace:'pre-line',
                                     lineHeight:1.5,
                                     color: colorList['black']
                                 }}>
                                     {v.description}
                                 </div>
-
+                            </div>
                             </div>
                         )
                     })}
-
-
                 </div>
 
+            <div ref={(el) => (refs.current.whatWeDo = el)} style={{
+                width: '100%',
+                height: 'auto',
+                backgroundColor: colorList['backGray'],
+                position: 'relative',
+                textAlign: 'center',
+                marginTop: '200%',
+            }}>
+                <div style={{paddingTop:"50%", textAlign: 'center', fontSize: 15, fontWeight: 500, lineHeight:1.6}}>
+                    <div style={{fontSize: 24, fontWeight: 600, paddingBottom:10}}>What We do<br/></div>
+                    All-in-one at Progist<br/>
+                    꿈을 현실로 만들고 비전을 실현합니다.
 
-            {/*        <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>*/}
-            {/*            <img src={process01} alt='image' style={{width: 330, height: 420}}/>*/}
-            {/*            <div style={{*/}
-            {/*                textAlign: "left",*/}
-            {/*                width: 330,*/}
-            {/*                height: 420,*/}
-            {/*                backgroundColor: 'white',*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 0,*/}
-            {/*                borderRadius: 10,*/}
-            {/*                padding: 36,*/}
-            {/*                boxSizing: 'border-box',*/}
-            {/*                opacity:0*/}
-            {/*            }}>*/}
-            {/*                <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>서비스 기획</div>*/}
-            {/*                <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객의 목표와 니즈를*/}
-            {/*                    바탕으로<br/>*/}
-            {/*                    서비스 구조와 핵심 기능을 기획하여<br/>*/}
-            {/*                    프로젝트의 방향성을 설정합니다.*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 45,*/}
-            {/*                left: 36,*/}
-            {/*                fontWeight: 600,*/}
-            {/*                fontSize: 36,*/}
-            {/*                color: 'white',*/}
-            {/*            }}>STEP1*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
+                </div>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    columnGap: 15,
+                    rowGap: 25,
+                    gridAutoFlow: 'row',
+                    width: '100%',
+                    margin: '110px auto 130px 2%',
+                }}>
 
-            {/*        <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>*/}
-            {/*            <img src={process02} alt='image' style={{width: 330, height: 420}}/>*/}
-            {/*            <div style={{*/}
-            {/*                textAlign: "left",*/}
-            {/*                width: 330,*/}
-            {/*                height: 420,*/}
-            {/*                backgroundColor: 'white',*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 0,*/}
-            {/*                borderRadius: 10,*/}
-            {/*                padding: 36,*/}
-            {/*                boxSizing: 'border-box',*/}
-            {/*                opacity:0,*/}
-            {/*            }}>*/}
-            {/*                <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>UI/UX 디자인</div>*/}
-            {/*                <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>직관적인 인터페이스와*/}
-            {/*                    브랜드<br/>*/}
-            {/*                    아이덴티티를 반영한 시각 디자인을<br/> 설계해 사용자 경험을 극대화합니다.*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 45,*/}
-            {/*                left: 36,*/}
-            {/*                fontWeight: 600,*/}
-            {/*                fontSize: 36,*/}
-            {/*                color: 'white'*/}
-            {/*            }}>STEP2*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
+                    {coworkingImages.map((v, i) => {
+                        return (
+                            <div key={i}
+                                 style={{
+                                     borderRadius: '10px',
+                                     boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',
+                                     width: 180,
+                                     height: 70,
+                                     backgroundColor: 'white',
+                                     display: 'flex',
+                                     alignItems: 'center',
+                                     justifyContent: 'center',
+                                     cursor: 'pointer',
 
-            {/*        <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>*/}
-            {/*            <img src={process03} alt='image' style={{width: 330, height: 420}}/>*/}
-            {/*            <div style={{*/}
-            {/*                textAlign: "left",*/}
-            {/*                width: 330,*/}
-            {/*                height: 420,*/}
-            {/*                backgroundColor: 'white',*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 0,*/}
-            {/*                borderRadius: 10,*/}
-            {/*                padding: 36,*/}
-            {/*                boxSizing: 'border-box',*/}
-            {/*                opacity:0*/}
-            {/*            }}>*/}
-            {/*                <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 155}}>디자인 피드백 반영</div>*/}
-            {/*                <div style={{textAlign: "left", fontSize: 18, marginTop: 76, lineHeight: 1.3}}>고객 피드백을 반영하여*/}
-            {/*                    디자인을<br/>*/}
-            {/*                    수정, 보완해 최종 디자인을<br/>*/}
-            {/*                    완성합니다.*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 45,*/}
-            {/*                left: 36,*/}
-            {/*                fontWeight: 600,*/}
-            {/*                fontSize: 36,*/}
-            {/*                color: 'white'*/}
-            {/*            }}>STEP2*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
+                                 }}>
+                                    <img style={{
+                                        cursor: 'pointer',
+                                        objectFit: 'scale-down',
+                                        height: '50%',
+                                        width: v.width=150? 85:v.width,
+                                    }} src={v.src} alt={`${i}`}/>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
 
-            {/*        <div className='step-card' style={{position: 'relative', cursor:'pointer'}}>*/}
-            {/*            <img src={process04} alt='image' style={{width: 330, height: 420}}/>*/}
-            {/*            <div style={{*/}
-            {/*                textAlign: "left",*/}
-            {/*                width: 330,*/}
-            {/*                height: 420,*/}
-            {/*                backgroundColor: 'white',*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 0,*/}
-            {/*                borderRadius: 10,*/}
-            {/*                padding: 36,*/}
-            {/*                boxSizing: 'border-box',*/}
-            {/*                opacity:0*/}
-            {/*            }}>*/}
-            {/*                <div style={{color: colorList['mainColor'], fontSize: 24, marginTop: 120}}>프론트엔드 개발<br/>*/}
-            {/*                    백엔드 개발<br/>*/}
-            {/*                    서버 세팅*/}
-            {/*                </div>*/}
-            {/*                <div style={{textAlign: "left", fontSize: 18, marginTop: 54, lineHeight: 1.3}}>프론트엔드와 백엔드*/}
-            {/*                    개발을 통해<br/>*/}
-            {/*                    기능을 구현하고, 서버 세팅으로<br/>*/}
-            {/*                    안정적인 운영 환경을 구축합니다.*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                position: 'absolute',*/}
-            {/*                top: 45,*/}
-            {/*                left: 36,*/}
-            {/*                fontWeight: 600,*/}
-            {/*                fontSize: 36,*/}
-            {/*                color: 'white'*/}
-            {/*            }}>STEP2*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
 
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div ref={(el) => (refs.current.faq = el)}  style={{
+                width: '100%',
+                height: 'auto',
+                position: 'relative',
+                boxSizing: 'border-box',
+                padding:'90px 0 0 20px'
+            }}>
+                <div style={{fontSize: 24, fontWeight: 600, textAlign:"center"}}>
+                    FAQ's
+                </div>
+                <div style={{width: '93%', height:'auto', marginTop:74}}>
+                    {faqList.map((v, i) => {
+                        return (
+                            <div key={i} id={v.id} onClick={handleClickQuestion} style={{
+                                width: '100%',
+                                height: 'auto',
+                                padding: activeId === v.id ? "20px" : "20px",
+                                marginBottom: activeId === v.id ? 20 : 0,
+                                boxSizing: 'border-box',
+                                backgroundColor: activeId === v.id ? colorList['backGray'] : "",
+                                borderRadius: '10px',
+                                boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
+                                cursor: 'pointer',
+                                // transition:'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'
+                            }}>
+                                <div id={v.id} onClick={handleClickQuestion} style={{
+                                    fontWeight: 550,
+                                    fontSize: 17,
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    paddingBottom: 10,
+                                }}>
 
-            {/*<div ref={back1} style={{*/}
-            {/*    width: '1920px',*/}
-            {/*    height: '790px',*/}
-            {/*    margin: '0 auto',*/}
-            {/*    backgroundColor: colorList['backGray'],*/}
-            {/*    position: 'relative',*/}
-            {/*    textAlign: 'center',*/}
-            {/*}}>*/}
-            {/*    <div style={{textAlign: 'center', fontSize: 50, fontWeight: 600, paddingTop: 111}}>*/}
-            {/*        What We do*/}
-            {/*    </div>*/}
-            {/*    <div style={{*/}
-            {/*        display: 'grid',*/}
-            {/*        gridTemplateColumns: 'repeat(4, 1fr)',*/}
-            {/*        columnGap: 20,*/}
-            {/*        rowGap: 30,*/}
-            {/*        gridAutoFlow: 'row',*/}
-            {/*        width: '1440px',*/}
-            {/*        margin: '230px auto 0 auto'*/}
-            {/*    }}>*/}
-
-            {/*        {coworkingImages.map((v, i) => {*/}
-            {/*            return (*/}
-            {/*                <div className='cooperate_company' style={{*/}
-            {/*                    borderRadius: '10px',*/}
-            {/*                    boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',*/}
-            {/*                    width: 340,*/}
-            {/*                    height: 132,*/}
-            {/*                    backgroundColor: 'white',*/}
-            {/*                    display: 'flex',*/}
-            {/*                    alignItems: 'center',*/}
-            {/*                    justifyContent: 'center'*/}
-            {/*                }}>*/}
-            {/*                    <img src={v.src} alt={`${v.src} image`}/>*/}
-            {/*                </div>*/}
-            {/*            )*/}
-            {/*        })}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
-            {/*<div ref={back1} style={{*/}
-            {/*    width: '1920px',*/}
-            {/*    height: '1400px',*/}
-            {/*    margin: '0 auto',*/}
-            {/*    position: 'relative',*/}
-            {/*    boxSizing: 'border-box'*/}
-            {/*}}>*/}
-            {/*    <div style={{fontSize: 50, fontWeight: 600, padding: '145px 235px',}}>*/}
-            {/*        FAQ's*/}
-            {/*    </div>*/}
-            {/*    <div style={{position: 'absolute', top: 205, right: 235}}>*/}
-            {/*        {faqList.map((v, i) => {*/}
-            {/*            return (*/}
-            {/*                <div key={i} id={v.id} onClick={handleClickQuestion} style={{*/}
-            {/*                    width: 840,*/}
-            {/*                    height: 'auto',*/}
-            {/*                    padding: activeId === v.id ? "40px" : "20px 40px",*/}
-            {/*                    marginBottom: activeId === v.id ? 20 : 0,*/}
-            {/*                    boxSizing: 'border-box',*/}
-            {/*                    backgroundColor: activeId === v.id ? colorList['backGray'] : "",*/}
-            {/*                    borderRadius: '10px',*/}
-            {/*                    boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",*/}
-            {/*                    cursor: 'pointer',*/}
-            {/*                    transition:'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'*/}
-            {/*                }}>*/}
-            {/*                    <div id={v.id} onClick={handleClickQuestion} style={{*/}
-            {/*                        fontWeight: 550,*/}
-            {/*                        fontSize: 24,*/}
-            {/*                        display: 'flex',*/}
-            {/*                        justifyContent: 'space-between',*/}
-            {/*                        paddingBottom: 30,*/}
-            {/*                        zIndex:5*/}
-            {/*                    }}>{v.question}*/}
-            {/*                        <div style={{position: 'relative'}}>*/}
-            {/*                            {activeId === v.id ? <img src={iconFold} alt='fold' style={{*/}
-            {/*                                    position: "absolute",*/}
-            {/*                                    width: 25,*/}
-            {/*                                    right: 45,*/}
-            {/*                                    top: 12*/}
-            {/*                                }}/> :*/}
-            {/*                                <img src={iconUnfold} alt='unfold'*/}
-            {/*                                     style={{position: "absolute", width: 25, right: 45}}/>}</div>*/}
-            {/*                    </div>*/}
-            {/*                    <div style={{*/}
-            {/*                        fontSize: 18,*/}
-            {/*                        maxHeight: activeId === v.id ? '1000px' : 0,*/}
-            {/*                        transition:'max-height 1.5s ease'*/}
-            {/*                    }}>{activeId === v.id ? v.answer : ""}</div>*/}
-            {/*                </div>*/}
-            {/*            )*/}
-            {/*        })}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                                    <div style={{width:'92%'}}>{v.question}</div>
+                                    <div style={{position: 'relative'}}>
+                                        {activeId === v.id ? <img src={iconFold} alt='fold' style={{
+                                                position: "absolute",
+                                                width: 12,
+                                                top: 12,
+                                                right: 5
+                                            }}/> :
+                                            <img src={iconUnfold} alt='unfold'
+                                                 style={{position: "absolute", top: 5, width: 12, right: 5}}/>}</div>
+                                </div>
+                                <div style={{
+                                    fontSize: 13,
+                                    maxHeight: activeId === v.id ? '1000px' : 0,
+                                    transition:'max-height 1.5s ease'
+                                }}>{activeId === v.id ? v.answer : ""}</div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
             {/*<div ref={back1} style={{*/}
             {/*    width: '1920px',*/}
             {/*    height: '900px',*/}

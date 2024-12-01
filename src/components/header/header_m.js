@@ -1,48 +1,57 @@
-import {Link} from "react-router-dom";
 import {menuList} from "../../assets/contents/MenuList";
 import CI from '../../assets/images/CI.png';
 import CI_text from '../../assets/images/CI_text.png';
+import foldedMenuGray from "../../assets/images/folded_menu_gray.png"
 import foldedMenu from "../../assets/images/folded_menu.png"
-import ToTopButton from '../../assets/images/header_to_top_button.png';
 import {useEffect, useState} from "react";
 
-function Header_m() {
+function Header_m({refs}) {
 
-    const mobile = false;
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [colorChange, setColorChange] = useState(false)
 
-    const [isMenuOpen, setIsMenuOpen] = useState(true);
-    const [isMinMenuOpen, setIsMinMenuOpen] = useState(false);
+    // useEffect(() => {
+    //
+    //     const handleScroll = () => {
+    //         if (refs?.current?.services && window.scrollY > refs.current.services.offsetTop) {
+    //             setColorChange(true)
+    //         } else {
+    //             setColorChange(false)
+    //         }
+    //     };
+    //
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, [refs]);
 
-    const handleMouseEnter = () => {
-        setIsMenuOpen(true);
-        setIsMinMenuOpen(false);
-    }
-    const handleMouseLeave = () => {
-        setIsMenuOpen(false);
-        setIsMinMenuOpen(true);
-    }
 
-    // let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-        if (window.scrollY <= 10) {
-            // 스크롤이 창의 최상단일 때 펼치기
-            setIsMenuOpen(true);
-            setIsMinMenuOpen(false);
-        } else {
-            // 그 외 스크롤 위치일 때 접기
-            setIsMenuOpen(false);
-            setIsMinMenuOpen(true);
+    const handleScrollTo = (section) => {
+        if (refs.current[section]) {
+            refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        // lastScrollY = window.scrollY;
+    };
+
+
+    const handleMenuOpen = () => {
+        setIsMenuOpen(true)
     };
 
     useEffect(() => {
+        const handleScroll = () => {
+            if (isMenuOpen) {
+                setIsMenuOpen(false);
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [isMenuOpen]);
+
 
     function clickToTopButton(){
         window.scrollTo({
@@ -53,26 +62,36 @@ function Header_m() {
 
     return (
         <div style={{width: '100%', minWidth:350, height: 'auto',  position:'fixed', zIndex:5}}>
+            <div style={{width: '100%', height: 'auto', display:'flex', padding:'40px 24px 0 24px',
+            alignItems:'flex-start', justifyContent:'space-between', boxSizing:'border-box'}}>
+                <div style={{display:'flex', gap:8, alignItems:'center'}}>
+                    <img src={CI} style={{width:20, height:20}} alt="CI" id="ci"/>
+                    <img src={CI_text} style={{width: 67, objectFit:'contain'}} alt="CI" id="ci_text"/>
+                </div>
 
-            <div style={{width: mobile? '100%':'1920px', height: 'auto',  margin:'0 auto',
-            display:mobile?'flex':'', justifyContent:mobile?'space-between':'', padding:mobile?'40px 24px 0 24px':'', boxSizing:'border-box'}}>
-                    <div style={{display:'flex', gap:mobile?8:13, margin:mobile?'':'50px 0 0 90px'}}>
-                        <img src={CI} style={{width: mobile?20:32, height:mobile?20:''}} alt="CI" id="ci"/>
-                        <img src={CI_text} style={{width: mobile?67:107, objectFit:'contain'}} alt="CI" id="ci_text"/>
-                    </div>
-
-                {mobile?
-                    <img src={foldedMenu} alt='menu'/>
-                    : <div style={{width:'100%', fontSize:22, color: 'white', display:'flex', gap:80, position: 'absolute', top:52, transform:'translateX(28%)' }}>
-                        {menuList.map((v,i)=>{
-                        return(
-                            <div key={i} style={{cursor:'pointer'}}>
+                <div style={{
+                    maxHeight: isMenuOpen? '300px':0,
+                    opacity: isMenuOpen? 1:0,
+                    position: 'absolute',
+                    right:24,
+                    fontSize: 15,
+                    color: 'white',
+                    display: 'flex',
+                    flexDirection:'column',
+                    gap: 15,
+                    textAlign:'right',
+                    transition: 'max-height 0.5s ease, opacity 0.5s ease'
+                }}>
+                    {menuList.map((v, i) => {
+                        return (
+                            <div key={i} style={{cursor: 'pointer'}} onClick={()=>handleScrollTo(v.key)}>
                                 {v.title}
                             </div>
                         )})}
-                    </div>}
-
                 </div>
+                {!isMenuOpen && <img style={{zIndex:2}} src={colorChange?foldedMenuGray:foldedMenu} alt='menu' onClick={handleMenuOpen}/>}
+
+            </div>
         </div>
 
     )
