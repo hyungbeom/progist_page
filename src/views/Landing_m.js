@@ -75,7 +75,7 @@ const Landing_m = () => {
 
     return (
         <div style={{width: '100vw', height: 'auto', display: 'flex', flexDirection: 'column'}}>
-            <Header_m/>
+            <Header_m refs={refs}/>
             {/*page1*/}
             <div ref={(el) => (refs.current.whoWeAre = el)} style={{
                 width: '100%',
@@ -332,8 +332,8 @@ const Landing_m = () => {
                     columnGap: 15,
                     rowGap: 25,
                     gridAutoFlow: 'row',
-                    width: '100%',
-                    margin: '110px auto 130px 2%',
+                    width: '90%',
+                    margin: '110px auto 130px auto',
                 }}>
 
                     {coworkingImages.map((v, i) => {
@@ -341,7 +341,7 @@ const Landing_m = () => {
                             <div key={i}
                                  style={{
                                      borderRadius: '10px',
-                                     boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',
+                                     boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.1)',
                                      width: 180,
                                      height: 70,
                                      backgroundColor: 'white',
@@ -368,7 +368,7 @@ const Landing_m = () => {
                 width: '100%',
                 height: 'auto',
                 position: 'relative',
-                boxSizing: 'border-box',
+                // boxSizing: 'border-box',
                 padding:'90px 0 0 20px'
             }}>
                 <div style={{fontSize: 24, fontWeight: 600, textAlign:"center"}}>

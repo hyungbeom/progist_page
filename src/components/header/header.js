@@ -18,7 +18,7 @@ function Header({refs}) {
     };
 
     const handleScrollTo = (section) => {
-        if (refs.current[section]) {
+        if (refs && refs.current[section]) {
             refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
         }
     };

@@ -10,21 +10,21 @@ function Header_m({refs}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [colorChange, setColorChange] = useState(false)
 
-    // useEffect(() => {
-    //
-    //     const handleScroll = () => {
-    //         if (refs?.current?.services && window.scrollY > refs.current.services.offsetTop) {
-    //             setColorChange(true)
-    //         } else {
-    //             setColorChange(false)
-    //         }
-    //     };
-    //
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, [refs]);
+    useEffect(() => {
+
+        const handleScroll = () => {
+            if (refs?.current?.services && window.scrollY > refs.current.services.offsetTop) {
+                setColorChange(true)
+            } else {
+                setColorChange(false)
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [refs]);
 
 
     const handleScrollTo = (section) => {
@@ -75,7 +75,7 @@ function Header_m({refs}) {
                     position: 'absolute',
                     right:24,
                     fontSize: 15,
-                    color: 'white',
+                    color: colorChange? 'darkgray':'white',
                     display: 'flex',
                     flexDirection:'column',
                     gap: 15,
@@ -89,7 +89,7 @@ function Header_m({refs}) {
                             </div>
                         )})}
                 </div>
-                {!isMenuOpen && <img style={{zIndex:2}} src={colorChange?foldedMenuGray:foldedMenu} alt='menu' onClick={handleMenuOpen}/>}
+                {!isMenuOpen && <img style={{width:'25px', zIndex:2}} src={colorChange?foldedMenuGray:foldedMenu} alt='menu' onClick={handleMenuOpen}/>}
 
             </div>
         </div>
