@@ -44,7 +44,9 @@ const Landing = () => {
 
     const handleClickQuestion = (e) => {
         // console.log(e.target.id)
-        setActiveId(e.target.id);
+        if (e.target.id===activeId)
+            setActiveId(null)
+        else setActiveId(e.target.id);
     };
 
     const handleClickContactButton = async (e) => {
@@ -72,23 +74,31 @@ const Landing = () => {
         };
     }, []);
 
+
+
     const TypewriterEffect = () => {
-        const txt1 = '프로젝트 매니저, 디자이너, 개발자';
+        const txt1 = '  프로젝트 매니저, 디자이너, 개발자';
         const txt2 = '가\n';
         const txt3 = '한팀팀으로 하나의 프로젝트를 진행합니다.';
         const [typedText1, setTypedText1] = useState('');
         const [typedText2, setTypedText2] = useState('');
         const [typedText3, setTypedText3] = useState('');
-        const [slideUp, setSlideUp] = useState(false)
+        const [slideUp, setSlideUp] = useState(false);
+        const [hasStarted, setHasStarted] = useState(false);
 
         useEffect(() => {
+
+            if (scrollY >= 2600 && !hasStarted) {
+                setHasStarted(true); // 실행 상태를 업데이트
+                console.log(hasStarted, 'hasStarted~~')
+
             let i = 0; // 인덱스 관리
 
             const typeWriter1 = () => {
                 if (i < txt1.length) {
                     setTypedText1((prevText) => prevText + txt1.charAt(i));
                     i++;
-                    setTimeout(typeWriter1, 50);
+                    setTimeout(typeWriter1, 30);
                 } else {
                     i = 0;
                     typeWriter2();
@@ -100,7 +110,7 @@ const Landing = () => {
                 if (i < txt2.length) {
                     setTypedText2((prevText) => prevText + txt2.charAt(i));
                     i++;
-                    setTimeout(typeWriter2, 50);
+                    setTimeout(typeWriter2, 30);
                 } else {
                     i = 0;
                     typeWriter3();
@@ -112,16 +122,18 @@ const Landing = () => {
                 if (i < txt3.length) {
                     setTypedText3((prevText) => prevText + txt3.charAt(i));
                     i++;
-                    setTimeout(typeWriter3, 50);
+                    setTimeout(typeWriter3, 30);
                 } else {
                     setSlideUp(true)
                 }
             };
-            if (scrollY>2600) {
-                typeWriter1();
+                if (hasStarted) {
+                    console.log(hasStarted, 'hasStarted~~')
+                    typeWriter1()
+                }
             }
 
-        }, [scrollY<2600]);
+        }, [hasStarted]);
 
 
         return (
@@ -148,7 +160,7 @@ const Landing = () => {
                 overflow:'hidden',
                 maxHeight:slideUp?'126px':'0',
                 transform:slideUp?'':'translateY(30%)',
-                transition:'max-height 2s ease, transform 1s ease'
+                transition:'max-height 1s ease, transform 0.5s ease'
             }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
                 더 좋은 퀄리티를 위해 노력합니다.
             </div>
@@ -165,7 +177,7 @@ const Landing = () => {
             pin: true,
             scrub: false,
             toggleActions: 'restart none restart none',
-            markers: true,
+            // markers: true,
         },);
 
         },[])
@@ -181,13 +193,39 @@ const Landing = () => {
                     boxSizing: 'border-box',
                     zIndex: 2,
                 }}>
+
                     <div style={{
                         width: '1920px',
                         height: '1080px',
+                        // width: '100%',
+                        // aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
                         backgroundImage: 'url(/temp_background.png)',
                     }}>
+                        {/* 배경 비디오 추가 */}
+                        {/*<video*/}
+                        {/*    autoPlay*/}
+                        {/*    muted*/}
+                        {/*    loop*/}
+                        {/*    playsInline*/}
+                        {/*    style={{*/}
+                        {/*        position: "absolute",*/}
+                        {/*        top: 0,*/}
+                        {/*        left: 0,*/}
+                        {/*        width: "100%",*/}
+                        {/*        height: "100%",*/}
+                        {/*        objectFit: "cover",*/}
+                        {/*        zIndex: -1, // 배경으로 설정*/}
+                        {/*    }}*/}
+                        {/*>*/}
+                        {/*    <source*/}
+                        {/*        src="https://a.slack-edge.com/2e396bc/img/app-directory/splash-ui-ai-apps.webm"*/}
+                        {/*        type="video/webm"*/}
+                        {/*    />*/}
+                        {/*    Your browser does not support the video tag.*/}
+                        {/*</video>*/}
+
                         <div style={{
                             position: 'absolute',
                             backgroundColor: 'white',
@@ -251,7 +289,7 @@ const Landing = () => {
                             textAlign: 'center',
                             position: 'absolute',
                             top: 400,
-                            lineHeight: 1.3,
+                            lineHeight: 1.8,
                             opacity: 0,
                         }}>
                             프로지스트는 고객의 비전을 실현하기 위해<br/>
@@ -519,7 +557,7 @@ const Landing = () => {
                                     transition: 'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'
                                 }}>
                                     <div id={v.id} onClick={handleClickQuestion} style={{
-                                        fontWeight: 550,
+                                        fontWeight: 500,
                                         fontSize: 24,
                                         display: 'flex',
                                         justifyContent: 'space-between',
@@ -654,10 +692,10 @@ const Landing = () => {
                         </div>
 
                         <div style={{display: 'flex', flexDirection: 'column', gap: 13}}>
-                            <div><span style={{fontWeight: 550}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>
-                            <div><span style={{fontWeight: 550}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>
-                            <div><span style={{fontWeight: 550}}>Project Request</span> hblee@progist.co.kr</div>
-                            <div><span style={{fontWeight: 550}}>Tel</span> 010-8636-2553</div>
+                            <div><span style={{fontWeight: 500}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                            <div><span style={{fontWeight: 500}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                            <div><span style={{fontWeight: 500}}>Project Request</span> hblee@progist.co.kr</div>
+                            <div><span style={{fontWeight: 500}}>Tel</span> 010-8636-2553</div>
                         </div>
 
                     </div>

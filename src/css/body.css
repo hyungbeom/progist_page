@@ -697,7 +697,7 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 1s ease-in forwards;
+    animation: fadeIn 0.5s ease-in forwards;
 }
 
 @keyframes fadeOut {
@@ -726,7 +726,7 @@ body {
 }
 
 .slide-up {
-    animation: slideUp 1s ease-out forwards;
+    animation: slideUp 0.5s ease-out forwards;
 }
 
 .step-card:hover > div:nth-child(2) {

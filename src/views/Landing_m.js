@@ -5,9 +5,13 @@ import arrowDown from "../assets/images/icon_arrow_down.png"
 import arrowUp from "../assets/images/icon_arrow_up.png"
 import iconFold from "../assets/images/icon_fold.png"
 import iconUnfold from "../assets/images/icon_unFold.png"
+import CI from "../assets/images/CI.png";
+import CI_text from "../assets/images/CI_text.png";
 
 import Header_m from "../components/header/header_m";
 import handleSendEmail from "../components/tools/SendEmail";
+import {menuList} from "../assets/contents/MenuList";
+import Modal from "../components/modal";
 
 const Landing_m = () => {
 
@@ -33,11 +37,11 @@ const Landing_m = () => {
         setCurrentCard(i)
     }
 
-    // const handleScrollTo = (section) => {
-    //     if (refs.current[section]) {
-    //         refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
-    //     }
-    // };
+    const handleScrollTo = (section) => {
+        if (refs.current[section]) {
+            refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    };
 
     const handleClickQuestion = (e) => {
         // console.log(e.target.id)
@@ -100,16 +104,16 @@ const Landing_m = () => {
                 </div>
             </div>
 
-                {/*page2*/}
-                <div style={{
-                    width: '100%',
-                    minWidth: 390,
-                    aspectRatio: '0.46/1',
-                    margin: '0 auto',
-                    boxSizing: 'border-box',
-                    backgroundColor: colorList['gray'],
-                    padding: '90% 4.5% 0 4.5%',
-                }}>
+            {/*page2*/}
+            <div style={{
+                width: '100%',
+                minWidth: 390,
+                aspectRatio: '0.46/1',
+                margin: '0 auto',
+                boxSizing: 'border-box',
+                backgroundColor: colorList['gray'],
+                padding: '90% 4.5% 0 4.5%',
+            }}>
                 <div style={{
                     width: '100%',
                     fontSize: '9vw',
@@ -127,7 +131,7 @@ const Landing_m = () => {
                         padding: '1%',
                         backgroundColor: 'rgba(0, 0, 0, 0.3)',
                         lineHeight: 1.7,
-                        marginTop:'27%'
+                        marginTop: '27%'
                     }}>
                     : “프로그램(program)”과 특정 분야의 전문성을<br/>
                     지닌 사람을 나타내는 “-ist”의 조합으로,<br/>
@@ -186,57 +190,64 @@ const Landing_m = () => {
                     한팀으로 하나의 프로젝트를 진행합니다.
                 </div>
 
-                    <div style={{
-                        fontSize: '4vw',
-                        width: '100%',
-                        textAlign: 'center',
-                        marginTop: '20%',
-                        lineHeight: 1.5,
-                        color:'#626262'
-                    }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
-                        더 좋은 퀄리티를 위해 노력합니다.
-                    </div>
+                <div style={{
+                    fontSize: '4vw',
+                    width: '100%',
+                    textAlign: 'center',
+                    marginTop: '20%',
+                    lineHeight: 1.5,
+                    color: '#626262'
+                }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
+                    더 좋은 퀄리티를 위해 노력합니다.
+                </div>
 
                 <div style={{display: 'grid', gridTemplateColumns: '1fr 10fr', marginTop: '100%',}}>
-                    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-                        <div style={{borderRadius:'50%', width:'4.5vw', aspectRatio:'1/1', border: '5px solid #86A4E8', backgroundColor:colorList['navy'] }}/>
-                        <div style={{backgroundColor:colorList['black'], height:'97.5%', width:1}}/>
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <div style={{
+                            borderRadius: '50%',
+                            width: '4.5vw',
+                            aspectRatio: '1/1',
+                            border: '5px solid #86A4E8',
+                            backgroundColor: colorList['navy']
+                        }}/>
+                        <div style={{backgroundColor: colorList['black'], height: '97.5%', width: 1}}/>
                     </div>
 
-                    <div style={{display:'flex', flexDirection:'column', rowGap:'140px'}}>
-                        {serviceContents.map((v, i)=>{
+                    <div style={{display: 'flex', flexDirection: 'column', rowGap: '140px'}}>
+                        {serviceContents.map((v, i) => {
                             return (
                                 <div key={i}>
-                        <div style={{
-                            width: '100%',
-                            height: 'auto',
-                            fontSize: '5.5vw',
-                            fontWeight: 600,
-                            color: colorList['navy'],
-                            whiteSpace: 'pre-line',
-                            margin: '0 0 0 5%',
-                            boxSizing: 'border-box',
-                        }}>{v.mainText}<br/>
-                            <span style={{
-                                fontWeight: 500,
-                                fontSize: '3.4vw',
-                                color: colorList['black']
-                            }}>{v.subText}</span>
-                        </div>
-                        <div>
-                            <img src={v.src} alt='image' style={{
-                                objectFit: 'fill',
-                                objectPosition: 'center center',
-                                width: '105%',
-                                aspectRatio: '1.26/1',
-                                maxHeight: '100%'
-                            }}/>
-                        </div>
+                                    <div style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        fontSize: '5.5vw',
+                                        fontWeight: 600,
+                                        color: colorList['navy'],
+                                        whiteSpace: 'pre-line',
+                                        margin: '0 0 0 5%',
+                                        boxSizing: 'border-box',
+                                    }}>{v.mainText}<br/>
+                                        <span style={{
+                                            fontWeight: 500,
+                                            fontSize: '3.4vw',
+                                            color: colorList['black']
+                                        }}>{v.subText}</span>
+                                    </div>
+                                    <div>
+                                        <img src={v.src} alt='image' style={{
+                                            objectFit: 'fill',
+                                            objectPosition: 'center center',
+                                            width: '105%',
+                                            aspectRatio: '1.26/1',
+                                            maxHeight: '100%'
+                                        }}/>
+                                    </div>
                                 </div>
-                            )})}
+                            )
+                        })}
                     </div>
+                </div>
             </div>
-        </div>
 
 
             {/*process*/}
@@ -248,13 +259,20 @@ const Landing_m = () => {
                 boxSizing: 'border-box',
                 backgroundColor: colorList['backGray'],
                 padding: '4.5%',
-                color:colorList['black']
+                color: colorList['black']
             }}>
                 <div style={{fontSize: '5.4vw', fontWeight: 600, width: '100%', textAlign: 'center'}}>
                     Process
                 </div>
 
-                <div style={{marginTop:'5%', fontSize: '3.4vw', fontWeight: 500, width: '100%', padding:'2%', lineHeight:1.5}}>
+                <div style={{
+                    marginTop: '5%',
+                    fontSize: '3.4vw',
+                    fontWeight: 500,
+                    width: '100%',
+                    padding: '2%',
+                    lineHeight: 1.5
+                }}>
                     Asana, Slack, 카카오톡 단톡방을 통해<br/>
                     모든 작업자와 클라이언트가 실시간으로 소통하며,<br/>
                     고객사는 프로젝트 진행 상황을 즉시 확인할 수 있습니다.<br/>
@@ -263,28 +281,41 @@ const Landing_m = () => {
                 </div>
             </div>
 
-                <div style={{width:'100%', position:'relative', margin:'0 auto',backgroundColor: colorList['backGray']}}>
+            <div
+                style={{width: '100%', position: 'relative', margin: '0 auto', backgroundColor: colorList['backGray']}}>
 
-                    {processContents.map((v, i)=>{
-                        return (
-                            <div onClick={() => handleProcessCard(i)} style={{width: '99%', aspectRatio: '1/1', position: 'absolute',
-                                top:currentCard>=i?i*100:i*100+200, margin:'0 auto', transition:'top 1s ease' }}>
+                {processContents.map((v, i) => {
+                    return (
+                        <div onClick={() => handleProcessCard(i)} style={{
+                            width: '99%', aspectRatio: '1/1', position: 'absolute',
+                            top: currentCard >= i ? i * 100 : i * 100 + 230, margin: '0 auto', transition: 'top 1s ease'
+                        }}>
                             <div key={i} style={{width: '100%', aspectRatio: '1/1', position: 'relative',}}>
-                                <img src={v.src} style={{width: '100%', aspectRatio: '1/1', objectFit: 'fill'}} alt='process image'/>
-                                <div style={{borderRadius:'10px', position:'absolute', width:'100%', height:'100%', backgroundColor:'white', opacity:currentCard===i?0.7:0, top:0,}}/>
+                                <img src={v.src} style={{width: '100%', aspectRatio: '1/1', objectFit: 'fill'}}
+                                     alt='process image'/>
+                                <div style={{
+                                    borderRadius: '10px',
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backgroundColor: 'white',
+                                    opacity: currentCard === i ? 0.7 : 0,
+                                    top: 0,
+                                }}/>
                                 <div style={{
                                     fontSize: '5.4vw',
                                     fontWeight: 600,
                                     position: 'absolute',
                                     top: '7%',
                                     left: '6%',
-                                    color: currentCard===i?colorList['navy']:'white',
+                                    color: currentCard === i ? colorList['navy'] : 'white',
                                 }}>
                                     STEP {i + 1}
                                 </div>
-                                <img style={{position:'absolute', top: '7%', right:'6%', width:'18px'}} src={currentCard===i?arrowDown:arrowUp} alt='arrow down'/>
+                                <img style={{position: 'absolute', top: '7%', right: '6%', width: '18px'}}
+                                     src={currentCard === i ? arrowDown : arrowUp} alt='arrow down'/>
 
-                                {currentCard===i&&<div style={{
+                                {currentCard === i && <div style={{
                                     fontSize: '5.4vw',
                                     fontWeight: 600,
                                     position: 'absolute',
@@ -300,17 +331,17 @@ const Landing_m = () => {
                                     position: 'absolute',
                                     top: '40%',
                                     left: '6%',
-                                    whiteSpace:'pre-line',
-                                    lineHeight:1.5,
+                                    whiteSpace: 'pre-line',
+                                    lineHeight: 1.5,
                                     color: colorList['black']
                                 }}>
-                                    {v.description}
+                                    {currentCard === i && v.description}
                                 </div>
                             </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                        </div>
+                    )
+                })}
+            </div>
 
             <div ref={(el) => (refs.current.whatWeDo = el)} style={{
                 width: '100%',
@@ -320,8 +351,14 @@ const Landing_m = () => {
                 textAlign: 'center',
                 marginTop: '200%',
             }}>
-                <div style={{paddingTop:"50%", textAlign: 'center', fontSize: 15, fontWeight: 500, lineHeight:1.6}}>
-                    <div style={{fontSize: 24, fontWeight: 600, paddingBottom:10}}>What We do<br/></div>
+                <div style={{
+                    paddingTop: "50%",
+                    textAlign: 'center',
+                    fontSize: '3.4vw',
+                    fontWeight: 500,
+                    lineHeight: 1.6
+                }}>
+                    <div style={{fontSize: '5.4vw', fontWeight: 600, paddingBottom: 10}}>What We do<br/></div>
                     All-in-one at Progist<br/>
                     꿈을 현실로 만들고 비전을 실현합니다.
 
@@ -342,8 +379,8 @@ const Landing_m = () => {
                                  style={{
                                      borderRadius: '10px',
                                      boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.1)',
-                                     width: 180,
-                                     height: 70,
+                                     width: '100%',
+                                     aspectRatio: '2.57 / 1',
                                      backgroundColor: 'white',
                                      display: 'flex',
                                      alignItems: 'center',
@@ -351,12 +388,12 @@ const Landing_m = () => {
                                      cursor: 'pointer',
 
                                  }}>
-                                    <img style={{
-                                        cursor: 'pointer',
-                                        objectFit: 'scale-down',
-                                        height: '50%',
-                                        width: v.width=150? 85:v.width,
-                                    }} src={v.src} alt={`${i}`}/>
+                                <img style={{
+                                    cursor: 'pointer',
+                                    objectFit: 'scale-down',
+                                    height: '50%',
+                                    width: v.width = 150 ? 85 : v.width,
+                                }} src={v.src} alt={`${i}`}/>
                             </div>
                         )
                     })}
@@ -364,17 +401,17 @@ const Landing_m = () => {
             </div>
 
 
-            <div ref={(el) => (refs.current.faq = el)}  style={{
+            <div ref={(el) => (refs.current.faq = el)} style={{
                 width: '100%',
                 height: 'auto',
                 position: 'relative',
-                // boxSizing: 'border-box',
-                padding:'90px 0 0 20px'
+                padding: '90px 0 0 20px',
+                boxSizing:'border-box'
             }}>
-                <div style={{fontSize: 24, fontWeight: 600, textAlign:"center"}}>
+                <div style={{fontSize: 24, fontWeight: 600, textAlign: "center"}}>
                     FAQ's
                 </div>
-                <div style={{width: '93%', height:'auto', marginTop:74}}>
+                <div style={{width: '93%', height: 'auto', marginTop: 74}}>
                     {faqList.map((v, i) => {
                         return (
                             <div key={i} id={v.id} onClick={handleClickQuestion} style={{
@@ -386,147 +423,144 @@ const Landing_m = () => {
                                 backgroundColor: activeId === v.id ? colorList['backGray'] : "",
                                 borderRadius: '10px',
                                 boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
-                                cursor: 'pointer',
-                                // transition:'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'
                             }}>
                                 <div id={v.id} onClick={handleClickQuestion} style={{
-                                    fontWeight: 550,
-                                    fontSize: 17,
+                                    fontWeight: 500,
+                                    fontSize: '3.8vw',
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     paddingBottom: 10,
                                 }}>
 
-                                    <div style={{width:'92%'}}>{v.question}</div>
+                                    <div id={v.id} onClick={handleClickQuestion}
+                                         style={{width: '92%', whiteSpace: 'pre-line',}}>
+                                        {v.question}</div>
                                     <div style={{position: 'relative'}}>
                                         {activeId === v.id ? <img src={iconFold} alt='fold' style={{
                                                 position: "absolute",
                                                 width: 12,
                                                 top: 12,
-                                                right: 5
+                                                right: 0
                                             }}/> :
                                             <img src={iconUnfold} alt='unfold'
-                                                 style={{position: "absolute", top: 5, width: 12, right: 5}}/>}</div>
+                                                 style={{position: "absolute", top: 5, width: 12, right: 0}}/>}</div>
                                 </div>
                                 <div style={{
-                                    fontSize: 13,
+                                    fontSize: '2.9vw',
+                                    color: colorList['gray'],
+                                    lineHeight: 1.3,
                                     maxHeight: activeId === v.id ? '1000px' : 0,
-                                    transition:'max-height 1.5s ease'
-                                }}>{activeId === v.id ? v.answer : ""}</div>
+                                    transition: 'max-height 1.5s ease',
+                                }}>{activeId === v.id && v.answer}</div>
                             </div>
                         )
                     })}
                 </div>
             </div>
-            {/*<div ref={back1} style={{*/}
-            {/*    width: '1920px',*/}
-            {/*    height: '900px',*/}
-            {/*    margin: '0 auto',*/}
-            {/*    position: 'relative',*/}
-            {/*    padding: '80px 0',*/}
-            {/*    boxSizing: 'border-box'*/}
-            {/*}}>*/}
-            {/*    <div style={{*/}
-            {/*        width: 1440,*/}
-            {/*        height: 650,*/}
-            {/*        margin: '0 auto',*/}
-            {/*        position: 'relative',*/}
-            {/*    }}>*/}
-            {/*        <img src={'/temp_background.png'} alt='contact' width={1440} height={650}*/}
-            {/*             style={{borderRadius: '20px'}}/>*/}
-            {/*        <div style={{*/}
-            {/*            width: '1440px',*/}
-            {/*            height: '652px',*/}
-            {/*            backgroundColor: 'white',*/}
-            {/*            opacity: 0.8,*/}
-            {/*            position: 'absolute',*/}
-            {/*            top: 0*/}
-            {/*        }}/>*/}
-            {/*        <div style={{*/}
-            {/*            position: 'absolute',*/}
-            {/*            top: 130,*/}
-            {/*            width: '100%',*/}
-            {/*            display: 'flex',*/}
-            {/*            flexDirection: 'column',*/}
-            {/*            alignItems: 'center',*/}
-            {/*            textAlign: 'center'*/}
-            {/*        }}>*/}
-            {/*            <div style={{fontWeight: 600, fontSize: 50}}>Contact<br/>*/}
-            {/*                <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>*/}
-            {/*            </div>*/}
-            {/*            <div style={{marginTop: 43, lineHeight: 1.4}}>연락처를 남겨주시면<br/>*/}
-            {/*                신속히 답변드리겠습니다.*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                width: 295,*/}
-            {/*                height: 60,*/}
-            {/*                color: '#AEAEAE',*/}
-            {/*                fontSize: 20,*/}
-            {/*                fontWeight: 500,*/}
-            {/*                lineHeight: 2.9,*/}
-            {/*                borderRadius: 30,*/}
-            {/*                marginTop: 43,*/}
-            {/*                border: '1px solid #AEAEAE'*/}
-            {/*            }}>*/}
-            {/*                이메일 또는 전화번호*/}
-            {/*            </div>*/}
-            {/*            <div style={{*/}
-            {/*                width: 295,*/}
-            {/*                height: 60,*/}
-            {/*                color: 'white',*/}
-            {/*                fontSize: 20,*/}
-            {/*                fontWeight: 500,*/}
-            {/*                lineHeight: 2.9,*/}
-            {/*                backgroundColor: colorList['navy'],*/}
-            {/*                borderRadius: 30,*/}
-            {/*                marginTop: 20,*/}
-            {/*            }}>*/}
-            {/*                문의하기*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
+            <div ref={(el) => (refs.current.faq = el)} style={{
+                width: '100%',
+                height: 'auto',
+                position: 'relative',
+                padding: '90px 25px 25px 20px',
+                boxSizing:'border-box'
+            }}>
+                <div style={{fontSize: '5.4vw', fontWeight: 600, textAlign: "center"}}>
+                    Contact
+                </div>
 
-            {/*    </div>*/}
+                <div style={{textAlign: "center", width: '100%', marginTop: 55, fontSize: '4.5vw'}}>
+                    <div>이메일 또는 전화번호를 남겨주세요</div>
+                    <div style={{marginTop: 35,fontSize: '4vw', lineHeight: 1.2}}>연락처를 남겨주시면<br/>
+                        신속히 답변드리겠습니다.
+                    </div>
+                </div>
 
-            {/*</div>*/}
+                <div style={{
+                    width: '100%',
+                    aspectRatio: '1.21/1',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    marginTop: 30,
+                    backgroundColor: '#D9D9D9',
+                    fontSize: '3.4vw',
+                }}>
+                    <div style={{
+                        width: '76%',
+                        aspectRatio: '7.4/1',
+                        color: '#AEAEAE',
+                        lineHeight: 3,
+                        borderRadius: 30,
+                        border: '1px solid #121212'
+                    }}>
+                        <input value={customerContact} onChange={(e) => setCustomerContact(e.target.value)}
+                               style={{
+                                   fontSize: '3.4vw',
+                                   background: "transparent",
+                                   width: '90%',
+                                   textAlign: 'center',
+                                   border: 'none'
+                               }} placeholder='이메일 또는 전화번호'/>
+                    </div>
+                    <div style={{
+                        width: '76%',
+                        aspectRatio: '7.4/1',
+                        color: 'white',
+                        fontWeight: 500,
+                        lineHeight: 3,
+                        backgroundColor: colorList['navy'],
+                        borderRadius: 30,
+                        marginTop: 20,
+                    }} onClick={handleClickContactButton}>
+                        문의하기
+                    </div>
+                    <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} message={modalMessage}/>
+                </div>
+            </div>
 
-            {/*<div style={{width: '1920px', height: 'auto', margin: '0 auto'}}>*/}
-            {/*    <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>*/}
-            {/*    <div style={{*/}
-            {/*        width: '100%',*/}
-            {/*        height: 'auto',*/}
-            {/*        display: 'grid',*/}
-            {/*        gridTemplateColumns: '4fr 2fr 3fr ',*/}
-            {/*        padding: '82px 170px 58px 170px'*/}
-            {/*    }}>*/}
-            {/*        <div>*/}
-            {/*            <div style={{display: 'flex', gap: 13, margin: '22px 0 0 0'}}>*/}
-            {/*                <img src={CI} style={{width: 32}} alt="CI" id="ci"/>*/}
-            {/*                <img src={CI_text} style={{width: 107, objectFit: 'contain'}} alt="CI" id="ci_text"/>*/}
-            {/*            </div>*/}
-            {/*            <div style={{fontSize: 20, marginTop: 25}}>2024 @ progist All Rights Reserved.</div>*/}
-            {/*        </div>*/}
+            <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>
+            <div style={{width: '100%', height: 'auto',}}>
+                <div style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'grid',
+                    gridTemplateColumns: '6fr 4fr',
+                    padding: '25px 25px',
+                    boxSizing: 'border-box'
+                }}>
+                    <div style={{color: colorList['gray']}}>
+                        <div style={{display: 'flex', gap: 13,}}>
+                            <img src={CI} style={{width: 20}} alt="CI" id="ci"/>
+                            <img src={CI_text} style={{width: 67, objectFit: 'contain'}} alt="CI" id="ci_text"/>
+                        </div>
+                        <div style={{fontSize: '1.8vw', marginTop: 8,}}>2024 @ progist All Rights Reserved.</div>
 
-            {/*        <div style={{color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: 13}}>*/}
-            {/*            <div>Who We Are</div>*/}
-            {/*            <div>Service</div>*/}
-            {/*            <div>Process</div>*/}
-            {/*            <div>What We do</div>*/}
-            {/*            <div>Contact</div>*/}
-            {/*        </div>*/}
+                        <div style={{marginTop: 35, fontSize: '2vw', display: 'flex', flexDirection: 'column', gap: 5}}>
+                            <div><span style={{fontWeight: 500}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                            <div><span style={{fontWeight: 500}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>
+                            <div><span style={{fontWeight: 500}}>Project Request</span> hblee@progist.co.kr</div>
+                            <div><span style={{fontWeight: 500}}>Tel</span> 010-8636-2553</div>
+                        </div>
+                    </div>
 
-            {/*        <div style={{display: 'flex', flexDirection: 'column', gap: 13}}>*/}
-            {/*            <div><span style={{fontWeight: 550}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>*/}
-            {/*            <div><span style={{fontWeight: 550}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>*/}
-            {/*            <div><span style={{fontWeight: 550}}>Project Request</span> hblee@progist.co.kr</div>*/}
-            {/*            <div><span style={{fontWeight: 550}}>Tel</span> 010-8636-2553</div>*/}
-            {/*        </div>*/}
+                    <div style={{fontSize:'2.9vw', color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: 8}}>
+                        {menuList.map((v, i) => {
+                            return (
+                                <div key={i}
+                                     onClick={() => handleScrollTo(v.key)}>{v.title}</div>
+                            )
+                        })}
+                    </div>
 
-            {/*    </div>*/}
-            {/*</div>*/}
-            {/*<div className="text_flow_container">*/}
-            {/*    <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>*/}
-            {/*    <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>*/}
 
+                </div>
+                <div className="text_flow_container" st>
+                    <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
+                    <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
+                </div>
+            </div>
 
         </div>
     )
