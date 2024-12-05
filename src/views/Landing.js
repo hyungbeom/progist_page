@@ -404,10 +404,10 @@ const Landing = () => {
                     textAlign: 'center',
                     padding: '184px 0 135px 0',
                 }}>
-                    <div style={{fontSize: '2.6vw', fontWeight: 600,}}>
+                    <div className={scrollY >= 6150 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600,}}>
                         Process
                     </div>
-                    <div style={{fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
+                    <div className={scrollY >= 6200 && 'slide-up'} style={{opacity:0, fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
                         Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span
                         style={{fontWeight: 600}}>실시간으로 소통하며,</span><br/>
                         고객사는 프로젝트 <span style={{fontWeight: 600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
@@ -482,7 +482,7 @@ const Landing = () => {
                     position: 'relative',
                     textAlign: 'center',
                 }}>
-                    <div style={{textAlign: 'center', fontSize: '2.6vw', fontWeight: 600, paddingTop: 111}}>
+                    <div className={scrollY >= 7250 && 'slide-up'} style={{opacity:0, textAlign: 'center', fontSize: '2.6vw', fontWeight: 600, paddingTop: 111}}>
                         What We do
                     </div>
                     <div style={{
@@ -540,7 +540,7 @@ const Landing = () => {
                     position: 'relative',
                     boxSizing: 'border-box'
                 }}>
-                    <div style={{fontSize: '2.6vw', fontWeight: 600, padding: '145px 12.23vw',}}>
+                    <div className={scrollY >= 8050 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600, padding: '145px 12.23vw',}}>
                         FAQ's
                     </div>
                     <div style={{position: 'absolute', top: 205, right: '12.2vw'}}>
