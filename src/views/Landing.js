@@ -26,6 +26,7 @@ const Landing = () => {
     const [modalMessage, setModalMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentLogo, setCurrentLogo] = useState(null);
+    const [showTypewriter, setShowTypewriter] = useState(false);
 
     const refs = useRef({
         whoWeAre: null,
@@ -65,6 +66,10 @@ const Landing = () => {
     const handleScroll = () => {
         // 현재 스크롤 위치를 추적
         setScrollY(window.scrollY);
+        if (window.scrollY>2600 && !showTypewriter) { // 조건 확인 및 상태 업데이트
+            setShowTypewriter(true);
+            console.log(showTypewriter, 'showTypewriter~~')
+        }
     };
 
     useEffect(() => {
@@ -75,71 +80,62 @@ const Landing = () => {
     }, []);
 
 
+    //typing 애니메이션
+    const txt1 = '  프로젝트 매니저, 디자이너, 개발자';
+    const txt2 = '가\n';
+    const txt3 = '한팀팀으로 하나의 프로젝트를 진행합니다.';
+    const [typedText1, setTypedText1] = useState('');
+    const [typedText2, setTypedText2] = useState('');
+    const [typedText3, setTypedText3] = useState('');
+    const [slideUp, setSlideUp] = useState(false);
 
+    let i = 0; // 인덱스 관리
+
+    const typeWriter1 = () => {
+        if (i < txt1.length) {
+            setTypedText1((prevText) => prevText + txt1.charAt(i));
+            i++;
+            setTimeout(typeWriter1, 30);
+        } else {
+            i = 0;
+            typeWriter2();
+        }
+    };
+
+    // 두 번째 문장 타이핑
+    const typeWriter2 = () => {
+        if (i < txt2.length) {
+            setTypedText2((prevText) => prevText + txt2.charAt(i));
+            i++;
+            setTimeout(typeWriter2, 30);
+        } else {
+            i = 0;
+            typeWriter3();
+        }
+    };
+
+    // 세 번째 문장 타이핑
+    const typeWriter3 = () => {
+        if (i < txt3.length) {
+            setTypedText3((prevText) => prevText + txt3.charAt(i));
+            i++;
+            setTimeout(typeWriter3, 30);
+        } else {
+            setSlideUp(true)
+        }
+    };
+
+    useEffect(()=>{
+        if (showTypewriter)
+            typeWriter1();
+    },[showTypewriter])
+
+    
     const TypewriterEffect = () => {
-        const txt1 = '  프로젝트 매니저, 디자이너, 개발자';
-        const txt2 = '가\n';
-        const txt3 = '한팀팀으로 하나의 프로젝트를 진행합니다.';
-        const [typedText1, setTypedText1] = useState('');
-        const [typedText2, setTypedText2] = useState('');
-        const [typedText3, setTypedText3] = useState('');
-        const [slideUp, setSlideUp] = useState(false);
-        const [hasStarted, setHasStarted] = useState(false);
-
-        useEffect(() => {
-
-            if (scrollY >= 2600 && !hasStarted) {
-                setHasStarted(true); // 실행 상태를 업데이트
-                console.log(hasStarted, 'hasStarted~~')
-
-            let i = 0; // 인덱스 관리
-
-            const typeWriter1 = () => {
-                if (i < txt1.length) {
-                    setTypedText1((prevText) => prevText + txt1.charAt(i));
-                    i++;
-                    setTimeout(typeWriter1, 30);
-                } else {
-                    i = 0;
-                    typeWriter2();
-                }
-            };
-
-            // 두 번째 문장 타이핑
-            const typeWriter2 = () => {
-                if (i < txt2.length) {
-                    setTypedText2((prevText) => prevText + txt2.charAt(i));
-                    i++;
-                    setTimeout(typeWriter2, 30);
-                } else {
-                    i = 0;
-                    typeWriter3();
-                }
-            };
-
-            // 세 번째 문장 타이핑
-            const typeWriter3 = () => {
-                if (i < txt3.length) {
-                    setTypedText3((prevText) => prevText + txt3.charAt(i));
-                    i++;
-                    setTimeout(typeWriter3, 30);
-                } else {
-                    setSlideUp(true)
-                }
-            };
-                if (hasStarted) {
-                    console.log(hasStarted, 'hasStarted~~')
-                    typeWriter1()
-                }
-            }
-
-        }, [hasStarted]);
-
-
         return (
             <div style={{width:'100%', height:'400px'}}>
             <div id='service-typing' style={{
-                fontSize: 50,
+                fontSize: '2.6vw',
                 width: '100%',
                 height: 'auto',
                 textAlign: 'center',
@@ -151,7 +147,7 @@ const Landing = () => {
                 {typedText3}
             </div>
             <div style={{
-                fontSize: 24,
+                fontSize: '1.25vw',
                 width: '100%',
                 textAlign: 'center',
                 lineHeight: 1.5,
@@ -165,7 +161,7 @@ const Landing = () => {
                 더 좋은 퀄리티를 위해 노력합니다.
             </div>
         </div>
-    );
+        );
     };
 
     useGSAP(()=>{
@@ -187,6 +183,7 @@ const Landing = () => {
             <Header refs={refs}/>
             <div id='landing-page' ref={(el) => (refs.current.whoWeAre = el)} style={{width: '98vw', height: 'auto',}}>
                 <div style={{
+                    maxWidth: '1920px',
                     width: '100%',
                     height: 'auto',
                     margin: '0 auto',
@@ -195,10 +192,9 @@ const Landing = () => {
                 }}>
 
                     <div style={{
-                        width: '1920px',
-                        height: '1080px',
-                        // width: '100%',
-                        // aspectRatio: '1.77/1',
+                        width: '100%',
+                        maxWidth: '1920px',
+                        aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
                         backgroundImage: 'url(/temp_background.png)',
@@ -236,7 +232,7 @@ const Landing = () => {
                         }}/>
                         <div className={scrollY >= 550 ? 'fade-out' : 'fade-in'} style={{
                             width: '100%',
-                            fontSize: 80,
+                            fontSize: '4.1vw',
                             color: 'white',
                             textAlign: 'center',
                             position: 'absolute',
@@ -251,7 +247,7 @@ const Landing = () => {
                             className={scrollY >= 550 && scrollY < 1200 ? 'slide-up' : scrollY >= 1200 ? 'fade-out' : null}
                             style={{
                                 width: 'auto',
-                                fontSize: 80,
+                                fontSize: '4.16vw',
                                 color: 'white',
                                 position: 'absolute',
                                 top: 550,
@@ -266,7 +262,7 @@ const Landing = () => {
                             className={scrollY >= 550 && scrollY < 1200 ? 'fade-in' : scrollY >= 1200 ? 'fade-out' : null}
                             style={{
                                 width: 'auto',
-                                fontSize: 24,
+                                fontSize: '1.25vw',
                                 color: 'white',
                                 position: 'absolute',
                                 top: 658,
@@ -284,7 +280,7 @@ const Landing = () => {
                         <div className={scrollY >= 1200 ? 'slide-up' : null} style={{
                             width: '100%',
                             height: 'auto',
-                            fontSize: 36,
+                            fontSize: '1.87vw',
                             color: colorList['black'],
                             textAlign: 'center',
                             position: 'absolute',
@@ -306,26 +302,28 @@ const Landing = () => {
 
 
                 <div ref={(el) => (refs.current.services = el)} style={{
-                    width: '1920px',
-                    height: '3264px',
+                    maxWidth: '1920px',
+                    width: '100%',
+                    aspectRatio: '0.53/1',
                     margin: '0 auto',
                     paddingBottom: '215px',
                     backgroundColor: colorList['backGray'],
                     position: 'relative',
                 }}>
 
-                    <TypewriterEffect/>
+                    {showTypewriter && <TypewriterEffect />}
 
 
                     {serviceContents.map((v, i) => {
                         return (
                             <div key={i} style={{
-                                width: 1460,
-                                height: 516,
+                                width: '76vw',
+                                // height: 516,
+                                aspectRatio:'2.83/1',
                                 display: 'grid',
                                 gridTemplateColumns: '1fr 1fr',
                                 margin: '0 auto 0 auto',
-                                columnGap: 200,
+                                columnGap: '10.4vw',
                                 boxSizing: 'border-box',
                                 marginTop: 200,
                                 overflow: 'hidden',
@@ -338,7 +336,7 @@ const Landing = () => {
                                         <div style={{
                                             width: '100%',
                                             height: 516,
-                                            fontSize: 50,
+                                            fontSize: '2.6vw',
                                             fontWeight: 600,
                                             color: colorList['navy'],
                                             whiteSpace: 'pre-line',
@@ -348,7 +346,7 @@ const Landing = () => {
                                             <div style={{
                                                 lineHeight: 1.6,
                                                 marginTop: 12,
-                                                fontSize: 20,
+                                                fontSize: '1.04vw',
                                                 color: colorList['black']
                                             }}>{v.subText}</div>
                                         </div>
@@ -374,7 +372,7 @@ const Landing = () => {
                                         <div style={{
                                             width: '110%',
                                             height: 500,
-                                            fontSize: 50,
+                                            fontSize: '2.6vw',
                                             fontWeight: 600,
                                             color: colorList['navy'],
                                             whiteSpace: 'pre-line',
@@ -384,7 +382,7 @@ const Landing = () => {
                                             <div style={{
                                                 lineHeight: 1.6,
                                                 marginTop: 12,
-                                                fontSize: 20,
+                                                fontSize: '1.04vw',
                                                 color: colorList['black']
                                             }}>{v.subText}</div>
                                         </div>
@@ -397,17 +395,19 @@ const Landing = () => {
 
 
                 <div ref={(el) => (refs.current.process = el)} style={{
-                    width: '1920px',
-                    height: '1080px',
+                    maxWidth: '1920px',
+                    width: '100%',
+                    aspectRatio: '1.77/1',
                     margin: '0 auto',
                     backgroundColor: colorList['backGray'],
                     position: 'relative',
                     textAlign: 'center',
+                    padding: '184px 0 135px 0',
                 }}>
-                    <div style={{fontSize: 50, fontWeight: 600, paddingTop: 184}}>
+                    <div style={{fontSize: '2.6vw', fontWeight: 600,}}>
                         Process
                     </div>
-                    <div style={{fontSize: 24, marginTop: 55, lineHeight: 1.6}}>
+                    <div style={{fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
                         Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span
                         style={{fontWeight: 600}}>실시간으로 소통하며,</span><br/>
                         고객사는 프로젝트 <span style={{fontWeight: 600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
@@ -416,7 +416,7 @@ const Landing = () => {
 
                     <div style={{
                         display: 'flex',
-                        width: '1440px',
+                        width: '75vw',
                         justifyContent: 'space-between',
                         margin: '170px auto 0 auto'
                     }}>
@@ -424,23 +424,23 @@ const Landing = () => {
                         {processContents.map((v, i) => {
                             return (
                                 <div key={i} className='step-card' style={{position: 'relative', cursor: 'pointer'}}>
-                                    <img src={v.src} alt='image' style={{width: 330, height: 420}}/>
+                                    <img src={v.src} alt='image' style={{width: '17vw', aspectRatio:'0.78/1'}}/>
                                     <div style={{
                                         textAlign: "left",
-                                        width: 330,
-                                        height: 420,
+                                        width: '17vw',
+                                        aspectRatio:'0.78/1',
                                         backgroundColor: 'white',
                                         position: 'absolute',
                                         top: 0,
-                                        borderRadius: 10,
-                                        padding: 36,
+                                        borderRadius: 8,
+                                        padding: '36px 1.87vw',
                                         boxSizing: 'border-box',
                                         opacity: 0
                                     }}>
                                         <div style={{
                                             whiteSpace: 'pre-line',
                                             color: colorList['mainColor'],
-                                            fontSize: 24,
+                                            fontSize: '1.25vw',
                                             position: 'absolute',
                                             bottom: i === 3 ? 170 : 190,
                                         }}>
@@ -449,7 +449,7 @@ const Landing = () => {
                                         <div style={{
                                             whiteSpace: 'pre-line',
                                             textAlign: "left",
-                                            fontSize: 18,
+                                            fontSize: '0.94vw',
                                             position: 'absolute',
                                             bottom: 40,
                                             lineHeight: 1.3
@@ -462,7 +462,7 @@ const Landing = () => {
                                         top: 45,
                                         left: 36,
                                         fontWeight: 600,
-                                        fontSize: 36,
+                                        fontSize: '1.87vw',
                                         color: 'white',
                                     }}>STEP{i + 1}
                                     </div>
@@ -474,24 +474,25 @@ const Landing = () => {
                 </div>
 
                 <div ref={(el) => (refs.current.whatWeDo = el)} style={{
-                    width: '1920px',
-                    height: '790px',
+                    maxWidth: '1920px',
+                    width: '100%',
+                    aspectRatio: '2.43/1',
                     margin: '0 auto',
                     backgroundColor: colorList['backGray'],
                     position: 'relative',
                     textAlign: 'center',
                 }}>
-                    <div style={{textAlign: 'center', fontSize: 50, fontWeight: 600, paddingTop: 111}}>
+                    <div style={{textAlign: 'center', fontSize: '2.6vw', fontWeight: 600, paddingTop: 111}}>
                         What We do
                     </div>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
-                        columnGap: 20,
+                        columnGap: '1vw',
                         rowGap: 30,
                         gridAutoFlow: 'row',
-                        width: '1440px',
-                        margin: '230px auto 0 auto'
+                        width: '75vw',
+                        margin: '10% auto 0 auto'
                     }}>
 
                         {coworkingImages.map((v, i) => {
@@ -501,8 +502,8 @@ const Landing = () => {
                                      style={{
                                          borderRadius: '10px',
                                          boxShadow: '5px 5px 20px rgba(0, 0, 0, 0.1)',
-                                         width: 340,
-                                         height: 132,
+                                         width: '17.7vw',
+                                         aspectRatio:'2.57',
                                          backgroundColor: 'white',
                                          display: 'flex',
                                          alignItems: 'center',
@@ -532,22 +533,23 @@ const Landing = () => {
                 </div>
 
                 <div ref={(el) => (refs.current.faq = el)} style={{
-                    width: '1920px',
-                    height: '1400px',
+                    maxWidth: '1920px',
+                    width: '100%',
+                    aspectRatio: '1.2/1',
                     margin: '0 auto',
                     position: 'relative',
                     boxSizing: 'border-box'
                 }}>
-                    <div style={{fontSize: 50, fontWeight: 600, padding: '145px 235px',}}>
+                    <div style={{fontSize: '2.6vw', fontWeight: 600, padding: '145px 12.23vw',}}>
                         FAQ's
                     </div>
-                    <div style={{position: 'absolute', top: 205, right: 235}}>
+                    <div style={{position: 'absolute', top: 205, right: '12.2vw'}}>
                         {faqList.map((v, i) => {
                             return (
                                 <div key={i} id={v.id} onClick={handleClickQuestion} style={{
-                                    width: 840,
+                                    width: '43vw',
                                     height: 'auto',
-                                    padding: activeId === v.id ? "40px" : "20px 40px",
+                                    padding: activeId === v.id ? "2vw" : "20px 2vw",
                                     marginBottom: activeId === v.id ? 20 : 0,
                                     boxSizing: 'border-box',
                                     backgroundColor: activeId === v.id ? colorList['backGray'] : "",
@@ -558,7 +560,7 @@ const Landing = () => {
                                 }}>
                                     <div id={v.id} onClick={handleClickQuestion} style={{
                                         fontWeight: 500,
-                                        fontSize: 24,
+                                        fontSize: '1.25vw',
                                         display: 'flex',
                                         justifyContent: 'space-between',
                                         paddingBottom: 30,
@@ -567,15 +569,16 @@ const Landing = () => {
                                         <div style={{position: 'relative'}}>
                                             {activeId === v.id ? <img src={iconFold} alt='fold' style={{
                                                     position: "absolute",
-                                                    width: 25,
-                                                    right: 45,
+                                                    width: '1.25vw',
+                                                    right: '2.3vw',
                                                     top: 12
                                                 }}/> :
                                                 <img src={iconUnfold} alt='unfold'
-                                                     style={{position: "absolute", width: 25, right: 45}}/>}</div>
+                                                     style={{position: "absolute", width: '1.25vw', right: '2.3vw'}}/>}</div>
                                     </div>
                                     <div style={{
-                                        fontSize: 18,
+                                        lineHeight:1.3,
+                                        fontSize: '0.93vw',
                                         maxHeight: activeId === v.id ? '1000px' : 0,
                                         transition: 'max-height 1.5s ease'
                                     }}>{activeId === v.id ? v.answer : ""}</div>
@@ -584,25 +587,26 @@ const Landing = () => {
                         })}
                     </div>
                 </div>
+
                 <div ref={(el) => (refs.current.contact = el)} style={{
-                    width: '1920px',
-                    height: '900px',
+                    maxWidth: '1920px',
+                    width:'100%',
                     margin: '0 auto',
                     position: 'relative',
-                    padding: '80px 0',
+                    paddingTop: '80px',
                     boxSizing: 'border-box'
                 }}>
                     <div style={{
-                        width: 1440,
-                        height: 650,
-                        margin: '0 auto',
+                        width: '75vw',
+                        aspectRatio:'2.21',
+                        margin: 'auto',
                         position: 'relative',
                     }}>
-                        <img src={'/temp_background.png'} alt='contact' width={1440} height={650}
-                             style={{borderRadius: '20px'}}/>
+                        <img src={'/temp_background.png'} alt='contact' width={'100%'}
+                             style={{borderRadius: '20px', aspectRatio:'2.22'}}/>
                         <div style={{
-                            width: '1440px',
-                            height: '652px',
+                            width: '100%',
+                            aspectRatio: '2.2',
                             backgroundColor: 'white',
                             opacity: 0.8,
                             position: 'absolute',
@@ -610,24 +614,24 @@ const Landing = () => {
                         }}/>
                         <div style={{
                             position: 'absolute',
-                            top: 130,
+                            top: '20%',
                             width: '100%',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             textAlign: 'center'
                         }}>
-                            <div style={{fontWeight: 600, fontSize: 50, lineHeight: 1.4}}>Contact<br/>
+                            <div style={{fontWeight: 600, fontSize: '2.6vw', lineHeight: 1.4}}>Contact<br/>
                                 <div style={{fontWeight: 400}}>이메일 또는 전화번호를 남겨주세요</div>
                             </div>
-                            <div style={{marginTop: 30, lineHeight: 1.4, fontSize: 24}}>연락처를 남겨주시면<br/>
+                            <div style={{marginTop: 30, lineHeight: 1.4, fontSize: '1.25vw'}}>연락처를 남겨주시면<br/>
                                 신속히 답변드리겠습니다.
                             </div>
                             <div style={{
-                                width: 295,
-                                height: 60,
+                                width: '15.3vw',
+                                aspectRatio:'4.9',
                                 color: '#AEAEAE',
-                                fontSize: 20,
+                                fontSize: '1vw',
                                 fontWeight: 500,
                                 lineHeight: 2.9,
                                 borderRadius: 30,
@@ -636,7 +640,7 @@ const Landing = () => {
                             }}>
                                 <input value={customerContact} onChange={(e) => setCustomerContact(e.target.value)}
                                        style={{
-                                           fontSize: 20,
+                                           fontSize: '1vw',
                                            background: "transparent",
                                            width: '90%',
                                            textAlign: 'center',
@@ -644,10 +648,10 @@ const Landing = () => {
                                        }} placeholder='이메일 또는 전화번호'/>
                             </div>
                             <div style={{
-                                width: 295,
-                                height: 60,
+                                width: '15vw',
+                                aspectRatio: '4.9',
                                 color: 'white',
-                                fontSize: 20,
+                                fontSize: '1vw',
                                 fontWeight: 500,
                                 lineHeight: 2.9,
                                 backgroundColor: colorList['navy'],
@@ -659,30 +663,31 @@ const Landing = () => {
                             </div>
                             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} message={modalMessage}/>
                         </div>
-
                     </div>
 
-                </div>
 
-                <div style={{width: '1920px', height: 'auto', margin: '0 auto'}}>
+
+
+                <div style={{width: '100%', maxWidth:'1920px', height: 'auto', margin: '210px auto 0 auto'}}>
                     <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>
                     <div style={{
                         width: '100%',
                         height: 'auto',
                         display: 'grid',
-                        gridTemplateColumns: '4fr 2fr 3fr ',
+                        gridTemplateColumns: '4fr 2fr 3fr',
                         padding: '65px 170px 58px 170px',
-                        boxSizing: 'border-box'
+                        boxSizing: 'border-box',
+                        fontSize: '0.93vw'
                     }}>
                         <div>
-                            <div style={{display: 'flex', gap: 13, margin: '22px 0 0 0'}}>
-                                <img src={CI} style={{width: 32}} alt="CI" id="ci"/>
-                                <img src={CI_text} style={{width: 107, objectFit: 'contain'}} alt="CI" id="ci_text"/>
+                            <div style={{display: 'flex', gap: '0.67vw', margin: '22px 0 0 0'}}>
+                                <img src={CI} style={{width: '1.66vw'}} alt="CI" id="ci"/>
+                                <img src={CI_text} style={{width: '5.57vw', objectFit: 'contain'}} alt="CI" id="ci_text"/>
                             </div>
-                            <div style={{fontSize: 20, marginTop: 25}}>2024 @ progist All Rights Reserved.</div>
+                            <div style={{fontSize: '1vw', marginTop: 25}}>2024 @ progist All Rights Reserved.</div>
                         </div>
 
-                        <div style={{color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: 13}}>
+                        <div style={{color: colorList['mainColor'], display: 'flex', flexDirection: 'column', gap: '0.67vw'}}>
                             {menuList.map((v, i) => {
                                 return (
                                     <div key={i} style={{cursor: 'pointer'}}
@@ -691,7 +696,7 @@ const Landing = () => {
                             })}
                         </div>
 
-                        <div style={{display: 'flex', flexDirection: 'column', gap: 13}}>
+                        <div style={{display: 'flex', flexDirection: 'column', gap: '0.67vw'}}>
                             <div><span style={{fontWeight: 500}}>본사</span> 서울특별시 강남구 논현동 36-11 401호</div>
                             <div><span style={{fontWeight: 500}}>연구소</span> 서울특별시 강남구 논현동 36-11 401호</div>
                             <div><span style={{fontWeight: 500}}>Project Request</span> hblee@progist.co.kr</div>
@@ -700,12 +705,12 @@ const Landing = () => {
 
                     </div>
                 </div>
-                <div className="text_flow_container" style={{width: '1920px', margin: '0 auto'}}>
+                <div className="text_flow_container" style={{width: '100%', margin: '0 auto'}}>
                     <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                     <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 </div>
 
-
+                </div>
             </div>
         </>
     );

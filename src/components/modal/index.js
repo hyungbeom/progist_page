@@ -7,7 +7,7 @@ const Modal = ({ isOpen, onClose, message }) => {
     return (
         <div style={{
             position: 'fixed',
-            top: 0,
+            top: '80%',
             left: 0,
             right: 0,
             bottom: 0,
@@ -15,7 +15,7 @@ const Modal = ({ isOpen, onClose, message }) => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            zIndex:20,
+            zIndex:30,
         }}>
             <div style={{
                 background: 'white',
