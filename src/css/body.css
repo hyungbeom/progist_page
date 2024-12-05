@@ -713,6 +713,36 @@ body {
     animation: fadeOut 0.5s ease-out forwards;
 }
 
+@keyframes cardOpen {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px;
+    }
+}
+
+.card-open {
+    max-height: 1000px;
+    overflow: hidden;
+    animation: cardOpen 1.5s ease-in forwards;
+}
+
+@keyframes cardClose {
+    from {
+        max-height: 500px;
+    }
+    to {
+        max-height: 0;
+    }
+}
+
+.card-close {
+    max-height: 0;
+    overflow: hidden;
+    animation: cardClose 1s ease-out forwards;
+}
+
 
 @keyframes slideUp {
     from {

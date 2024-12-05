@@ -133,7 +133,7 @@ const Landing = () => {
     
     const TypewriterEffect = () => {
         return (
-            <div style={{width:'100%', height:'400px'}}>
+            <div style={{width:'100%', height:'500px'}}>
             <div id='service-typing' style={{
                 fontSize: '2.6vw',
                 width: '100%',
@@ -181,7 +181,7 @@ const Landing = () => {
     return (
         <>
             <Header refs={refs}/>
-            <div id='landing-page' ref={(el) => (refs.current.whoWeAre = el)} style={{width: '98vw', height: 'auto',}}>
+            <div id='landing-page' ref={(el) => (refs.current.whoWeAre = el)} style={{width: '100vw', height: 'auto',}}>
                 <div style={{
                     maxWidth: '1920px',
                     width: '100%',
@@ -306,7 +306,7 @@ const Landing = () => {
                     width: '100%',
                     aspectRatio: '0.53/1',
                     margin: '0 auto',
-                    paddingBottom: '215px',
+                    paddingBottom: '150px',
                     backgroundColor: colorList['backGray'],
                     position: 'relative',
                 }}>
@@ -325,10 +325,10 @@ const Landing = () => {
                                 margin: '0 auto 0 auto',
                                 columnGap: '10.4vw',
                                 boxSizing: 'border-box',
-                                marginTop: 200,
+                                marginTop: 170,
                                 overflow: 'hidden',
-                                maxHeight: scrollY > 3300 + i * 716 ? '600px' : '0',
-                                transform: scrollY > 3300 + i * 716 ? '' : 'translateY(50%)',
+                                maxHeight: scrollY > 3300 + i * 706 ? '600px' : '0',
+                                transform: scrollY > 3300 + i * 706 ? '' : 'translateY(50%)',
                                 transition: 'max-height 1.5s ease, transform 1.5s ease'
                             }}>
                                 {i % 2 === 0 ?
@@ -567,13 +567,13 @@ const Landing = () => {
                                         zIndex: 5
                                     }}>{v.question}
                                         <div style={{position: 'relative'}}>
-                                            {activeId === v.id ? <img src={iconFold} alt='fold' style={{
+                                            {activeId === v.id ? <img id={v.id} onClick={handleClickQuestion} src={iconFold} alt='fold' style={{
                                                     position: "absolute",
                                                     width: '1.25vw',
                                                     right: '2.3vw',
                                                     top: 12
                                                 }}/> :
-                                                <img src={iconUnfold} alt='unfold'
+                                                <img id={v.id} onClick={handleClickQuestion} src={iconUnfold} alt='unfold'
                                                      style={{position: "absolute", width: '1.25vw', right: '2.3vw'}}/>}</div>
                                     </div>
                                     <div style={{
@@ -664,7 +664,7 @@ const Landing = () => {
                             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} message={modalMessage}/>
                         </div>
                     </div>
-
+                </div>
 
 
 
@@ -710,7 +710,7 @@ const Landing = () => {
                     <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 </div>
 
-                </div>
+
             </div>
         </>
     );

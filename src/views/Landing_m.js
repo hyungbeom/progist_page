@@ -12,10 +12,16 @@ import Header_m from "../components/header/header_m";
 import handleSendEmail from "../components/tools/SendEmail";
 import {menuList} from "../assets/contents/MenuList";
 import Modal from "../components/modal";
+import { gsap } from "gsap";
+import {useGSAP} from "@gsap/react";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);gsap.registerPlugin(ScrollTrigger);
 
 const Landing_m = () => {
 
     const [activeId, setActiveId] = useState(null)
+    const [closingId, setClosingId] = useState(null);
     const [scrollY, setScrollY] = useState(0);
     const [customerContact, setCustomerContact] = useState('')
 
@@ -45,7 +51,16 @@ const Landing_m = () => {
 
     const handleClickQuestion = (e) => {
         // console.log(e.target.id)
-        setActiveId(e.target.id);
+        if (e.target.id===activeId) {
+            setClosingId(e.target.id); // 닫기 애니메이션 트리거
+            setTimeout(() => {
+                setActiveId(null); // 애니메이션이 끝난 후 상태 변경
+                setClosingId(null);
+            }, 1000)
+        }else {
+            setActiveId(e.target.id);
+            setClosingId(null);
+        }
     };
 
     const handleClickContactButton = async (e) => {
@@ -75,6 +90,65 @@ const Landing_m = () => {
         };
     }, []);
 
+    useGSAP(()=>{
+        // GSAP ScrollTrigger 설정
+        gsap.to(".ripple-container", {
+            y: 1980, // Y 축으로 이동할 거리
+            scrollTrigger: {
+                trigger: ".ripple-container",
+                start: "top 5%", // 트리거 시작 지점
+                end: "+=1980px", // 트리거 종료 지점
+                scrub: 1, // 스크롤에 따라 애니메이션 동기화
+                // markers: true, // 디버깅용 마커 표시
+            },
+        });
+
+        gsap.timeline({ repeat: -1 }) // 무한 반복
+            .to(".ripple", {
+                scale: 5, // 물결 확장
+                opacity: 0, // 점차 사라짐
+                duration: 5, // 애니메이션 지속 시간
+                ease: "power1.out", // 부드러운 애니메이션 효과
+                stagger: 0.3, // 각 물결 사이 간격
+            });
+
+        let tl1 = gsap.timeline({})
+
+
+        tl1.fromTo("#fade-in-line1",{opacity:0}, {
+                opacity: 1,
+                duration: 0.3,
+                ease: "power1.out",
+            })
+        tl1.fromTo("#fade-in-line2",{opacity:0},  {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        })
+        tl1.fromTo("#fade-in-line3", {opacity:0}, {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        })
+
+        tl1.fromTo("#fade-in-line4",{opacity:0},  {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        })
+
+        ScrollTrigger.create({
+            animation: tl1,
+            trigger: "#fade-in-line1",
+            start: "top 50%",
+            scrub: false,
+            // anticipatePin: 1,
+            toggleActions: 'restart none restart none',
+            // markers: true,
+        },);
+
+    }, []);
+
 
 
     return (
@@ -90,7 +164,7 @@ const Landing_m = () => {
                 backgroundColor: colorList['gray'],
                 padding: '90% 4.5% 0 4.5%',
             }}>
-                <div style={{
+                <div className='slide-up' style={{
                     width: '100%',
                     fontSize: '9.5vw',
                     fontWeight: 600,
@@ -98,10 +172,12 @@ const Landing_m = () => {
                     textAlign: 'center',
                     lineHeight: 1.2,
                 }}>
-                    Turn your Vision<br/>into Reality<br/><span
-                    style={{fontSize: '5.4vw', lineHeight: 2.5}}>당신의 비전을 현실로, <span
-                    style={{fontWeight: 600, fontSize: '6.8vw', color: colorList['mainColor']}}>PROGIST</span></span>
-                </div>
+                    Turn your Vision<br/>into Reality</div>
+                    <div className='slide-up'
+                    style={{color: 'white',  textAlign: 'center', opacity:0, fontSize: '5.4vw', lineHeight: 2.5}}>당신의 비전을 현실로, <span
+                    style={{fontWeight: 600, fontSize: '6.8vw', color: colorList['mainColor']}}>PROGIST</span></div>
+
+
             </div>
 
             {/*page2*/}
@@ -114,16 +190,17 @@ const Landing_m = () => {
                 backgroundColor: colorList['gray'],
                 padding: '90% 4.5% 0 4.5%',
             }}>
-                <div style={{
+                <div className={scrollY>500 &&'slide-up'} style={{
                     width: '100%',
                     fontSize: '9vw',
                     fontWeight: 600,
                     color: 'white',
                     lineHeight: 1.1,
+                    opacity:0
                 }}>
                     우리는<br/>PROGIST<br/>입니다
                 </div>
-                <div
+                <div className={scrollY>600 &&'slide-up'}
                     style={{
                         width: 'auto',
                         fontSize: '4vw',
@@ -131,7 +208,8 @@ const Landing_m = () => {
                         padding: '1%',
                         backgroundColor: 'rgba(0, 0, 0, 0.3)',
                         lineHeight: 1.7,
-                        marginTop: '27%'
+                        marginTop: '27%',
+                        opacity:0
                     }}>
                     : “프로그램(program)”과 특정 분야의 전문성을<br/>
                     지닌 사람을 나타내는 “-ist”의 조합으로,<br/>
@@ -150,7 +228,7 @@ const Landing_m = () => {
                 backgroundColor: colorList['lightGray'],
                 padding: '4.5%',
             }}>
-                <div style={{
+                <div className={scrollY>1400 && 'fade-in'} style={{
                     width: '100%',
                     height: 'auto',
                     fontSize: '4.5vw',
@@ -158,6 +236,7 @@ const Landing_m = () => {
                     textAlign: 'center',
                     lineHeight: 2,
                     marginTop: '60%',
+                    opacity:0,
                 }}>
                     프로지스트는<br/>고객의 비전을 실현하기 위해<br/>
                     <span style={{fontWeight: 600}}>전략적 컨설팅</span>과 혁신적인 IT 솔루션을 제공하며,<br/>
@@ -179,37 +258,101 @@ const Landing_m = () => {
                 backgroundColor: colorList['backGray'],
                 padding: '4.5%',
             }}>
-                <div style={{
+                <div id='fade-in-line1' style={{
                     fontSize: '5.5vw',
                     width: '100%',
                     height: 'auto',
                     textAlign: 'center',
-                    marginTop: '70%',
+                    marginTop: '65%',
                     lineHeight: 1.4,
-                }}><span style={{fontWeight: 600}}>프로젝트 매니저, 디자이너, 개발자</span>가<br/>
-                    한팀으로 하나의 프로젝트를 진행합니다.
-                </div>
+                    opacity:0,
+                }}><span style={{fontWeight: 600}}>프로젝트 매니저, 디자이너, 개발자</span>가<br/></div>
 
-                <div style={{
-                    fontSize: '4vw',
-                    width: '100%',
-                    textAlign: 'center',
-                    marginTop: '20%',
-                    lineHeight: 1.5,
-                    color: '#626262'
-                }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
-                    더 좋은 퀄리티를 위해 노력합니다.
-                </div>
+                   <div id='fade-in-line2' style={{
+                       fontSize: '5.5vw',
+                       width: '100%',
+                       height: 'auto',
+                       textAlign: 'center',
+                       lineHeight: 1.4,
+                       opacity:0,
+                   }}>한팀으로 하나의 프로젝트를 진행합니다.</div>
 
-                <div style={{display: 'grid', gridTemplateColumns: '1fr 10fr', marginTop: '100%',}}>
+                    <div id='fade-in-line3' style={{
+                        fontSize: '4vw',
+                        width: '100%',
+                        textAlign: 'center',
+                        marginTop: '15%',
+                        lineHeight: 1.5,
+                        color: '#626262',
+                        opacity:0,
+                    }}>우리는 서로 끊임없는 피드백을 주고받으며</div>
+
+                        <div id='fade-in-line4' style={{
+                            fontSize: '4vw',
+                            width: '100%',
+                            textAlign: 'center',
+                            lineHeight: 1.5,
+                            opacity:0,
+                            color: '#626262'}}>더 좋은 퀄리티를 위해 노력합니다.</div>
+
+
+                <div id='service-flow' style={{display: 'grid', gridTemplateColumns: '1fr 10fr', marginTop: '100%',}}>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                        <div style={{
-                            borderRadius: '50%',
-                            width: '4.5vw',
-                            aspectRatio: '1/1',
-                            border: '5px solid #86A4E8',
-                            backgroundColor: colorList['navy']
-                        }}/>
+                        <div
+                            className="ripple-container"
+                            style={{
+                                position: "relative",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: "21px",
+                                width: "21px",
+                                borderRadius: "50%",
+                                border: '5px solid #86A4E8',
+                                backgroundColor: colorList['navy'],
+                                overflow: "hidden",
+                            }}
+                        >
+                            <div
+                                className="ripple"
+                                style={{
+                                    position: "absolute",
+                                    borderRadius: "50%",
+                                    width: "100%",
+                                    height: "100%",
+                                    border: "5px solid #86A4E8",
+                                    backgroundColor: "transparent",
+                                    transform: "scale(0)", // 초기 크기
+                                    opacity: 1, // 초기 투명도
+                                }}
+                            ></div>
+                            <div
+                                className="ripple"
+                                style={{
+                                    position: "absolute",
+                                    borderRadius: "50%",
+                                    width: "100%",
+                                    height: "100%",
+                                    border: "5px solid #86A4E8",
+                                    backgroundColor: "transparent",
+                                    transform: "scale(0)", // 초기 크기
+                                    opacity: 1, // 초기 투명도
+                                }}
+                            ></div>
+                            <div
+                                className="ripple"
+                                style={{
+                                    position: "absolute",
+                                    borderRadius: "50%",
+                                    width: "100%",
+                                    height: "100%",
+                                    border: "5px solid #86A4E8",
+                                    backgroundColor: "transparent",
+                                    transform: "scale(0)", // 초기 크기
+                                    opacity: 1, // 초기 투명도
+                                }}
+                            ></div>
+                        </div>
                         <div style={{backgroundColor: colorList['black'], height: '97.5%', width: 1}}/>
                     </div>
 
@@ -217,7 +360,7 @@ const Landing_m = () => {
                         {serviceContents.map((v, i) => {
                             return (
                                 <div key={i}>
-                                    <div style={{
+                                    <div className={scrollY > 2800 + i * 520 && 'slide-up'} style={{
                                         width: '100%',
                                         height: 'auto',
                                         fontSize: '5.5vw',
@@ -226,20 +369,23 @@ const Landing_m = () => {
                                         whiteSpace: 'pre-line',
                                         margin: '0 0 0 5%',
                                         boxSizing: 'border-box',
+                                        opacity: 0,
                                     }}>{v.mainText}<br/>
-                                        <span style={{
+                                        <span className={scrollY>2815+i*520 && 'slide-up'} style={{
+                                            opacity:0,
                                             fontWeight: 500,
                                             fontSize: '3.4vw',
                                             color: colorList['black']
                                         }}>{v.subText}</span>
                                     </div>
                                     <div>
-                                        <img src={v.src} alt='image' style={{
+                                        <img className={scrollY>2830+i*520 && 'slide-up'} src={v.src} alt='image' style={{
                                             objectFit: 'fill',
                                             objectPosition: 'center center',
                                             width: '105%',
                                             aspectRatio: '1.26/1',
-                                            maxHeight: '100%'
+                                            maxHeight: '100%',
+                                            opacity:0,
                                         }}/>
                                     </div>
                                 </div>
@@ -261,17 +407,18 @@ const Landing_m = () => {
                 padding: '4.5%',
                 color: colorList['black']
             }}>
-                <div style={{fontSize: '5.4vw', fontWeight: 600, width: '100%', textAlign: 'center'}}>
+                <div className={scrollY>5200 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, width: '100%', textAlign: 'center'}}>
                     Process
                 </div>
 
-                <div style={{
+                <div className={scrollY>5230 && 'slide-up'} style={{
                     marginTop: '5%',
                     fontSize: '3.4vw',
                     fontWeight: 500,
                     width: '100%',
                     padding: '2%',
-                    lineHeight: 1.5
+                    lineHeight: 1.5,
+                    opacity:0,
                 }}>
                     Asana, Slack, 카카오톡 단톡방을 통해<br/>
                     모든 작업자와 클라이언트가 실시간으로 소통하며,<br/>
@@ -349,18 +496,18 @@ const Landing_m = () => {
                 backgroundColor: colorList['backGray'],
                 position: 'relative',
                 textAlign: 'center',
-                marginTop: '200%',
+                marginTop: '150%',
             }}>
                 <div style={{
                     paddingTop: "50%",
                     textAlign: 'center',
                     fontSize: '3.4vw',
                     fontWeight: 500,
-                    lineHeight: 1.6
+                    lineHeight: 1.6,
                 }}>
-                    <div style={{fontSize: '5.4vw', fontWeight: 600, paddingBottom: 10}}>What We do<br/></div>
-                    All-in-one at Progist<br/>
-                    꿈을 현실로 만들고 비전을 실현합니다.
+                    <div className={scrollY>6300 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, paddingBottom: 10}}>What We do<br/></div>
+                    <span className={scrollY>6380 && 'slide-up'} style={{opacity:0}}>All-in-one at Progist<br/>
+                   꿈을 현실로 만들고 비전을 실현합니다.</span>
 
                 </div>
                 <div style={{
@@ -408,13 +555,14 @@ const Landing_m = () => {
                 padding: '90px 0 0 20px',
                 boxSizing:'border-box'
             }}>
-                <div style={{fontSize: 24, fontWeight: 600, textAlign: "center"}}>
+                <div className={scrollY>7180 && 'slide-up'} style={{ opacity:0, fontSize: 24, fontWeight: 600, textAlign: "center"}}>
                     FAQ's
                 </div>
                 <div style={{width: '93%', height: 'auto', marginTop: 74}}>
                     {faqList.map((v, i) => {
                         return (
-                            <div key={i} id={v.id} onClick={handleClickQuestion} style={{
+                            <div className={scrollY>7180+i*30 && 'slide-up'} key={i} id={v.id} onClick={handleClickQuestion} style={{
+                                opacity:0,
                                 width: '100%',
                                 height: 'auto',
                                 padding: activeId === v.id ? "20px" : "20px",
@@ -445,32 +593,41 @@ const Landing_m = () => {
                                             <img src={iconUnfold} alt='unfold'
                                                  style={{position: "absolute", top: 5, width: 12, right: 0}}/>}</div>
                                 </div>
-                                <div style={{
-                                    fontSize: '2.9vw',
-                                    color: colorList['gray'],
-                                    lineHeight: 1.3,
-                                    maxHeight: activeId === v.id ? '1000px' : 0,
-                                    transition: 'max-height 1.5s ease',
-                                }}>{activeId === v.id && v.answer}</div>
+                                <div
+                                    className={
+                                        activeId === v.id
+                                            ? 'card-open'
+                                            : closingId === v.id
+                                                ? 'card-close'
+                                                : ''
+                                    }
+                                    style={{
+                                        fontSize: '2.9vw',
+                                        color: colorList['gray'],
+                                        lineHeight: 1.3,
+                                    }}
+                                >
+                                    {(activeId === v.id || closingId === v.id) && v.answer}
+                                </div>
                             </div>
                         )
                     })}
                 </div>
             </div>
-            <div ref={(el) => (refs.current.faq = el)} style={{
+            <div ref={(el) => (refs.current.contact = el)} style={{
                 width: '100%',
                 height: 'auto',
                 position: 'relative',
                 padding: '90px 25px 25px 20px',
-                boxSizing:'border-box'
+                boxSizing: 'border-box'
             }}>
-                <div style={{fontSize: '5.4vw', fontWeight: 600, textAlign: "center"}}>
+                <div className={scrollY>8100 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, textAlign: "center"}}>
                     Contact
                 </div>
 
                 <div style={{textAlign: "center", width: '100%', marginTop: 55, fontSize: '4.5vw'}}>
-                    <div>이메일 또는 전화번호를 남겨주세요</div>
-                    <div style={{marginTop: 35,fontSize: '4vw', lineHeight: 1.2}}>연락처를 남겨주시면<br/>
+                    <div className={scrollY>8150 && 'slide-up'} style={{opacity:0,}} >이메일 또는 전화번호를 남겨주세요</div>
+                    <div className={scrollY>8170 && 'slide-up'} style={{opacity:0, marginTop: 35,fontSize: '4vw', lineHeight: 1.2}}>연락처를 남겨주시면<br/>
                         신속히 답변드리겠습니다.
                     </div>
                 </div>
