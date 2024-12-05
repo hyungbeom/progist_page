@@ -91,15 +91,14 @@ const Landing_m = () => {
     }, []);
 
     useGSAP(()=>{
-        // GSAP ScrollTrigger 설정
         gsap.to(".ripple-container", {
-            y: 1980, // Y 축으로 이동할 거리
+            y: 1950,
             scrollTrigger: {
                 trigger: ".ripple-container",
-                start: "top 5%", // 트리거 시작 지점
-                end: "+=1980px", // 트리거 종료 지점
-                scrub: 1, // 스크롤에 따라 애니메이션 동기화
-                // markers: true, // 디버깅용 마커 표시
+                start: "top 5%",
+                end: "+=1980px",
+                scrub: 1,
+                // markers: true,
             },
         });
 
@@ -114,24 +113,23 @@ const Landing_m = () => {
 
         let tl1 = gsap.timeline({})
 
+        tl1.set("#fade-in-line1, #fade-in-line2, #fade-in-line3, #fade-in-line4", {
+            opacity: 0,
+        });
 
-        tl1.fromTo("#fade-in-line1",{opacity:0}, {
-                opacity: 1,
-                duration: 0.3,
-                ease: "power1.out",
-            })
-        tl1.fromTo("#fade-in-line2",{opacity:0},  {
+        tl1.to("#fade-in-line1", {
             opacity: 1,
             duration: 0.3,
             ease: "power1.out",
-        })
-        tl1.fromTo("#fade-in-line3", {opacity:0}, {
+        }).to("#fade-in-line2", {
             opacity: 1,
             duration: 0.3,
             ease: "power1.out",
-        })
-
-        tl1.fromTo("#fade-in-line4",{opacity:0},  {
+        }).to("#fade-in-line3", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        }).to("#fade-in-line4",{
             opacity: 1,
             duration: 0.3,
             ease: "power1.out",
@@ -142,7 +140,6 @@ const Landing_m = () => {
             trigger: "#fade-in-line1",
             start: "top 50%",
             scrub: false,
-            // anticipatePin: 1,
             toggleActions: 'restart none restart none',
             // markers: true,
         },);
@@ -496,7 +493,7 @@ const Landing_m = () => {
                 backgroundColor: colorList['backGray'],
                 position: 'relative',
                 textAlign: 'center',
-                marginTop: '150%',
+                marginTop: '630px',
             }}>
                 <div style={{
                     paddingTop: "50%",
@@ -505,8 +502,8 @@ const Landing_m = () => {
                     fontWeight: 500,
                     lineHeight: 1.6,
                 }}>
-                    <div className={scrollY>6300 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, paddingBottom: 10}}>What We do<br/></div>
-                    <span className={scrollY>6380 && 'slide-up'} style={{opacity:0}}>All-in-one at Progist<br/>
+                    <div className={scrollY>6150 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, paddingBottom: 10}}>What We do<br/></div>
+                    <span className={scrollY>6200 && 'slide-up'} style={{opacity:0}}>All-in-one at Progist<br/>
                    꿈을 현실로 만들고 비전을 실현합니다.</span>
 
                 </div>
@@ -555,13 +552,13 @@ const Landing_m = () => {
                 padding: '90px 0 0 20px',
                 boxSizing:'border-box'
             }}>
-                <div className={scrollY>7180 && 'slide-up'} style={{ opacity:0, fontSize: 24, fontWeight: 600, textAlign: "center"}}>
+                <div className={scrollY>6800 && 'slide-up'} style={{ opacity:0, fontSize: 24, fontWeight: 600, textAlign: "center"}}>
                     FAQ's
                 </div>
                 <div style={{width: '93%', height: 'auto', marginTop: 74}}>
                     {faqList.map((v, i) => {
                         return (
-                            <div className={scrollY>7180+i*30 && 'slide-up'} key={i} id={v.id} onClick={handleClickQuestion} style={{
+                            <div className={scrollY>6830+i*30 && 'slide-up'} key={i} id={v.id} onClick={handleClickQuestion} style={{
                                 opacity:0,
                                 width: '100%',
                                 height: 'auto',
@@ -621,13 +618,13 @@ const Landing_m = () => {
                 padding: '90px 25px 25px 20px',
                 boxSizing: 'border-box'
             }}>
-                <div className={scrollY>8100 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, textAlign: "center"}}>
+                <div className={scrollY>7600 && 'slide-up'} style={{opacity:0, fontSize: '5.4vw', fontWeight: 600, textAlign: "center"}}>
                     Contact
                 </div>
 
                 <div style={{textAlign: "center", width: '100%', marginTop: 55, fontSize: '4.5vw'}}>
-                    <div className={scrollY>8150 && 'slide-up'} style={{opacity:0,}} >이메일 또는 전화번호를 남겨주세요</div>
-                    <div className={scrollY>8170 && 'slide-up'} style={{opacity:0, marginTop: 35,fontSize: '4vw', lineHeight: 1.2}}>연락처를 남겨주시면<br/>
+                    <div className={scrollY>7700 && 'slide-up'} style={{opacity:0,}} >이메일 또는 전화번호를 남겨주세요</div>
+                    <div className={scrollY>7720 && 'slide-up'} style={{opacity:0, marginTop: 35,fontSize: '4vw', lineHeight: 1.2}}>연락처를 남겨주시면<br/>
                         신속히 답변드리겠습니다.
                     </div>
                 </div>

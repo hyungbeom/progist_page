@@ -80,90 +80,6 @@ const Landing = () => {
     }, []);
 
 
-    //typing 애니메이션
-    const txt1 = '  프로젝트 매니저, 디자이너, 개발자';
-    const txt2 = '가\n';
-    const txt3 = '한팀팀으로 하나의 프로젝트를 진행합니다.';
-    const [typedText1, setTypedText1] = useState('');
-    const [typedText2, setTypedText2] = useState('');
-    const [typedText3, setTypedText3] = useState('');
-    const [slideUp, setSlideUp] = useState(false);
-
-    let i = 0; // 인덱스 관리
-
-    const typeWriter1 = () => {
-        if (i < txt1.length) {
-            setTypedText1((prevText) => prevText + txt1.charAt(i));
-            i++;
-            setTimeout(typeWriter1, 30);
-        } else {
-            i = 0;
-            typeWriter2();
-        }
-    };
-
-    // 두 번째 문장 타이핑
-    const typeWriter2 = () => {
-        if (i < txt2.length) {
-            setTypedText2((prevText) => prevText + txt2.charAt(i));
-            i++;
-            setTimeout(typeWriter2, 30);
-        } else {
-            i = 0;
-            typeWriter3();
-        }
-    };
-
-    // 세 번째 문장 타이핑
-    const typeWriter3 = () => {
-        if (i < txt3.length) {
-            setTypedText3((prevText) => prevText + txt3.charAt(i));
-            i++;
-            setTimeout(typeWriter3, 30);
-        } else {
-            setSlideUp(true)
-        }
-    };
-
-    useEffect(()=>{
-        if (showTypewriter)
-            typeWriter1();
-    },[showTypewriter])
-
-    
-    const TypewriterEffect = () => {
-        return (
-            <div style={{width:'100%', height:'500px'}}>
-            <div id='service-typing' style={{
-                fontSize: '2.6vw',
-                width: '100%',
-                height: 'auto',
-                textAlign: 'center',
-                paddingTop: 145,
-                lineHeight: 1.4,
-                whiteSpace: 'pre-line'
-            }}>
-                <span style={{fontWeight: 600}}>{typedText1}</span>{typedText2}<br/>
-                {typedText3}
-            </div>
-            <div style={{
-                fontSize: '1.25vw',
-                width: '100%',
-                textAlign: 'center',
-                lineHeight: 1.5,
-                paddingTop: 55,
-                marginBottom: 214,
-                overflow:'hidden',
-                maxHeight:slideUp?'126px':'0',
-                transform:slideUp?'':'translateY(30%)',
-                transition:'max-height 1s ease, transform 0.5s ease'
-            }}>우리는 서로 끊임없는 피드백을 주고받으며<br/>
-                더 좋은 퀄리티를 위해 노력합니다.
-            </div>
-        </div>
-        );
-    };
-
     useGSAP(()=>{
 
         ScrollTrigger.create({
@@ -176,7 +92,42 @@ const Landing = () => {
             // markers: true,
         },);
 
+        let tl1 = gsap.timeline({})
+
+        tl1.set("#fade-in-line1, #fade-in-line2, #fade-in-line3, #fade-in-line4", {
+            opacity: 0,
+        });
+
+        tl1.to("#fade-in-line1", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        }).to("#fade-in-line2", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        }).to("#fade-in-line3", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        }).to("#fade-in-line4",{
+            opacity: 1,
+            duration: 0.3,
+            ease: "power1.out",
+        })
+
+        ScrollTrigger.create({
+            animation: tl1,
+            trigger: "#fade-in-line1",
+            start: "top 50%",
+            scrub: false,
+            toggleActions: 'restart none restart none',
+            // markers: true,
+        },);
+
         },[])
+
+
 
     return (
         <>
@@ -311,7 +262,47 @@ const Landing = () => {
                     position: 'relative',
                 }}>
 
-                    {showTypewriter && <TypewriterEffect />}
+                    <div style={{width: '100%', height: '500px'}}>
+                        <div id='fade-in-line1' style={{
+                            fontSize: '2.6vw',
+                            width: '100%',
+                            height: 'auto',
+                            textAlign: 'center',
+                            paddingTop: 145,
+                            lineHeight: 1.4,
+                            opacity:0
+                        }}>
+                            <span style={{fontWeight: 600}}>프로젝트 매니저, 디자이너, 개발자</span>가</div>
+                        <div id='fade-in-line2' style={{
+                            fontSize: '2.6vw',
+                            width: '100%',
+                            height: 'auto',
+                            textAlign: 'center',
+                            lineHeight: 1.4,
+                            opacity:0
+                        }}>
+                            한 팀으로 하나의 프로젝트를 진행합니다.
+                        </div>
+                        <div id='fade-in-line3' style={{
+                            fontSize: '1.25vw',
+                            width: '100%',
+                            textAlign: 'center',
+                            lineHeight: 1.5,
+                            paddingTop: 55,
+                            opacity:0
+                        }}>우리는 서로 끊임없는 피드백을 주고받으며
+                        </div>
+                        <div id='fade-in-line4' style={{
+                            fontSize: '1.25vw',
+                            width: '100%',
+                            textAlign: 'center',
+                            lineHeight: 1.5,
+                            marginBottom: 214,
+                            opacity:0
+                        }}>
+                            더 좋은 퀄리티를 위해 노력합니다.
+                        </div>
+                    </div>
 
 
                     {serviceContents.map((v, i) => {
@@ -319,7 +310,7 @@ const Landing = () => {
                             <div key={i} style={{
                                 width: '76vw',
                                 // height: 516,
-                                aspectRatio:'2.83/1',
+                                aspectRatio: '2.83/1',
                                 display: 'grid',
                                 gridTemplateColumns: '1fr 1fr',
                                 margin: '0 auto 0 auto',
@@ -404,10 +395,10 @@ const Landing = () => {
                     textAlign: 'center',
                     padding: '184px 0 135px 0',
                 }}>
-                    <div className={scrollY >= 6150 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600,}}>
+                    <div className={scrollY >= 6400 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600,}}>
                         Process
                     </div>
-                    <div className={scrollY >= 6200 && 'slide-up'} style={{opacity:0, fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
+                    <div className={scrollY >= 6450 && 'slide-up'} style={{opacity:0, fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
                         Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span
                         style={{fontWeight: 600}}>실시간으로 소통하며,</span><br/>
                         고객사는 프로젝트 <span style={{fontWeight: 600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
@@ -423,7 +414,7 @@ const Landing = () => {
 
                         {processContents.map((v, i) => {
                             return (
-                                <div key={i} className='step-card' style={{position: 'relative', cursor: 'pointer'}}>
+                                <div key={i} className={`step-card ${scrollY>6500? 'slide-up':''}`} style={{position: 'relative',}}>
                                     <img src={v.src} alt='image' style={{width: '17vw', aspectRatio:'0.78/1'}}/>
                                     <div style={{
                                         textAlign: "left",
@@ -482,10 +473,10 @@ const Landing = () => {
                     position: 'relative',
                     textAlign: 'center',
                 }}>
-                    <div className={scrollY >= 7250 && 'slide-up'} style={{opacity:0, textAlign: 'center', fontSize: '2.6vw', fontWeight: 600, paddingTop: 111}}>
+                    <div className={scrollY >= 7600 && 'slide-up'} style={{opacity:0, textAlign: 'center', fontSize: '2.6vw', fontWeight: 600, paddingTop: 111}}>
                         What We do
                     </div>
-                    <div style={{
+                    <div className={scrollY >= 7650 && 'slide-up'} style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
                         columnGap: '1vw',
@@ -508,19 +499,15 @@ const Landing = () => {
                                          display: 'flex',
                                          alignItems: 'center',
                                          justifyContent: 'center',
-                                         cursor: 'pointer',
-
                                      }}>
                                     {currentLogo === i ?
                                         <img style={{
-                                            cursor: 'pointer',
                                             objectFit: 'scale-down',
                                             height: '50%',
                                             width: v.width
                                         }} id={`${i}`} onMouseEnter={() => setCurrentLogo(i)}
                                              onMouseLeave={() => setCurrentLogo(null)} src={v.src} alt={`${i}`}/> :
                                         <img style={{
-                                            cursor: 'pointer',
                                             objectFit: 'scale-down',
                                             height: '50%',
                                             width: v.width
@@ -540,10 +527,10 @@ const Landing = () => {
                     position: 'relative',
                     boxSizing: 'border-box'
                 }}>
-                    <div className={scrollY >= 8050 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600, padding: '145px 12.23vw',}}>
+                    <div className={scrollY >= 8400 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600, padding: '145px 12.23vw',}}>
                         FAQ's
                     </div>
-                    <div style={{position: 'absolute', top: 205, right: '12.2vw'}}>
+                    <div className={scrollY >= 8450 && 'slide-up'} style={{position: 'absolute', top: 205, right: '12.2vw'}}>
                         {faqList.map((v, i) => {
                             return (
                                 <div key={i} id={v.id} onClick={handleClickQuestion} style={{
@@ -705,7 +692,7 @@ const Landing = () => {
 
                     </div>
                 </div>
-                <div className="text_flow_container" style={{width: '100%', margin: '0 auto'}}>
+                <div className="text_flow_container" style={{width: '100%', height:'160px', overflow:'hidden', margin: '0 auto'}}>
                     <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                     <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 </div>

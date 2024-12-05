@@ -1,21 +1,37 @@
 import {menuList} from "../../assets/contents/MenuList";
 import CI from '../../assets/images/CI.png';
 import CI_text from '../../assets/images/CI_text.png';
-import ToTopButton from '../../assets/images/header_to_top_button.png';
 import {useEffect, useState} from "react";
 import {colorList} from "../../assets/utils/colorList";
 
 function Header({refs}) {
 
     const [colorChange, setColorChange] = useState(false)
+    const [showHeader, setShowHeader] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     const handleScroll = () => {
-        if (window.scrollY > 1250) {
-            setColorChange(true)
+        const currentScrollY = window.scrollY;
+
+        // 스크롤 방향에 따라 헤더 표시 여부 결정
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // 스크롤 아래로: 헤더 숨기기
+            setShowHeader(false);
         } else {
-            setColorChange(false)
+            // 스크롤 위로: 헤더 표시
+            setShowHeader(true);
         }
+
+        // 색상 변경 로직
+        if (currentScrollY > 1250) {
+            setColorChange(true);
+        } else {
+            setColorChange(false);
+        }
+
+        setLastScrollY(currentScrollY);
     };
+
 
     const handleScrollTo = (section) => {
         if (refs && refs.current[section]) {
@@ -28,18 +44,12 @@ function Header({refs}) {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [lastScrollY]);
 
-    function clickToTopButton(){
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // 스크롤을 부드럽게 이동하게 합니다. ('auto'로 설정하면 즉시 이동)
-        });
-    }
 
     return (
-        <div style={{top:0, width: '100vw', height: 'auto',  position:'fixed', zIndex:5}}>
-            {colorChange&& <div style={{backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', width: '100%', height:'100%',  position:'absolute', top:0}}/>}
+        <div style={{top:0, width: '100vw', height: 'auto',  position:'fixed', zIndex:5, transform: showHeader ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.3s ease-in-out',}}>
+            {colorChange && <div style={{backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', width: '100%', height:'100%',  position:'absolute', top:0}}/>}
             <div style={{width: '100%', maxWidth:'1920px',minWidth: '1600px', height: 'auto',  margin:'0 auto', zIndex:10}}>
                 <div style={{display:'flex', gap:'0.6vw', margin:'30px 0 30px 4.68vw',}}>
                     <img src={CI} style={{width: '1.66vw', objectFit:'contain', zIndex:10}} alt="CI" id="ci"/>
