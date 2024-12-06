@@ -9,7 +9,7 @@ function App() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 450px)"); // 모바일 기준 너비 설정
+        const mediaQuery = window.matchMedia("(max-width: 500px)"); // 모바일 기준 너비 설정
         setIsMobile(mediaQuery.matches);
 
         const handleMediaChange = (e) => {

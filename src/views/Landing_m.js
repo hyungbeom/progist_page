@@ -92,11 +92,11 @@ const Landing_m = () => {
 
     useGSAP(()=>{
         gsap.to(".ripple-container", {
-            y: 1950,
+            y: 1900,
             scrollTrigger: {
                 trigger: ".ripple-container",
                 start: "top 5%",
-                end: "+=1980px",
+                end: "+=1900px",
                 scrub: 1,
                 // markers: true,
             },
@@ -111,11 +111,7 @@ const Landing_m = () => {
                 stagger: 0.3, // 각 물결 사이 간격
             });
 
-        let tl1 = gsap.timeline({})
-
-        tl1.set("#fade-in-line1, #fade-in-line2, #fade-in-line3, #fade-in-line4", {
-            opacity: 0,
-        });
+        let tl1 = gsap.timeline()
 
         tl1.to("#fade-in-line1", {
             opacity: 1,
@@ -141,6 +137,7 @@ const Landing_m = () => {
             start: "top 50%",
             scrub: false,
             toggleActions: 'restart none restart none',
+            onEnter: () => tl1.restart(),
             // markers: true,
         },);
 
@@ -192,7 +189,7 @@ const Landing_m = () => {
                     fontSize: '9vw',
                     fontWeight: 600,
                     color: 'white',
-                    lineHeight: 1.1,
+                    lineHeight: 1.5,
                     opacity:0
                 }}>
                     우리는<br/>PROGIST<br/>입니다
@@ -202,7 +199,7 @@ const Landing_m = () => {
                         width: 'auto',
                         fontSize: '4vw',
                         color: 'white',
-                        padding: '1%',
+                        padding: '5%',
                         backgroundColor: 'rgba(0, 0, 0, 0.3)',
                         lineHeight: 1.7,
                         marginTop: '27%',
@@ -353,7 +350,7 @@ const Landing_m = () => {
                         <div style={{backgroundColor: colorList['black'], height: '97.5%', width: 1}}/>
                     </div>
 
-                    <div style={{display: 'flex', flexDirection: 'column', rowGap: '140px'}}>
+                    <div style={{display: 'flex', flexDirection: 'column', rowGap: '130px', padding: '0 5%', boxSizing:'border-box' }}>
                         {serviceContents.map((v, i) => {
                             return (
                                 <div key={i}>
@@ -364,16 +361,17 @@ const Landing_m = () => {
                                         fontWeight: 600,
                                         color: colorList['navy'],
                                         whiteSpace: 'pre-line',
-                                        margin: '0 0 0 5%',
                                         boxSizing: 'border-box',
                                         opacity: 0,
                                     }}>{v.mainText}<br/>
-                                        <span className={scrollY>2815+i*520 && 'slide-up'} style={{
+                                        <div className={scrollY>2815+i*520 && 'slide-up'} style={{
                                             opacity:0,
                                             fontWeight: 500,
                                             fontSize: '3.4vw',
-                                            color: colorList['black']
-                                        }}>{v.subText}</span>
+                                            color: colorList['black'],
+                                            lineHeight:1.5,
+                                            marginTop: 10,
+                                        }}>{v.subText}</div>
                                     </div>
                                     <div>
                                         <img className={scrollY>2830+i*520 && 'slide-up'} src={v.src} alt='image' style={{
@@ -383,6 +381,7 @@ const Landing_m = () => {
                                             aspectRatio: '1.26/1',
                                             maxHeight: '100%',
                                             opacity:0,
+                                            marginTop:20,
                                         }}/>
                                     </div>
                                 </div>
@@ -397,7 +396,7 @@ const Landing_m = () => {
             <div ref={(el) => (refs.current.process = el)} style={{
                 width: '100%',
                 minWidth: 390,
-                aspectRatio: '1.5/1',
+                aspectRatio: '1.7/1',
                 margin: '0 auto',
                 boxSizing: 'border-box',
                 backgroundColor: colorList['backGray'],
@@ -426,7 +425,7 @@ const Landing_m = () => {
             </div>
 
             <div
-                style={{width: '100%', position: 'relative', margin: '0 auto', backgroundColor: colorList['backGray']}}>
+                style={{width: '100%', minWidth: 390, position: 'relative', margin: '0 auto', backgroundColor: colorList['backGray']}}>
 
                 {processContents.map((v, i) => {
                     return (
@@ -443,7 +442,7 @@ const Landing_m = () => {
                                     width: '100%',
                                     height: '100%',
                                     backgroundColor: 'white',
-                                    opacity: currentCard === i ? 0.7 : 0,
+                                    opacity: currentCard === i ? 0.8 : 0,
                                     top: 0,
                                 }}/>
                                 <div style={{
@@ -471,7 +470,7 @@ const Landing_m = () => {
                                 </div>}
                                 <div style={{
                                     fontSize: '4vw',
-                                    fontWeight: 600,
+                                    fontWeight: 400,
                                     position: 'absolute',
                                     top: '40%',
                                     left: '6%',
@@ -489,6 +488,7 @@ const Landing_m = () => {
 
             <div ref={(el) => (refs.current.whatWeDo = el)} style={{
                 width: '100%',
+                minWidth: 390,
                 height: 'auto',
                 backgroundColor: colorList['backGray'],
                 position: 'relative',
@@ -547,6 +547,7 @@ const Landing_m = () => {
 
             <div ref={(el) => (refs.current.faq = el)} style={{
                 width: '100%',
+                minWidth: 390,
                 height: 'auto',
                 position: 'relative',
                 padding: '90px 0 0 20px',
@@ -613,6 +614,7 @@ const Landing_m = () => {
             </div>
             <div ref={(el) => (refs.current.contact = el)} style={{
                 width: '100%',
+                minWidth: 390,
                 height: 'auto',
                 position: 'relative',
                 padding: '90px 25px 25px 20px',
@@ -674,10 +676,11 @@ const Landing_m = () => {
                 </div>
             </div>
 
-            <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>
+            <div style={{backgroundColor: colorList['gray'], height: '1px', minWidth: 390, width: '100%'}}/>
             <div style={{width: '100%', height: 'auto',}}>
                 <div style={{
                     width: '100%',
+                    minWidth: 390,
                     height: 'auto',
                     display: 'grid',
                     gridTemplateColumns: '6fr 4fr',
@@ -710,7 +713,7 @@ const Landing_m = () => {
 
 
                 </div>
-                <div className="text_flow_container" st>
+                <div className="text_flow_container" style={{width: '100%',minWidth: 390, height:'38px', overflow:'hidden', margin: '0 auto'}}>
                     <p className="text_flow reverse origin" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                     <p className="text_flow reverse clone" id='reverse'>{`Turn your Vision into Reality!\u00A0`}</p>
                 </div>
