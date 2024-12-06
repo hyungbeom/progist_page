@@ -284,7 +284,7 @@ const Landing = () => {
                 <div id='service' ref={(el) => (refs.current.services = el)} style={{
                     maxWidth: '1920px',
                     width: '100%',
-                    aspectRatio: '0.53/1',
+                    aspectRatio: '0.6/1',
                     margin: '0 auto',
                     paddingBottom: '150px',
                     backgroundColor: colorList['backGray'],
@@ -424,10 +424,10 @@ const Landing = () => {
                     textAlign: 'center',
                     padding: '184px 0 135px 0',
                 }}>
-                    <div className={scrollY >= 6400 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600,}}>
+                    <div className={scrollY >= 6100 && 'slide-up'} style={{opacity:0, fontSize: '2.6vw', fontWeight: 600,}}>
                         Process
                     </div>
-                    <div className={scrollY >= 6450 && 'slide-up'} style={{opacity:0, fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
+                    <div className={scrollY >= 6120 && 'slide-up'} style={{opacity:0, fontSize: '1.25vw', marginTop: 55, lineHeight: 1.6}}>
                         Asana, Slack, 카카오톡 단톡방을 통해 모든 작업자와 클라이언트가 <span
                         style={{fontWeight: 600}}>실시간으로 소통하며,</span><br/>
                         고객사는 프로젝트 <span style={{fontWeight: 600}}>진행 상황을 즉시 확인</span>할 수 있습니다.<br/>
