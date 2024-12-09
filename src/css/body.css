@@ -713,37 +713,6 @@ body {
     animation: fadeOut 0.5s ease-out forwards;
 }
 
-@keyframes cardOpen {
-    from {
-        max-height: 0;
-    }
-    to {
-        max-height: 500px;
-    }
-}
-
-.card-open {
-    max-height: 1000px;
-    overflow: hidden;
-    animation: cardOpen 1.5s ease-in forwards;
-}
-
-@keyframes cardClose {
-    from {
-        max-height: 500px;
-    }
-    to {
-        max-height: 0;
-    }
-}
-
-.card-close {
-    max-height: 0;
-    overflow: hidden;
-    animation: cardClose 1s ease-out forwards;
-}
-
-
 @keyframes slideUp {
     from {
         transform: translateY(100%);
@@ -775,6 +744,107 @@ body {
     transition:scale 0.3s ease;
 }
 
+@keyframes cardOpen {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px;
+    }
+}
+
+.card-open {
+    max-height: 1000px;
+    overflow: hidden;
+    animation: cardOpen 0.5s ease-in forwards;
+}
+
+@keyframes cardClose {
+    from {
+        max-height: 500px;
+    }
+    to {
+        max-height: 0;
+    }
+}
+
+.card-close {
+    max-height: 0;
+    overflow: hidden;
+    animation: cardClose 0.5s ease-out forwards;
+}
+
+@keyframes cardOnM {
+    from {
+        background-color: transparent;
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+    to {
+        background-color: #F8F8F8;
+        margin-bottom: 2vw;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.card-on-m {
+    animation: cardOnM 0.5s ease-in forwards;
+}
+
+@keyframes cardOffM {
+    from {
+        background-color: #F8F8F8;
+        margin-bottom: 20px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        background-color: transparent;
+        margin-bottom: 0;
+        box-shadow: none;
+    }
+}
+
+.card-off-m {
+    animation: cardOffM 0.5s ease-out forwards;
+}
+
+@keyframes cardOn {
+    from {
+        background-color: transparent;
+        margin-bottom: 0;
+        box-shadow: none;
+        padding: 20px 2vw;
+    }
+    to {
+        background-color: #F8F8F8;
+        margin-bottom: 20px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 2vw;
+    }
+}
+
+.card-on {
+    animation: cardOn 0.5s ease-in forwards;
+}
+
+@keyframes cardOff {
+    from {
+        background-color: #F8F8F8;
+        margin-bottom: 20px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+        padding: 2vw;
+    }
+    to {
+        background-color: transparent;
+        margin-bottom: 0;
+        box-shadow: none;
+        padding: 20px 2vw;
+    }
+}
+
+.card-off {
+    animation: cardOff 0.5s ease-out forwards;
+}
 /*.cooperate_company:hover{*/
 /*    background-color: ;*/
 /*}*/

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {colorList} from "../assets/utils/colorList";
 import {coworkingImages, faqList, processContents, serviceContents} from "../assets/contents/LandingContents";
 import arrowDown from "../assets/images/icon_arrow_down.png"
@@ -20,7 +20,7 @@ gsap.registerPlugin(useGSAP);gsap.registerPlugin(ScrollTrigger);
 
 const Landing_m = () => {
 
-    const [activeId, setActiveId] = useState(null)
+    const [activeId, setActiveId] = useState('')
     const [closingId, setClosingId] = useState(null);
     const [scrollY, setScrollY] = useState(0);
     const [customerContact, setCustomerContact] = useState('')
@@ -50,16 +50,12 @@ const Landing_m = () => {
     };
 
     const handleClickQuestion = (e) => {
-        // console.log(e.target.id)
-        if (e.target.id===activeId) {
-            setClosingId(e.target.id); // 닫기 애니메이션 트리거
-            setTimeout(() => {
-                setActiveId(null); // 애니메이션이 끝난 후 상태 변경
-                setClosingId(null);
-            }, 1000)
-        }else {
-            setActiveId(e.target.id);
-            setClosingId(null);
+        if(e.target.id === selectId){
+            // console.log('first check')
+            setSelectId(null);
+        }else{
+            // console.log('second check')
+            setSelectId(e.target.id)
         }
     };
 
@@ -142,6 +138,12 @@ const Landing_m = () => {
         },);
 
     }, []);
+
+    const [selectId, setSelectId] = useState(null);
+
+    const newNumb = useMemo(() => {
+        return selectId
+    }, [selectId])
 
 
 
@@ -557,18 +559,15 @@ const Landing_m = () => {
                     FAQ's
                 </div>
                 <div style={{width: '93%', height: 'auto', marginTop: 74}}>
-                    {faqList.map((v, i) => {
+                    {faqList.map((v, i)=>{
                         return (
-                            <div className={scrollY>6830+i*30 && 'slide-up'} key={i} id={v.id} onClick={handleClickQuestion} style={{
-                                opacity:0,
+                            <div key={i} id={v.id} onClick={handleClickQuestion} className={newNumb === v.id ? 'card-on-m' : 'card-off-m'} style={{
                                 width: '100%',
                                 height: 'auto',
-                                padding: activeId === v.id ? "20px" : "20px",
-                                marginBottom: activeId === v.id ? 20 : 0,
+                                padding: '20px',
                                 boxSizing: 'border-box',
-                                backgroundColor: activeId === v.id ? colorList['backGray'] : "",
                                 borderRadius: '10px',
-                                boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
+                                cursor: 'pointer',
                             }}>
                                 <div id={v.id} onClick={handleClickQuestion} style={{
                                     fontWeight: 500,
@@ -576,13 +575,10 @@ const Landing_m = () => {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     paddingBottom: 10,
-                                }}>
-
-                                    <div id={v.id} onClick={handleClickQuestion}
-                                         style={{width: '92%', whiteSpace: 'pre-line',}}>
-                                        {v.question}</div>
+                                }}>{v.question}
                                     <div style={{position: 'relative'}}>
-                                        {activeId === v.id ? <img src={iconFold} alt='fold' style={{
+                                        {newNumb === v.id ?
+                                            <img src={iconFold} alt='fold' style={{
                                                 position: "absolute",
                                                 width: 12,
                                                 top: 12,
@@ -591,25 +587,17 @@ const Landing_m = () => {
                                             <img src={iconUnfold} alt='unfold'
                                                  style={{position: "absolute", top: 5, width: 12, right: 0}}/>}</div>
                                 </div>
-                                <div
-                                    className={
-                                        activeId === v.id
-                                            ? 'card-open'
-                                            : closingId === v.id
-                                                ? 'card-close'
-                                                : ''
-                                    }
-                                    style={{
-                                        fontSize: '2.9vw',
-                                        color: colorList['gray'],
-                                        lineHeight: 1.3,
-                                    }}
-                                >
-                                    {(activeId === v.id || closingId === v.id) && v.answer}
+                                <div className={newNumb === v.id ? 'card-open' : 'card-close'} style={{
+                                    fontSize: '2.9vw',
+                                    color: colorList['gray'],
+                                    lineHeight: 1.3,
+                                }}>
+                                    {v.answer}
                                 </div>
                             </div>
                         )
                     })}
+
                 </div>
             </div>
             <div ref={(el) => (refs.current.contact = el)} style={{

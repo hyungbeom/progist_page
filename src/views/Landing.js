@@ -14,18 +14,20 @@ import Modal from "../components/modal";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
+import Faq from "../components/faq";
 
 gsap.registerPlugin(useGSAP);gsap.registerPlugin(ScrollTrigger);
 
 const Landing = () => {
 
-    const [activeId, setActiveId] = useState(null)
     const [scrollY, setScrollY] = useState(0);
     const [customerContact, setCustomerContact] = useState('')
 
     const [modalMessage, setModalMessage] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentLogo, setCurrentLogo] = useState(null);
+
+    const [selectId, setSelectId] = useState(null);
 
     const refs = useRef({
         whoWeAre: null,
@@ -35,27 +37,11 @@ const Landing = () => {
         faq: null,
         contact: null,
     });
-    //
-    // const sections = [
-    //     { id: "whoWeAre",  },
-    //     { id: "service", },
-    //     { id: "process", },
-    //     { id: "whatWeDo", },
-    //     { id: "faq", },
-    //     { id: "contact", },
-    // ];
 
     const handleScrollTo = (section) => {
         if (refs.current[section]) {
-            refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+            refs.current[section].scrollIntoView({behavior: "smooth", block: "start"});
         }
-    };
-
-    const handleClickQuestion = (e) => {
-        // console.log(e.target.id)
-        if (e.target.id===activeId)
-            setActiveId(null)
-        else setActiveId(e.target.id);
     };
 
     const handleClickContactButton = async (e) => {
@@ -123,7 +109,7 @@ const Landing = () => {
             scrub: false,
             toggleActions: 'restart none restart none',
             onEnter: () => tl1.restart(),
-            markers: true,
+            // markers: true,
         },);
 
 
@@ -156,6 +142,16 @@ const Landing = () => {
 
     },[])
 
+    function selectIdFunc(e){
+        if(e.target.id === selectId){
+            // console.log('first check')
+            setSelectId(null);
+        }else{
+            // console.log('second check')
+            setSelectId(e.target.id)
+        }
+
+    }
 
 
     return (
@@ -561,47 +557,7 @@ const Landing = () => {
                         FAQ's
                     </div>
                     <div className={scrollY >= 8220 && 'slide-up'} style={{opacity:0, position: 'absolute', top: 205, right: '12.2vw'}}>
-                        {faqList.map((v, i) => {
-                            return (
-                                <div key={i} id={v.id} onClick={handleClickQuestion} style={{
-                                    width: '43vw',
-                                    height: 'auto',
-                                    padding: activeId === v.id ? "2vw" : "20px 2vw",
-                                    marginBottom: activeId === v.id ? 20 : 0,
-                                    boxSizing: 'border-box',
-                                    backgroundColor: activeId === v.id ? colorList['backGray'] : "",
-                                    borderRadius: '10px',
-                                    boxShadow: activeId === v.id ? '5px 5px 20px rgba(0, 0, 0, 0.1)' : "",
-                                    cursor: 'pointer',
-                                    transition: 'padding 0.5s ease, marginBottom 0.5s ease, boxShadow 0.5s ease, backgroundColor 0.5s ease,'
-                                }}>
-                                    <div id={v.id} onClick={handleClickQuestion} style={{
-                                        fontWeight: 500,
-                                        fontSize: '1.25vw',
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        paddingBottom: 30,
-                                        zIndex: 5
-                                    }}>{v.question}
-                                        <div style={{position: 'relative'}}>
-                                            {activeId === v.id ? <img id={v.id} onClick={handleClickQuestion} src={iconFold} alt='fold' style={{
-                                                    position: "absolute",
-                                                    width: '1.25vw',
-                                                    right: '2.3vw',
-                                                    top: 12
-                                                }}/> :
-                                                <img id={v.id} onClick={handleClickQuestion} src={iconUnfold} alt='unfold'
-                                                     style={{position: "absolute", width: '1.25vw', right: '2.3vw'}}/>}</div>
-                                    </div>
-                                    <div style={{
-                                        lineHeight:1.3,
-                                        fontSize: '0.93vw',
-                                        maxHeight: activeId === v.id ? '1000px' : 0,
-                                        transition: 'max-height 1.5s ease'
-                                    }}>{activeId === v.id ? v.answer : ""}</div>
-                                </div>
-                            )
-                        })}
+                        <Faq func={selectIdFunc} selectId={selectId}/>
                     </div>
                 </div>
 
@@ -729,6 +685,7 @@ const Landing = () => {
 
 
             </div>
+
         </>
     );
 };
