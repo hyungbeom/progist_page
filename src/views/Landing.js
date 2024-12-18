@@ -171,32 +171,31 @@ const Landing = () => {
                         aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
-                        backgroundImage: 'url(/temp_background.png)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        // backgroundImage: 'url(/temp_background.png)',
+                        // backgroundSize: 'cover',
+                        // backgroundPosition: 'center',
                     }}>
-                        {/* 배경 비디오 추가 */}
-                        {/*<video*/}
-                        {/*    autoPlay*/}
-                        {/*    muted*/}
-                        {/*    loop*/}
-                        {/*    playsInline*/}
-                        {/*    style={{*/}
-                        {/*        position: "absolute",*/}
-                        {/*        top: 0,*/}
-                        {/*        left: 0,*/}
-                        {/*        width: "100%",*/}
-                        {/*        height: "100%",*/}
-                        {/*        objectFit: "cover",*/}
-                        {/*        zIndex: -1, // 배경으로 설정*/}
-                        {/*    }}*/}
-                        {/*>*/}
-                        {/*    <source*/}
-                        {/*        src="https://a.slack-edge.com/2e396bc/img/app-directory/splash-ui-ai-apps.webm"*/}
-                        {/*        type="video/webm"*/}
-                        {/*    />*/}
-                        {/*    Your browser does not support the video tag.*/}
-                        {/*</video>*/}
+                         {/*배경 비디오 추가*/}
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                zIndex: -1, // 배경으로 설정
+                            }}
+                        >
+                            <source
+                                src="/video_01.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
 
                         <div style={{
                             position: 'absolute',
