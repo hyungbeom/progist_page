@@ -190,7 +190,7 @@ const Landing = () => {
                         >
                             <source
                                 src={video}
-                                type="public/video/mp4"
+                                type="video/mp4"
                             />
                         </video>
 
