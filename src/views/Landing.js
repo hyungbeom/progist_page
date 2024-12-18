@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {colorList} from "../assets/utils/colorList";
-import {coworkingImages, faqList, processContents, serviceContents} from "../assets/contents/LandingContents";
+import {coworkingImages, processContents, serviceContents} from "../assets/contents/LandingContents";
 
-import iconFold from "../assets/images/icon_fold.png"
-import iconUnfold from "../assets/images/icon_unFold.png"
 import CI from "../assets/images/CI.png";
 import CI_text from "../assets/images/CI_text.png";
+import video from "../assets/images/video_01.mp4";
+import backImage from "../assets/images/temp_background.png";
 import Header from "../components/header/header";
 import {menuList} from "../assets/contents/MenuList";
 import handleSendEmail from "../components/tools/SendEmail";
@@ -189,7 +189,7 @@ const Landing = () => {
                             }}
                         >
                             <source
-                                src="/video_01.mp4"
+                                src={video}
                                 type="public/video/mp4"
                             />
                         </video>
@@ -566,7 +566,7 @@ const Landing = () => {
                         margin: 'auto',
                         position: 'relative',
                     }}>
-                        <img src={'public/temp_background.png'} alt='contact' width={'100%'}
+                        <img src={backImage} alt='contact' width={'100%'}
                              style={{borderRadius: '20px', aspectRatio:'2.22'}}/>
                         <div style={{
                             width: '100%',
