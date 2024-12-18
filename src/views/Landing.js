@@ -172,6 +172,8 @@ const Landing = () => {
                         margin: '0 auto',
                         position: 'relative',
                         backgroundImage: 'url(/temp_background.png)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                     }}>
                         {/* 배경 비디오 추가 */}
                         {/*<video*/}
