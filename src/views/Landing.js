@@ -4,8 +4,7 @@ import {coworkingImages, processContents, serviceContents} from "../assets/conte
 
 import CI from "../assets/images/CI.png";
 import CI_text from "../assets/images/CI_text.png";
-import video from "../assets/images/video_01.mp4";
-import backImage from "../assets/images/temp_background.png";
+import backImage from "../assets/images/backImage.png";
 import Header from "../components/header/header";
 import {menuList} from "../assets/contents/MenuList";
 import handleSendEmail from "../components/tools/SendEmail";
@@ -171,28 +170,31 @@ const Landing = () => {
                         aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
+                        backgroundImage: `url(${backImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                     }}>
-                         {/*배경 비디오 추가*/}
-                        <video
-                            autoPlay
-                            muted
-                            loop
-                            playsInline
-                            style={{
-                                position: "absolute",
-                                top: 0,
-                                left: 0,
-                                width: "100%",
-                                height: "100%",
-                                objectFit: "cover",
-                                zIndex: -1, // 배경으로 설정
-                            }}
-                        >
-                            <source
-                                src={video}
-                                type="video/mp4"
-                            />
-                        </video>
+                        {/* /!*배경 비디오 추가*!/*/}
+                        {/*<video*/}
+                        {/*    autoPlay*/}
+                        {/*    muted*/}
+                        {/*    loop*/}
+                        {/*    playsInline*/}
+                        {/*    style={{*/}
+                        {/*        position: "absolute",*/}
+                        {/*        top: 0,*/}
+                        {/*        left: 0,*/}
+                        {/*        width: "100%",*/}
+                        {/*        height: "100%",*/}
+                        {/*        objectFit: "cover",*/}
+                        {/*        zIndex: -1, // 배경으로 설정*/}
+                        {/*    }}*/}
+                        {/*>*/}
+                        {/*    <source*/}
+                        {/*        src="/video_01.mp4"*/}
+                        {/*        type="video/mp4"*/}
+                        {/*    />*/}
+                        {/*</video>*/}
 
                         <div style={{
                             position: 'absolute',
