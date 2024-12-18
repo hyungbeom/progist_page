@@ -30,7 +30,7 @@
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://hyungbeom.github.io/progist_page",
+  "homepage": "https://hyungbeom.github.io/progist_page/",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -50,7 +50,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.2.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
