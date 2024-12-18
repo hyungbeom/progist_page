@@ -23,6 +23,10 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        document.title = "Progist";
+    }, []);
+
     return (
             <Routes>
             {window.location.hostname === "m.localhost"? (
