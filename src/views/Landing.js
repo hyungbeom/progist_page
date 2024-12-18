@@ -171,9 +171,6 @@ const Landing = () => {
                         aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
-                        // backgroundImage: 'url(/temp_background.png)',
-                        // backgroundSize: 'cover',
-                        // backgroundPosition: 'center',
                     }}>
                          {/*배경 비디오 추가*/}
                         <video
@@ -193,7 +190,7 @@ const Landing = () => {
                         >
                             <source
                                 src="/video_01.mp4"
-                                type="video/mp4"
+                                type="public/video/mp4"
                             />
                         </video>
 
@@ -569,7 +566,7 @@ const Landing = () => {
                         margin: 'auto',
                         position: 'relative',
                     }}>
-                        <img src={'/temp_background.png'} alt='contact' width={'100%'}
+                        <img src={'public/temp_background.png'} alt='contact' width={'100%'}
                              style={{borderRadius: '20px', aspectRatio:'2.22'}}/>
                         <div style={{
                             width: '100%',
