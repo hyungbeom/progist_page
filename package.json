@@ -27,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "yarn build && gh-pages -d build"
+	"predeploy": "yarn build",
+	"deploy": "gh-pages -d build"
   },
   "homepage": "https://hyungbeom.github.io/progist_page/",
   "eslintConfig": {
