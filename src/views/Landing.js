@@ -168,7 +168,7 @@ const Landing = () => {
                 }}>
 
                     <div style={{
-                        width: '100%',
+                        width: '100z',
                         maxWidth: '1920px',
                         aspectRatio: '1.77/1',
                         margin: '0 auto',
