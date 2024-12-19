@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/progist_page/static/css/main.6adebfb0.css",
-    "main.js": "/progist_page/static/js/main.9e1fbbd9.js",
-    "static/media/PretendardVariable.ttf": "/progist_page/static/media/PretendardVariable.c89dc775feed56569658.ttf",
-    "static/media/landing_image_1.png": "/progist_page/static/media/landing_image_1.d37827fb508be29767c3.png",
-    "static/media/landing_image_4.png": "/progist_page/static/media/landing_image_4.2359815d0fd66077bdf6.png",
-    "static/media/landing_image_2.png": "/progist_page/static/media/landing_image_2.9ae1061bb568598b3718.png",
-    "static/media/landing_image_3.png": "/progist_page/static/media/landing_image_3.8b95b8c4ac635c1663a8.png",
-    "static/media/backImage.png": "/progist_page/static/media/backImage.2b81c326f6c03b9e0b9a.png",
-    "static/media/process_04.png": "/progist_page/static/media/process_04.6961d4c11ff24fcfb6be.png",
-    "static/media/process_02.png": "/progist_page/static/media/process_02.5ad1234eac2bd4386002.png",
-    "static/media/process_03.png": "/progist_page/static/media/process_03.712ab96497070b5d25d1.png",
-    "static/media/process_01.png": "/progist_page/static/media/process_01.7932a89de7a5633ee57d.png",
-    "static/media/coworking_02.png": "/progist_page/static/media/coworking_02.b1aadd51d9147bfd29b3.png",
-    "static/media/coworking_gray_02.png": "/progist_page/static/media/coworking_gray_02.f2903910a82c99bd1695.png",
-    "static/media/coworking_07.png": "/progist_page/static/media/coworking_07.868614803585152ecb02.png",
-    "static/media/CI_text.png": "/progist_page/static/media/CI_text.fc32e4fbcecf66c87596.png",
-    "static/media/coworking_01.png": "/progist_page/static/media/coworking_01.0abfdb4931e8408a394b.png",
-    "index.html": "/progist_page/index.html",
-    "main.6adebfb0.css.map": "/progist_page/static/css/main.6adebfb0.css.map",
-    "main.9e1fbbd9.js.map": "/progist_page/static/js/main.9e1fbbd9.js.map"
+    "main.css": "/static/css/main.195ac237.css",
+    "main.js": "/static/js/main.56d86e96.js",
+    "static/media/PretendardVariable.ttf": "/static/media/PretendardVariable.c89dc775feed56569658.ttf",
+    "static/media/landing_image_1.png": "/static/media/landing_image_1.d37827fb508be29767c3.png",
+    "static/media/landing_image_4.png": "/static/media/landing_image_4.2359815d0fd66077bdf6.png",
+    "static/media/landing_image_2.png": "/static/media/landing_image_2.9ae1061bb568598b3718.png",
+    "static/media/landing_image_3.png": "/static/media/landing_image_3.8b95b8c4ac635c1663a8.png",
+    "static/media/backImage.png": "/static/media/backImage.2b81c326f6c03b9e0b9a.png",
+    "static/media/process_04.png": "/static/media/process_04.6961d4c11ff24fcfb6be.png",
+    "static/media/process_02.png": "/static/media/process_02.5ad1234eac2bd4386002.png",
+    "static/media/process_03.png": "/static/media/process_03.712ab96497070b5d25d1.png",
+    "static/media/process_01.png": "/static/media/process_01.7932a89de7a5633ee57d.png",
+    "static/media/coworking_02.png": "/static/media/coworking_02.b1aadd51d9147bfd29b3.png",
+    "static/media/coworking_gray_02.png": "/static/media/coworking_gray_02.f2903910a82c99bd1695.png",
+    "static/media/coworking_07.png": "/static/media/coworking_07.868614803585152ecb02.png",
+    "static/media/CI_text.png": "/static/media/CI_text.fc32e4fbcecf66c87596.png",
+    "static/media/coworking_01.png": "/static/media/coworking_01.0abfdb4931e8408a394b.png",
+    "index.html": "/index.html",
+    "main.195ac237.css.map": "/static/css/main.195ac237.css.map",
+    "main.56d86e96.js.map": "/static/js/main.56d86e96.js.map"
   },
   "entrypoints": [
-    "static/css/main.6adebfb0.css",
-    "static/js/main.9e1fbbd9.js"
+    "static/css/main.195ac237.css",
+    "static/js/main.56d86e96.js"
   ]
 }

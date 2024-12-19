@@ -1,4 +1,4 @@
-@font-face{font-display:swap;font-family:Pretendard Variable;font-style:normal;font-weight:45 920;src:url(/progist_page/static/media/PretendardVariable.c89dc775feed56569658.ttf) format("truetype")}body{background-color:#fdfdfd;font-family:Pretendard Variable,sans-serif;font-weight:400;margin:0}
+@font-face{font-display:swap;font-family:Pretendard Variable;font-style:normal;font-weight:45 920;src:url(/static/media/PretendardVariable.c89dc775feed56569658.ttf) format("truetype")}body{background-color:#fdfdfd;font-family:Pretendard Variable,sans-serif;font-weight:400;margin:0}
 
 /*!* header *!*/
 /*    !*background-color: gray;*!*/
@@ -50,4 +50,4 @@
 /*    !* 기본상태를 right로 하고 효과상태를 left로 한 후, *!*/
 /*    !* transition으로 position을 옮겨줌 *!*/
 /*    !*aspect-ratio: 1.08/1;*!*/
-/*# sourceMappingURL=main.6adebfb0.css.map*/
+/*# sourceMappingURL=main.195ac237.css.map*/
