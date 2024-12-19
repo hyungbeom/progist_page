@@ -7,9 +7,6 @@ import Header from "./components/header/header";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
         <App />
-        {/*<Index/>*/}
-    </BrowserRouter>
 
 );

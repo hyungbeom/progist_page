@@ -30,7 +30,7 @@
 	"predeploy": "yarn build",
 	"deploy": "gh-pages -d build"
   },
-  "homepage": "https://hyungbeom.github.io/progist_page/",
+  "homepage": "https://hyungbeom.github.io/progist_page",
   "eslintConfig": {
     "extends": [
       "react-app",
