@@ -1,5 +1,5 @@
 import './css/body.css';
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter} from "react-router-dom";
 
 import Landing from "./views/Landing";
 import Landing_m from "./views/Landing_m";
@@ -23,20 +23,27 @@ function App() {
         }
     }, []);
 
+    useEffect(() => {
+        document.title = "Progist";
+    }, []);
+
     return (
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
-            {window.location.hostname === "m.localhost"? (
-                <>
-                    <Route path="/" element={<Landing_m />} />
-                    <Route path="*" element={<Navigate to="/" />} />
-                </>
-            ) : (
-                <>
-                    <Route path="*" element={<Navigate to="/" />} />
-                    <Route path="/" element={<Landing />} />
-                </>
-            )}
+                {window.location.hostname === "m.localhost"? (
+                    <>
+                        <Route path="/" element={<Landing_m />} />
+                        <Route path="*" element={<Navigate to="/" />} />
+                    </>
+                ) : (
+                    <>
+                        <Route path="*" element={<Navigate to="/" />} />
+                        <Route path="/" element={<Landing />} />
+                    </>
+                )}
             </Routes>
+        </BrowserRouter>
+
     );
 }
 
