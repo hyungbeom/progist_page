@@ -159,7 +159,6 @@ const Landing = () => {
             <Header refs={refs}/>
             <div id='whoWeAre' ref={(el) => (refs.current.whoWeAre = el)} style={{width: '100vw', height: 'auto',}}>
                 <div style={{
-                    maxWidth: '1920px',
                     width: '100%',
                     height: 'auto',
                     margin: '0 auto',
@@ -168,35 +167,35 @@ const Landing = () => {
                 }}>
 
                     <div style={{
-                        width: '100z',
-                        maxWidth: '1920px',
+                        width: '100%',
                         aspectRatio: '1.77/1',
                         margin: '0 auto',
                         position: 'relative',
-                        backgroundImage: 'url(/temp_background.png)',
+                        // backgroundImage: 'url(/temp_background.png)',
+                        // backgroundSize: 'cover',
+                        // backgroundPosition: 'center',
                     }}>
-                        {/* 배경 비디오 추가 */}
-                        {/*<video*/}
-                        {/*    autoPlay*/}
-                        {/*    muted*/}
-                        {/*    loop*/}
-                        {/*    playsInline*/}
-                        {/*    style={{*/}
-                        {/*        position: "absolute",*/}
-                        {/*        top: 0,*/}
-                        {/*        left: 0,*/}
-                        {/*        width: "100%",*/}
-                        {/*        height: "100%",*/}
-                        {/*        objectFit: "cover",*/}
-                        {/*        zIndex: -1, // 배경으로 설정*/}
-                        {/*    }}*/}
-                        {/*>*/}
-                        {/*    <source*/}
-                        {/*        src="https://a.slack-edge.com/2e396bc/img/app-directory/splash-ui-ai-apps.webm"*/}
-                        {/*        type="video/webm"*/}
-                        {/*    />*/}
-                        {/*    Your browser does not support the video tag.*/}
-                        {/*</video>*/}
+                         {/*배경 비디오 추가*/}
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                zIndex: -1, // 배경으로 설정
+                            }}
+                        >
+                            <source
+                                src="/video_01.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
 
                         <div style={{
                             position: 'absolute',
@@ -278,7 +277,6 @@ const Landing = () => {
 
 
                 <div id='service' ref={(el) => (refs.current.services = el)} style={{
-                    maxWidth: '1920px',
                     width: '100%',
                     aspectRatio: '0.6/1',
                     margin: '0 auto',
@@ -411,7 +409,6 @@ const Landing = () => {
 
 
                 <div id='process' ref={(el) => (refs.current.process = el)} style={{
-                    maxWidth: '1920px',
                     width: '100%',
                     aspectRatio: '1.77/1',
                     margin: '0 auto',
@@ -490,7 +487,6 @@ const Landing = () => {
                 </div>
 
                 <div id='whatWeDo' ref={(el) => (refs.current.whatWeDo = el)} style={{
-                    maxWidth: '1920px',
                     width: '100%',
                     aspectRatio: '2.43/1',
                     margin: '0 auto',
@@ -546,7 +542,6 @@ const Landing = () => {
                 </div>
 
                 <div id='faq' ref={(el) => (refs.current.faq = el)} style={{
-                    maxWidth: '1920px',
                     width: '100%',
                     aspectRatio: '1.3/1',
                     margin: '0 auto',
@@ -562,7 +557,6 @@ const Landing = () => {
                 </div>
 
                 <div id='contact' ref={(el) => (refs.current.contact = el)} style={{
-                    maxWidth: '1920px',
                     width:'100%',
                     margin: '0 auto',
                     position: 'relative',
@@ -641,7 +635,7 @@ const Landing = () => {
 
 
 
-                <div style={{width: '100%', maxWidth:'1920px', height: 'auto', margin: '210px auto 0 auto'}}>
+                <div style={{width: '100%', height: 'auto', margin: '210px auto 0 auto'}}>
                     <div style={{backgroundColor: colorList['gray'], height: '1px', width: '100%'}}/>
                     <div style={{
                         width: '100%',
