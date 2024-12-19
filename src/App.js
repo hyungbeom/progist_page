@@ -1,9 +1,9 @@
 import './css/body.css';
-import {BrowserRouter as Router, Route, Routes, Navigate, BrowserRouter} from "react-router-dom";
+import {HashRouter, Navigate, Route, Routes} from "react-router-dom";
 
 import Landing from "./views/Landing";
 import Landing_m from "./views/Landing_m";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 function App() {
     useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 {window.location.hostname === "m.localhost"? (
                     <>
@@ -42,7 +42,7 @@ function App() {
                     </>
                 )}
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
 
     );
 }
