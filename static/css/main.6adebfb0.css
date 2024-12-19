@@ -1,0 +1,53 @@
+@font-face{font-display:swap;font-family:Pretendard Variable;font-style:normal;font-weight:45 920;src:url(/progist_page/static/media/PretendardVariable.c89dc775feed56569658.ttf) format("truetype")}body{background-color:#fdfdfd;font-family:Pretendard Variable,sans-serif;font-weight:400;margin:0}
+
+/*!* header *!*/
+/*    !*background-color: gray;*!*/
+
+/*!* footer *!*/
+/*    !*background-color: transparent;*!*/
+
+/*!* common *!*/
+/*    !*background-color: aquamarine;*!*/
+/*    !*background-color: aquamarine;*!*/
+/*    !*background-color: salmon;*!*/
+/*    !*background-color: gray;*!*/
+/*    !*background-color: aqua;*!*/
+/*    !*position: relative;*!*/
+/*    !*opacity: 0.5;*!*/
+/*    !*130*!*/
+/*    !*36*!*/
+/*    !*height: 100vw;*!*/
+/*    !*display: flex;*!*/
+/*    !*justify-content: center;*!*/
+/*    !*align-items: center;*!*/
+/*    !*color: white;*!*/
+/*    !*width: 100%;*!*/
+/*    !*flex-direction: column;*!*/
+/*    !*position: absolute;*!*/
+/*    !*background-color: beige;*!*/
+/*    !*background-color: gray;*!*/
+
+/*!* home2 *!*/
+/*    !*background-color: beige;*!*/
+/*    !*background-color: aquamarine;*!*/
+/*    !*24*!*/
+
+/*!* home4 *!*/
+/*    !*background-color: gray;*!*/
+
+/*!* home5 *!*/
+/*    !*border: 1px solid rgba(255, 255, 255, 0.5);*!*/
+/*    !*border-right-width: 1px;*!*/
+/*    !*border-right-style: solid;*!*/
+/*    !*border-right-color: rgba(255, 255, 255, 1);*!*/.text_flow_container{align-items:center;background-color:#000;display:grid;flex-direction:row;height:auto;justify-content:flex-start;overflow:hidden;position:relative;white-space:nowrap;width:98vw}.text_flow{color:#fff;font-size:10vw;grid-area:1/1;margin:0;opacity:.4}#reverse{animation-direction:reverse}.origin{animation:flowContents 20s linear infinite}.clone{animation-delay:5s;animation:flowContents_clone 20s linear infinite}@keyframes flowContents{0%{transform:translateX(0)}50%{transform:translateX(100%)}50.01%{transform:translateX(-100%)}to{transform:translateX(0)}}@keyframes flowContents_clone{0%{transform:translateX(-100%)}50%{transform:translateX(0)}to{transform:translateX(100%)}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}.fade-in{animation:fadeIn .5s ease-in forwards}@keyframes fadeOut{0%{opacity:1}to{opacity:0}}.fade-out{animation:fadeOut .5s ease-out forwards}@keyframes slideUp{0%{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}.slide-up{animation:slideUp .5s ease-out forwards}.step-card:hover>div:nth-child(2){opacity:1!important;transition:opacity .3s ease}.step-card:hover>div:last-child{color:#082567!important;transition:opacity .2s ease}.company-logo:hover,.company-logo:hover>img{scale:1.05;transition:scale .3s ease}@keyframes cardOpen{0%{max-height:0}to{max-height:500px}}.card-open{animation:cardOpen .5s ease-in forwards;max-height:1000px;overflow:hidden}@keyframes cardClose{0%{max-height:500px}to{max-height:0}}.card-close{animation:cardClose .5s ease-out forwards;max-height:0;overflow:hidden}@keyframes cardOnM{0%{background-color:initial;box-shadow:none;margin-bottom:0}to{background-color:#f8f8f8;box-shadow:5px 5px 20px #0000001a;margin-bottom:2vw}}.card-on-m{animation:cardOnM .5s ease-in forwards}@keyframes cardOffM{0%{background-color:#f8f8f8;box-shadow:5px 5px 20px #0000001a;margin-bottom:20px}to{background-color:initial;box-shadow:none;margin-bottom:0}}.card-off-m{animation:cardOffM .5s ease-out forwards}@keyframes cardOn{0%{background-color:initial;box-shadow:none;margin-bottom:0;padding:20px 2vw}to{background-color:#f8f8f8;box-shadow:5px 5px 20px #0000001a;margin-bottom:20px;padding:2vw}}.card-on{animation:cardOn .5s ease-in forwards}@keyframes cardOff{0%{background-color:#f8f8f8;box-shadow:5px 5px 20px #0000001a;margin-bottom:20px;padding:2vw}to{background-color:initial;box-shadow:none;margin-bottom:0;padding:20px 2vw}}.card-off{animation:cardOff .5s ease-out forwards}
+/*    !*background-color: cadetblue;*!*/
+/*    !*background-color: #575757;*!*/
+/*    !*font-weight: 800;*!*/
+/*    !*background-color: darkblue;*!*/
+/*    !*align-items: flex-end;*!*/
+/*    !*background-color: gray;*!*/
+/*    !* linear-gradient(90도, 색상, 비율, 색상, 비율  *!*/
+/*    !* 기본상태를 right로 하고 효과상태를 left로 한 후, *!*/
+/*    !* transition으로 position을 옮겨줌 *!*/
+/*    !*aspect-ratio: 1.08/1;*!*/
+/*# sourceMappingURL=main.6adebfb0.css.map*/
