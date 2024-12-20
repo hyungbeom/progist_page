@@ -13,16 +13,12 @@ function Header({refs}) {
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
 
-        // 스크롤 방향에 따라 헤더 표시 여부 결정
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // 스크롤 아래로: 헤더 숨기기
             setShowHeader(false);
         } else {
-            // 스크롤 위로: 헤더 표시
             setShowHeader(true);
         }
 
-        // 색상 변경 로직
         if (currentScrollY > 1250) {
             setColorChange(true);
         } else {
@@ -35,8 +31,14 @@ function Header({refs}) {
 
     const handleScrollTo = (section) => {
         if (refs && refs.current[section]) {
-            refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+            if(section==='whoWeAre'){
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+                refs.current[section].scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         }
+
+        console.log(refs.current, 'refs.current')
     };
 
     useEffect(() => {
@@ -51,7 +53,7 @@ function Header({refs}) {
         <div style={{top:0, width: '100vw', height: 'auto',  position:'fixed', zIndex:5, transform: showHeader ? 'translateY(0)' : 'translateY(-100%)', transition: 'transform 0.3s ease-in-out',}}>
             {colorChange && <div style={{backgroundColor: 'rgba(255, 255, 255, 0.7)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', width: '100%', height:'100%',  position:'absolute', top:0}}/>}
             <div style={{width: '100%', maxWidth:'1920px',minWidth: '1600px', height: 'auto',  margin:'0 auto', zIndex:10}}>
-                <div style={{display:'flex', gap:'0.6vw', margin:'30px 0 30px 4.68vw',}}>
+                <div onClick={()=>handleScrollTo('whoWeAre')} style={{cursor:'pointer', display:'flex', gap:'0.6vw', margin:'30px 0 30px 4.68vw',}}>
                     <img src={CI} style={{width: '1.66vw', objectFit:'contain', zIndex:10}} alt="CI" id="ci"/>
                     <img src={CI_text} style={{width:'5.57vw', objectFit:'contain', zIndex:10}} alt="CI" id="ci_text"/>
                 </div>
